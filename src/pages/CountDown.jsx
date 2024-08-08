@@ -15,15 +15,13 @@ const CountDown = () => {
   }, [targetDate]);
 
   return (
-    <div className="max-w-7xl mx-auto h-auto p-4">
-      <div className="text-center font-potta-one text-8xl font-normal leading-none text-[#f9f5e3]">
-        Schedule
-      </div>
-      <div className="flex max-w-7xl mx-auto h-80 items-center justify-center text-white py-16">
-        <div className="w-2/3 bg-white rounded-[20px]">
+    <div className="max-w-7xl mx-auto h-auto">
+      <h1 className='text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>Schedule</h1>
+      <div className="flex my-10 max-w-7xl mx-auto md:h-80 items-center justify-center text-white md:py-16">
+        <div className="bg-white sm:-translate-x-3 rounded-[14px] sm:rounded-[20px]">
         <div className="text-center w-full">
-          <div className="bg-[#36382E] translate-x-3 -translate-y-3 p-8 w-full rounded-[16px] shadow-lg inline-block">
-            <div className="flex items-center justify-center space-x-4">
+          <div className="bg-[#36382E] translate-x-1 sm:translate-x-3 -translate-y-1 sm:-translate-y-3 p-6 sm:p-8 w-full rounded-[10px] sm:rounded-[16px] shadow-lg inline-block">
+            <div className="flex items-center justify-center -space-x-0 sm:space-x-4">
               <TimeUnit value={timeLeft.days} label="DAYS" />
               <Separator />
               <TimeUnit value={timeLeft.hours} label="HRS" />
@@ -44,12 +42,12 @@ const CountDown = () => {
 
 const TimeUnit = ({ value, label }) => (
   <div>
-    <div className="text-4xl font-space-mono p-4">{label}</div>
-    <div className="text-6xl font-space-mono p-4">{value}</div>
+    <div className="text-3xl sm:text-4xl font-space-mono">{label}</div>
+    <div className="text-5xl sm:text-6xl font-space-mono">{value}</div>
   </div>
 );
 
-const Separator = () => <div className="text-3xl font-space-mono p-4 mt-16">:</div>;
+const Separator = () => <div className="text-2xl sm:text-6xl font-space-mono">:</div>;
 
 const calculateTimeLeft = (targetDate) => {
   const target = new Date(targetDate).getTime();
