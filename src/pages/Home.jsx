@@ -13,8 +13,8 @@ const Home = () => {
       </div> */}
       <div style={{ position: 'relative', zIndex: 1 }}>
         <div className="flex flex-col items-center justify-center mt-60 mb-40 md:mb-60 relative">
-          <div className="sm:w-[85%] md:w-[80%] lg:w-[75%] xl:w-[40%]">
-            <img src={text} alt=""/>
+          <div className="sm:w-[85%] md:w-[80%] ">
+            <img src={text} alt="" className='w-full'/>
           </div>
           <div className="sm:w-[95%] md:w-[100%] lg:w-[75%] text-center">
             <span className='text-5xl sm:text-8xl font-potta-one font-normal leading-none text-[#f9f5e3] animate-bounce'>

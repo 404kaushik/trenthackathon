@@ -15,7 +15,7 @@ const CountDown = () => {
   }, [targetDate]);
 
   return (
-    <div className="max-w-7xl mx-auto h-auto">
+    <div className="max-w-7xl mx-auto">
       <h1 className='text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>Schedule</h1>
       <div className="flex my-10 max-w-7xl mx-auto md:h-80 items-center justify-center text-white md:py-16">
         <div className="bg-white sm:-translate-x-3 rounded-[14px] sm:rounded-[20px]">

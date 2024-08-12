@@ -1,5 +1,6 @@
 import React from "react";
 import pic from '../assets/apply_fox-cropped.svg'
+import Team from "./Team";
 
 const Apply = () => {
     return(
@@ -24,6 +25,7 @@ const Apply = () => {
                     <img src={pic} alt="" className="w-[70%] mt-10 md:mt-0 md:w-[80%] xl:w-[60%] mx-auto object-cover standing-fox "/>
                 </div>
             </div>
+            <Team />
         </div>
     )
 }
