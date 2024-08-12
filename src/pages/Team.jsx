@@ -107,7 +107,7 @@ function Team() {
     const activeCategory = visibleCategories[Math.floor(visibleCount / 2)]; // Centered moon as active
 
     return (
-        <div className="text-center py-8">
+        <div className="text-center py-24 md:py-8">
             <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
                 Our Team
             </h1>
@@ -132,9 +132,9 @@ function Team() {
                             <img
                                 src={teamData[category].image}
                                 alt={`${category} department`}
-                                className={`w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-cover rounded-full mx-auto mb-2 cursor-pointer ${category === activeCategory ? 'border-4 border-yellow-500' : ''}`}
+                                className={`w-24 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-cover rounded-full mx-auto mb-2 cursor-pointer ${category === activeCategory ? 'border-4 border-yellow-500' : ''}`}
                             />
-                            <div className={`cursor-pointer text-sm sm:text-lg md:text-xl font-space-mono font-semibold ${category === activeCategory ? 'text-yellow-500' : 'text-[#f9f5e3]'}`}>
+                            <div className={`cursor-pointer text-xs sm:text-lg md:text-xl font-space-mono font-semibold ${category === activeCategory ? 'text-yellow-500' : 'text-[#f9f5e3]'}`}>
                                 {category}
                             </div>
                         </div>
@@ -154,13 +154,13 @@ function Team() {
                 {teamData[activeCategory].members.map((member, index) => (
                     <div
                     key={index}
-                    className="relative bg-[#F9F5E3] text-black p-4 rounded-lg w-1/2 md:w-full  shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
+                    className="relative bg-[#F9F5E3] text-black p-4 rounded-lg w-[70%] md:w-full  shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
                     >
                         <div className="bg-[#36382E] flex items-center justify-center p-3 rounded-[16px]">
                             <img
                                 src={member.img}
                                 alt={member.name}
-                                className="w-full h-32 sm:h-40 md:h-80 object-cover rounded-lg "
+                                className="w-full h-60 sm:h-40 md:h-80 object-cover rounded-lg "
                             />
                         </div>
                         <h3 className="text-lg sm:text-xl font-semibold">{member.name}</h3>
