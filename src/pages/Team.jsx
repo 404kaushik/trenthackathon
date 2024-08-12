@@ -150,11 +150,11 @@ function Team() {
                 />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 {teamData[activeCategory].members.map((member, index) => (
                     <div
                     key={index}
-                    className="relative bg-[#F9F5E3] text-black p-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
+                    className="relative bg-[#F9F5E3] text-black p-4 rounded-lg w-1/2 md:w-full  shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
                     >
                         <div className="bg-[#36382E] flex items-center justify-center p-3 rounded-[16px]">
                             <img

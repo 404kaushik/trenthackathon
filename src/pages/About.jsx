@@ -13,7 +13,7 @@ const About = () => {
                         <img src={pic} alt="" className='w-[60%] sm:w-[50%] lg:w-[70%] object-cover floating-fox lg:pl-20'/>
                     </div>
                     <div className="sm:w-[100%] md:w-1/2 lg:pr-20">
-                        <p className='p-3 text-lg font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 bg-pink-800 rounded-xl'> is the premier hackathon <br/>event hosted by Trent University. Join <br/>us for an exciting weekend of <br/>innovation, collaboration, and creativity. HackTrent offers an inclusive and inspiring environment to bring your ideas to life. Register now and be a part of the HackTrent experience!</p>
+                        <p className='p-3 text-lg font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 bg-gray-800  rounded-xl'> is the premier hackathon <br/>event hosted by Trent University. Join <br/>us for an exciting weekend of <br/>innovation, collaboration, and creativity. HackTrent offers an inclusive and inspiring environment to bring your ideas to life. Register now and be a part of the HackTrent experience!</p>
                     </div>
                 </div>
             </div>
