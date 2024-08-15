@@ -49,6 +49,10 @@ function authenticateToken(req, res, next) {
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
+app.get('/', (req, res) => {
+    res.send('Hello World!'); // You can send HTML, JSON, or render a template
+});
+
 // Start the server
 app.listen(8000, () => {
     console.log("Server is running on port 8000");
