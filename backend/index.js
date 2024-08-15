@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json()); // In case you need to handle JSON payloads
 
 // MongoDB URI
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI || "mongodb+srv://Kaushik:omsai123@trenthackathon.nwtrs.mongodb.net/?retryWrites=true&w=majority&appName=TrentHackathon";
 
 async function connect() {
     try {
