@@ -18,8 +18,12 @@ const Signup = () => {
 		setData({ ...data, [input.name]: input.value });
 	};
 
+	axios.defaults.withCredentials = true;
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		axios.post('https://trenthackathon-backend.vercel.app/',{firstName, lastName, email, password})
+		.then(result => console.log(result))
+		.catch(error => console.error(error));
 		try {
 			const url = "http://localhost:8000/api/users";
 			const { data: res } = await axios.post(url, data);

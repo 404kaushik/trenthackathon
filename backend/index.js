@@ -10,7 +10,11 @@ const router = express.Router();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin:["https://trenthackathon-backend.vercel.app/"],
+    methods: ["POST", "GET"],
+    credentials:true
+}));
 app.use(express.json()); // In case you need to handle JSON payloads
 
 // MongoDB URI
