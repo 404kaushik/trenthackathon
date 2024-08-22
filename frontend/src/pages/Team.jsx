@@ -9,6 +9,7 @@ import m7 from '../assets/Moon7.svg';
 import soc1 from '../assets/insta.png'
 import soc2 from '../assets/github.png'
 import soc3 from '../assets/linkedin.png'
+import fiona from '../assets/fiona_laygo.png'
 import leftArrow from '../assets/left-arrow.png';
 import rightArrow from '../assets/right-arrow.png';
 import '../types/Team.css'
@@ -39,7 +40,7 @@ const teamData = {
         members: [
             { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
             { name: 'Shelmah Chebet', role: 'Designer & Event Coordinator', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg' },
-            { name: 'Fiona', role: 'Lead Event Coordinator & Lead Marketing Team', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg' },
+            { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/', github: 'https://github.com/laygofiona' },
         ],
     },
     HR: {
@@ -167,13 +168,13 @@ function Team() {
                         <p className="text-gray-700">{member.role}</p>
                         <div className="">
                             <div className="flex justify-center space-x-4 mt-4">
-                            <a href="#" className="text-gray-800 hover:text-blue-700 text-xl">
+                            <a href={member.insta} className="text-gray-800 hover:text-blue-700 text-xl">
                                 <img src={soc1} alt="" className='w-8' />
                             </a>
-                            <a href="#" className="text-gray-800 hover:text-blue-700 text-xl">
+                            <a href={member.linkedin} className="text-gray-800 hover:text-blue-700 text-xl">
                                 <img src={soc2} alt="" className='w-8' />
                             </a>
-                            <a href="#" className="text-gray-800 hover:text-blue-700 text-xl">
+                            <a href={member.github} className="text-gray-800 hover:text-blue-700 text-xl">
                                 <img src={soc3} alt="" className='w-8' />
                             </a>
                             </div>
@@ -181,26 +182,6 @@ function Team() {
                     </div>
                 ))}
             </div>
-
-            {/* PROFILE CARDS */}
-            {/* <div class="main">
-                {teamData[activeCategory].members.map((member, index) => (
-                    <div key={index} class="profile-card">
-                        <div class="img">
-                            <img src={member.img} alt={member.name} />
-                        </div>
-                        <div class="caption">
-                            <h3 className="text-sm font-semibold">{member.name}</h3>
-                            <p className="text-gray-700">{member.role}</p>
-                            <div className='flex items-center justify-center'>
-                                <a href={member.insta} target="_blank" rel="noopener noreferrer"><img src={soc1} alt="" className='w-8'/></a>
-                                <a href={member.github} target="_blank" rel="noopener noreferrer"><img src={soc2} alt="" className='w-8'/></a>
-                                <a href={member.linkedin} target="_blank" rel="noopener noreferrer"><img src={soc3} alt="" className='w-8'/></a>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div> */}
         </div>
     );
 }
