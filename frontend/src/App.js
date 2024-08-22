@@ -7,6 +7,8 @@ import About from "./pages/About"; // Adjusted to match the naming convention
 import Contact from "./pages/Contact";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import AccountCreated from "./pages/AccountCreated";
+
 
 function App() {
   const user = localStorage.getItem("token");
@@ -20,6 +22,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={!user ? <Login /> : <Navigate replace to="/" />} />
+        <Route path="/account-created" element={<AccountCreated />} /> {/* New route for account creation success */}
         <Route path="*" element={<Navigate replace to={user ? "/" : "/login"} />} /> {/* Catch-all route */}
       </Routes>
       <Footer />

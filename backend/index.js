@@ -10,11 +10,7 @@ const router = express.Router();
 const app = express();
 
 // Middleware
-app.use(cors({
-    origin:["https://trenthackathon-backend.vercel.app/"],
-    methods: ["POST", "GET"],
-    credentials:true
-}));
+app.use(cors());
 app.use(express.json()); // In case you need to handle JSON payloads
 
 // MongoDB URI
@@ -54,7 +50,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
 app.get('/', (req, res) => {
-    res.send('Hello World!'); // You can send HTML, JSON, or render a template
+  res.send('Hello World!'); // You can send HTML, JSON, or render a template
 });
 
 // Start the server
