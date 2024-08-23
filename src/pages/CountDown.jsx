@@ -22,7 +22,7 @@ const CountDown = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
+      <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
         <motion.div
           style={{ x, opacity }}
           initial={{ x: "-100vw", opacity: 0 }}
