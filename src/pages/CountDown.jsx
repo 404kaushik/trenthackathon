@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import About from './About';
 
 const CountDown = () => {
+  const { scrollYProgress } = useScroll();
+  // Adjust the range to make the div appear faster
+  const x = useTransform(scrollYProgress, [0, 0.2, 0.3, 1], ["-100vw", "0vw", "0vw", "0vw"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.3, 1], [0, 1, 1, 1]);
+
   const targetDate = '2024-12-25T00:00:00'; // Set your target date here
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
@@ -16,24 +22,32 @@ const CountDown = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <h1 className='text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>Schedule</h1>
-      <div className="flex my-10 max-w-7xl mx-auto md:h-80 items-center justify-center text-white md:py-16">
-        <div className="bg-white sm:-translate-x-3 rounded-[14px] sm:rounded-[20px]">
-        <div className="text-center w-full">
-          <div className="bg-[#36382E] translate-x-1 sm:translate-x-3 -translate-y-1 sm:-translate-y-3 p-6 sm:p-8 w-full rounded-[10px] sm:rounded-[16px] shadow-lg inline-block">
-            <div className="flex items-center justify-center -space-x-0 sm:space-x-4">
-              <TimeUnit value={timeLeft.days} label="DAYS" />
-              <Separator />
-              <TimeUnit value={timeLeft.hours} label="HRS" />
-              <Separator />
-              <TimeUnit value={timeLeft.minutes} label="MINS" />
-              <Separator />
-              <TimeUnit value={timeLeft.seconds} label="SECS" />
+      <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
+        <motion.div
+          style={{ x, opacity }}
+          initial={{ x: "-100vw", opacity: 0 }}
+          animate={{ x: "0vw", opacity: 1 }}
+          transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+        >
+          <h1 className='text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>Schedule</h1>
+          <div className="flex my-10 max-w-7xl mx-auto md:h-80 items-center justify-center text-white md:py-16">
+            <div className="bg-white sm:-translate-x-3 rounded-[14px] sm:rounded-[20px]">
+              <div className="text-center w-full">
+                <div className="bg-[#36382E] translate-x-1 sm:translate-x-3 -translate-y-1 sm:-translate-y-3 p-6 sm:p-8 w-full rounded-[10px] sm:rounded-[16px] shadow-lg inline-block">
+                  <div className="flex items-center justify-center -space-x-0 sm:space-x-4">
+                    <TimeUnit value={timeLeft.days} label="DAYS" />
+                    <Separator />
+                    <TimeUnit value={timeLeft.hours} label="HRS" />
+                    <Separator />
+                    <TimeUnit value={timeLeft.minutes} label="MINS" />
+                    <Separator />
+                    <TimeUnit value={timeLeft.seconds} label="SECS" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        </div>
+        </motion.div>
       </div>
       <About />
     </div>
