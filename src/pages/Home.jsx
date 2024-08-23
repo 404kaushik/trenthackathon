@@ -3,12 +3,11 @@ import text from '../assets/text.png';
 import CountDown from './CountDown';
 import Stars from './Stars';
 import '../App.css';
-import {motion, useViewportScroll, useTransform } from 'framer-motion';
+import {motion, useScroll} from 'framer-motion';
 
 const Home = () => {
 
-const { scrollYProgress } = useViewportScroll()
-const scale = useTransform(scrollYProgress, [0, 1], [0.7, 0.3]);
+const { scrollYProgress } = useScroll()
 
   return (
     <div

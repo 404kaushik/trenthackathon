@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import m1 from '../assets/Moon1.svg';
 import m2 from '../assets/Moon2.svg';
 import m3 from '../assets/Moon3.svg';
@@ -13,6 +13,8 @@ import fiona from '../assets/fiona_laygo.png'
 import leftArrow from '../assets/left-arrow.png';
 import rightArrow from '../assets/right-arrow.png';
 import '../types/Team.css'
+import {motion} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const teamData = {
     Design: {
@@ -69,121 +71,140 @@ const teamData = {
 
 function Team() {
     const categories = Object.keys(teamData);
-    const [startIndex, setStartIndex] = useState(0); // Track the starting index of the visible moons
-    const [visibleCount, setVisibleCount] = useState(3); // Default to showing 3 moons
-
+    const [startIndex, setStartIndex] = useState(0);
+    const [visibleCount, setVisibleCount] = useState(3);
+  
     useEffect(() => {
-        const updateVisibleCount = () => {
-            if (window.innerWidth >= 1024) {
-                setVisibleCount(7); // lg screens show 7 moons
-            } else if (window.innerWidth >= 768) {
-                setVisibleCount(4); // md screens show 4 moons
-            } else {
-                setVisibleCount(3); // sm screens show 3 moons
-            }
-        };
-
-        window.addEventListener('resize', updateVisibleCount);
-        updateVisibleCount(); // Initialize on mount
-
-        return () => window.removeEventListener('resize', updateVisibleCount);
+      const updateVisibleCount = () => {
+        if (window.innerWidth >= 1024) {
+          setVisibleCount(7);
+        } else if (window.innerWidth >= 768) {
+          setVisibleCount(4);
+        } else {
+          setVisibleCount(3);
+        }
+      };
+  
+      window.addEventListener('resize', updateVisibleCount);
+      updateVisibleCount();
+  
+      return () => window.removeEventListener('resize', updateVisibleCount);
     }, []);
-
+  
     const handleNext = () => {
-        setStartIndex((prevIndex) => (prevIndex + 1) % categories.length);
+      setStartIndex((prevIndex) => (prevIndex + 1) % categories.length);
     };
-
+  
     const handlePrevious = () => {
-        setStartIndex((prevIndex) =>
-            prevIndex === 0 ? categories.length - 1 : prevIndex - 1
-        );
+      setStartIndex((prevIndex) =>
+        prevIndex === 0 ? categories.length - 1 : prevIndex - 1
+      );
     };
-
+  
     const visibleCategories = categories
-        .slice(startIndex, startIndex + visibleCount)
-        .concat(
-            categories.slice(0, Math.max(0, startIndex + visibleCount - categories.length))
-        );
-
-    const activeCategory = visibleCategories[Math.floor(visibleCount / 2)]; // Centered moon as active
-
+      .slice(startIndex, startIndex + visibleCount)
+      .concat(
+        categories.slice(0, Math.max(0, startIndex + visibleCount - categories.length))
+      );
+  
+    const activeCategory = visibleCategories[Math.floor(visibleCount / 2)];
+  
     return (
-        <div className="text-center py-24 md:py-8">
-            <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
-                Our Team
-            </h1>
-
-            <div className="flex justify-center items-center space-x-2 sm:space-x-4 my-8">
-                {/* Left Arrow */}
+      <div className="text-center py-24 md:py-8">
+        <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
+          Our Team
+        </h1>
+  
+        <div className="flex justify-center items-center space-x-2 sm:space-x-4 my-8">
+          {/* Left Arrow */}
+          <img
+            src={leftArrow}
+            alt="Previous"
+            className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer lg:hover:-translate-y-1 lg:hover:scale-150"
+            onClick={handlePrevious}
+          />
+  
+          {/* Display Department Moons */}
+          <div className="flex space-x-2 sm:space-x-4">
+            {visibleCategories.map((category, index) => (
+              <div
+                key={category}
+                className="text-center min-w-[60px] sm:min-w-[100px]"
+                onClick={() => setStartIndex(categories.indexOf(category))}
+              >
                 <img
-                    src={leftArrow}
-                    alt="Previous"
-                    className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer lg:hover:-translate-y-1 lg:hover:scale-150"
-                    onClick={handlePrevious}
+                  src={teamData[category].image}
+                  alt={`${category} department`}
+                  className={`w-24 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-cover rounded-full mx-auto mb-2 cursor-pointer  ${category === activeCategory ? 'border-4 border-yellow-500' : ''}`}
                 />
-
-                {/* Display Department Moons */}
-                <div className="flex space-x-2 sm:space-x-4">
-                    {visibleCategories.map((category, index) => (
-                        <div
-                            key={category}
-                            className="text-center min-w-[60px] sm:min-w-[100px]"
-                            onClick={() => setStartIndex(categories.indexOf(category))}
-                        >
-                            <img
-                                src={teamData[category].image}
-                                alt={`${category} department`}
-                                className={`w-24 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-cover rounded-full mx-auto mb-2 cursor-pointer  ${category === activeCategory ? 'border-4 border-yellow-500' : ''}`}
-                            />
-                            <div className={`cursor-pointer text-xs sm:text-lg md:text-xl font-space-mono font-semibold ${category === activeCategory ? 'text-yellow-500' : 'text-[#f9f5e3]'}`}>
-                                {category}
-                            </div>
-                        </div>
-                    ))}
+                <div className={`cursor-pointer text-xs sm:text-lg md:text-xl font-space-mono font-semibold ${category === activeCategory ? 'text-yellow-500' : 'text-[#f9f5e3]'}`}>
+                  {category}
                 </div>
-
-                {/* Right Arrow */}
-                <img
-                    src={rightArrow}
-                    alt="Next"
-                    className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer lg:hover:-translate-y-1 lg:hover:scale-150"
-                    onClick={handleNext}
-                />
-            </div>
-
-            <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                {teamData[activeCategory].members.map((member, index) => (
-                    <div
-                    key={index}
-                    className="relative bg-[#F9F5E3] text-black p-4 rounded-lg w-[70%] md:w-full  shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
-                    >
-                        <div className="bg-[#36382E] flex items-center justify-center p-3 rounded-[16px]">
-                            <img
-                                src={member.img}
-                                alt={member.name}
-                                className="w-full h-60 sm:h-40 md:h-80 object-cover rounded-lg "
-                            />
-                        </div>
-                        <h3 className="text-lg sm:text-xl font-semibold">{member.name}</h3>
-                        <p className="text-gray-700">{member.role}</p>
-                        <div className="">
-                            <div className="flex justify-center space-x-4 mt-4">
-                            <a href={member.insta} className="text-gray-800 hover:text-blue-700 text-xl">
-                                <img src={soc1} alt="" className='w-8' />
-                            </a>
-                            <a href={member.linkedin} className="text-gray-800 hover:text-blue-700 text-xl">
-                                <img src={soc2} alt="" className='w-8' />
-                            </a>
-                            <a href={member.github} className="text-gray-800 hover:text-blue-700 text-xl">
-                                <img src={soc3} alt="" className='w-8' />
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
+              </div>
+            ))}
+          </div>
+  
+          {/* Right Arrow */}
+          <img
+            src={rightArrow}
+            alt="Next"
+            className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer lg:hover:-translate-y-1 lg:hover:scale-150"
+            onClick={handleNext}
+          />
         </div>
+  
+        <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          {teamData[activeCategory].members.map((member, index) => (
+            <TeamMember key={index} member={member} />
+          ))}
+        </div>
+      </div>
     );
-}
-
-export default Team;
+  }
+  
+  function TeamMember({ member }) {
+    const { ref, inView } = useInView({
+      triggerOnce: false,
+      threshold: 0.1, // Adjust this based on when you want the animation to trigger
+    });
+  
+    return (
+        <motion.div
+        ref={ref}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: inView ? 1 : 0, rotate: inView ? 360 : 0, scale: inView ? 1 : 0 }}
+        transition={{
+          duration: 0.5,         // Duration of the animation
+          type: 'spring',        // Type of animation
+          stiffness: 300,        // Stiffness for faster animation
+          damping: 15,           // Damping for smoother animation
+        }}
+        className="relative bg-[#F9F5E3] text-black p-4 rounded-lg w-[70%] md:w-full shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
+      >
+        <div className="bg-[#36382E] flex items-center justify-center p-3 rounded-[16px]">
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-full h-60 sm:h-40 md:h-80 object-cover rounded-lg"
+          />
+        </div>
+        <h3 className="text-lg sm:text-xl font-semibold">{member.name}</h3>
+        <p className="text-gray-700">{member.role}</p>
+        <div className="">
+          <div className="flex justify-center space-x-4 mt-4">
+            <a href={member.insta} className="text-gray-800 hover:text-blue-700 text-xl">
+              <img src={soc1} alt="" className="w-8" />
+            </a>
+            <a href={member.linkedin} className="text-gray-800 hover:text-blue-700 text-xl">
+              <img src={soc2} alt="" className="w-8" />
+            </a>
+            <a href={member.github} className="text-gray-800 hover:text-blue-700 text-xl">
+              <img src={soc3} alt="" className="w-8" />
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    );
+  }
+  
+  export default Team;
