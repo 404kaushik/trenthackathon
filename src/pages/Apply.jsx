@@ -2,6 +2,7 @@ import React from "react";
 import pic from '../assets/apply_fox-cropped.svg'
 import Team from "./Team";
 import Sponsor from "./Sponsor";
+import Contact from "./Contact";
 
 const Apply = () => {
     return(
@@ -28,6 +29,7 @@ const Apply = () => {
             </div>
             <Sponsor />
             <Team />
+            <Contact/>
         </div>
     )
 }

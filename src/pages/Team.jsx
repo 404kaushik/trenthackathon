@@ -46,7 +46,7 @@ const teamData = {
         members: [
             { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/', github: 'https://github.com/laygofiona' },
             { name: 'Lizi Villas', role: 'Designer', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },
-            { name: 'Kristy Rath', role: 'Developer', img: kristy, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },
+            { name: 'Kristy Rath', role: 'Developer', img: kristy, insta: '', linkedin: 'https://www.linkedin.com/in/kristy-rath/', github: 'https://github.com/kristyrath'  },
             { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
             { name: 'Shelmah Chebet', role: '', img: shelmah, insta: '', linkedin: '', github: '' },
             { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
