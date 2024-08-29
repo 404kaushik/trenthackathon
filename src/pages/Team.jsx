@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import m1 from '../assets/Moon1.svg';
 import m2 from '../assets/Moon2.svg';
 import m3 from '../assets/Moon3.svg';
@@ -18,7 +18,6 @@ import muneeb from '../assets/muneeb.jpg'
 import leftArrow from '../assets/left-arrow.png';
 import rightArrow from '../assets/right-arrow.png';
 import '../types/Team.css'
-import Sponsor from './Sponsor';
 
 const teamData = {
     Design: {
@@ -78,44 +77,44 @@ const teamData = {
 
 function Team() {
     const categories = Object.keys(teamData);
-    const [startIndex, setStartIndex] = useState(0); // Track the starting index of the visible moons
-    const [visibleCount, setVisibleCount] = useState(3); // Default to showing 3 moons
-
+    const [startIndex, setStartIndex] = useState(0);
+    const [visibleCount, setVisibleCount] = useState(3);
+  
     useEffect(() => {
-        const updateVisibleCount = () => {
-            if (window.innerWidth >= 1024) {
-                setVisibleCount(7); // lg screens show 7 moons
-            } else if (window.innerWidth >= 768) {
-                setVisibleCount(4); // md screens show 4 moons
-            } else {
-                setVisibleCount(3); // sm screens show 3 moons
-            }
-        };
-
-        window.addEventListener('resize', updateVisibleCount);
-        updateVisibleCount(); // Initialize on mount
-
-        return () => window.removeEventListener('resize', updateVisibleCount);
+      const updateVisibleCount = () => {
+        if (window.innerWidth >= 1024) {
+          setVisibleCount(7);
+        } else if (window.innerWidth >= 768) {
+          setVisibleCount(4);
+        } else {
+          setVisibleCount(3);
+        }
+      };
+  
+      window.addEventListener('resize', updateVisibleCount);
+      updateVisibleCount();
+  
+      return () => window.removeEventListener('resize', updateVisibleCount);
     }, []);
-
+  
     const handleNext = () => {
-        setStartIndex((prevIndex) => (prevIndex + 1) % categories.length);
+      setStartIndex((prevIndex) => (prevIndex + 1) % categories.length);
     };
-
+  
     const handlePrevious = () => {
-        setStartIndex((prevIndex) =>
-            prevIndex === 0 ? categories.length - 1 : prevIndex - 1
-        );
+      setStartIndex((prevIndex) =>
+        prevIndex === 0 ? categories.length - 1 : prevIndex - 1
+      );
     };
-
+  
     const visibleCategories = categories
-        .slice(startIndex, startIndex + visibleCount)
-        .concat(
-            categories.slice(0, Math.max(0, startIndex + visibleCount - categories.length))
-        );
-
-    const activeCategory = visibleCategories[Math.floor(visibleCount / 2)]; // Centered moon as active
-
+      .slice(startIndex, startIndex + visibleCount)
+      .concat(
+        categories.slice(0, Math.max(0, startIndex + visibleCount - categories.length))
+      );
+  
+    const activeCategory = visibleCategories[Math.floor(visibleCount / 2)];
+  
     return (
         <div className="text-center py-24 md:py-8">
             <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
@@ -166,11 +165,11 @@ function Team() {
                     key={index}
                     className="relative bg-[#F9F5E3] text-black p-4 rounded-lg w-[70%] md:w-full  shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
                     >
-                        <div className="bg-[#36382E] flex items-center w-full justify-center p-3 rounded-[16px]">
+                        <div className="bg-[#36382E] w-full flex items-center justify-center p-3 rounded-[16px]">
                             <img
                                 src={member.img}
                                 alt={member.name}
-                                className="w-full h-60 sm:h-40 md:h-80 object-cover rounded-lg object-top"
+                                className="w-full h-60 sm:h-40 md:h-80 object-cover object-top rounded-lg "
                             />
                         </div>
                         <h3 className="text-lg sm:text-xl font-semibold">{member.name}</h3>
@@ -193,6 +192,6 @@ function Team() {
             </div>
         </div>
     );
-}
-
-export default Team;
+  }
+  
+  export default Team;
