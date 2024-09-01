@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import pic from '../assets/apply_fox-cropped.svg';
 import Team from "./Team";
 import Sponsor from "./Sponsor";
+import Contact from "./Contact";
 
 const Apply = () => {
     // Create a ref for the drag constraints
@@ -39,6 +40,7 @@ const Apply = () => {
             </div>
             <Sponsor />
             <Team />
+            <Contact/>
         </div>
     );
 }
