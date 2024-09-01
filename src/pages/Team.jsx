@@ -13,8 +13,9 @@ import fiona from '../assets/fiona_laygo.png'
 import lizi from '../assets/LiziVillas.jpeg'
 import kristy from '../assets/kristy.jpeg'
 import deji from '../assets/Deji.JPG'
-import shelmah from '../assets/Shelmah_Chebet.png.HEIC'
+import shelmah from '../assets/Shelmah_Chebet.png'
 import muneeb from '../assets/muneeb.jpg'
+import swastika from '../assets/SwastikaBansal.jpeg'
 import leftArrow from '../assets/left-arrow.png';
 import rightArrow from '../assets/right-arrow.png';
 import '../types/Team.css'
@@ -43,12 +44,13 @@ const teamData = {
     Leadership: {
         image: m1,
         members: [
-            { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/', github: 'https://github.com/laygofiona' },
+            { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
             { name: 'Lizi Villas', role: 'Designer', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },
             { name: 'Kristy Rath', role: 'Developer', img: kristy, insta: '', linkedin: 'https://www.linkedin.com/in/kristy-rath/', github: 'https://github.com/kristyrath'  },
             { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
             { name: 'Shelmah Chebet', role: '', img: shelmah, insta: '', linkedin: '', github: '' },
             { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
+            { name: 'Swastika Bansal', role: '', img: swastika, insta: '', linkedin: '', github: '' },
         ],
     },
     HR: {
@@ -179,10 +181,10 @@ function Team() {
                             <a href={member.insta} className="text-gray-800 hover:text-blue-700 text-xl">
                                 <img src={soc1} alt="" className='w-8' />
                             </a>
-                            <a href={member.linkedin} className="text-gray-800 hover:text-blue-700 text-xl">
+                            <a href={member.github} className="text-gray-800 hover:text-blue-700 text-xl">
                                 <img src={soc2} alt="" className='w-8' />
                             </a>
-                            <a href={member.github} className="text-gray-800 hover:text-blue-700 text-xl">
+                            <a href={member.linkedin} className="text-gray-800 hover:text-blue-700 text-xl">
                                 <img src={soc3} alt="" className='w-8' />
                             </a>
                             </div>
