@@ -10,7 +10,7 @@ const Contact = () => {
       <h1 className='sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl mb-10 text-center font-potta-one font-normal leading-none text-[#f9f5e3]'> 
         Contact Us </h1>
       <div class='flex flex-wrap items-center'>
-        <div class="bg-[#F9F5E3] bg-opacity-20 mx-auto p-8 rounded-lg shadow-lg w-full max-w-lg ">
+        <div class="bg-gray-800 bg-opacity-60 mx-auto p-8 rounded-lg shadow-lg w-full max-w-lg ">
           <form method="post" className='flex flex-col'>
               <div class="mb-4">
                 <label for="name" class="block text-md font-medium text-white mb-2">Name</label>
