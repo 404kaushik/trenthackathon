@@ -3,6 +3,7 @@ import pic from '../assets/apply_fox-cropped.svg';
 import Team from "./Team";
 import Sponsor from "./Sponsor";
 import Contact from "./Contact";
+import FAQ from "./FAQ";
 
 const Apply = () => {
     // Create a ref for the drag constraints
@@ -38,6 +39,7 @@ const Apply = () => {
                         />
                 </div>
             </div>
+            <FAQ />
             <Sponsor />
             <Team />
             <Contact/>

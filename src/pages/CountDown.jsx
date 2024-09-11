@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import About from './About';
 
 const CountDown = () => {
-  const { scrollYProgress } = useScroll();
-  // Adjust the range to make the div appear faster
-  const x = useTransform(scrollYProgress, [0, 0.2, 0.3, 1], ["-100vw", "0vw", "0vw", "100vw"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.3, 1], [0, 1, 1, 0]);
-
   const targetDate = '2024-12-25T00:00:00'; // Set your target date here
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
@@ -24,10 +19,9 @@ const CountDown = () => {
     <div className="max-w-7xl mx-auto">
       <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
         <motion.div
-          style={{ x, opacity }}
           initial={{ x: "-100vw", opacity: 0 }}
           animate={{ x: "0vw", opacity: 1 }}
-          transition={{ duration: 0.1, type: "spring", stiffness: 300 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}  // Adjusted transition duration and ease
         >
           <h1 className='text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>Schedule</h1>
           <div className="flex my-10 max-w-7xl mx-auto md:h-80 items-center justify-center text-white md:py-16">
