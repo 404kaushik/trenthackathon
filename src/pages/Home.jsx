@@ -36,7 +36,7 @@ const { scrollYProgress } = useScroll()
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5, delay: 0.25 }}
-        className="flex flex-col items-center justify-center mt-60 mb-40 md:mb-60 relative">
+        className="flex flex-col items-center justify-center mt-52 mb-40 md:mb-60 relative">
           <div className="sm:w-[85%] md:w-[80%] ">
             <img src={text} alt="" className='w-full'/>
           </div>

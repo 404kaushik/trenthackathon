@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import pdf from '../utils/Package.pdf';
+<<<<<<< HEAD
+=======
+import FAQ from './FAQ'
+>>>>>>> c500fd6782f97bebcc176cbdaa99aa6cbf8216ad
 
 const Sponsor = () => {
   const [showPdf, setShowPdf] = useState(false);

@@ -12,6 +12,7 @@ module.exports = {
         'varela': ['Varela', 'sans-serif'],
         'potta-one': ['"Potta One"', 'sans-serif'],
         'space-mono': ['"Space Mono"', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
       }
     },
   },

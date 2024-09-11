@@ -10,6 +10,11 @@ import soc1 from '../assets/insta.png'
 import soc2 from '../assets/github.png'
 import soc3 from '../assets/linkedin.png'
 import fiona from '../assets/fiona_laygo.png'
+import lizi from '../assets/LiziVillas.jpeg'
+import kristy from '../assets/kristy.jpeg'
+import deji from '../assets/Deji.JPG'
+import shelmah from '../assets/Shelmah_Chebet.png'
+import muneeb from '../assets/muneeb.jpg'
 import leftArrow from '../assets/left-arrow.png';
 import rightArrow from '../assets/right-arrow.png';
 import '../types/Team.css'
@@ -40,9 +45,12 @@ const teamData = {
     Leadership: {
         image: m1,
         members: [
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
-            { name: 'Shelmah Chebet', role: 'Designer & Event Coordinator', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg' },
-            { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/', github: 'https://github.com/laygofiona' },
+            { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
+            { name: 'Lizi Villas', role: 'Designer', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },
+            { name: 'Kristy Rath', role: 'Developer', img: kristy, insta: '', linkedin: 'https://www.linkedin.com/in/kristy-rath/', github: 'https://github.com/kristyrath'  },
+            { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
+            { name: 'Shelmah Chebet', role: '', img: shelmah, insta: '', linkedin: '', github: '' },
+            { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
         ],
     },
     HR: {
@@ -181,11 +189,11 @@ function Team() {
         }}
         className="relative bg-[#F9F5E3] text-black p-4 rounded-lg w-[70%] md:w-full shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl grid place-items-center"
       >
-        <div className="bg-[#36382E] flex items-center justify-center p-3 rounded-[16px]">
+        <div className="bg-[#36382E] w-full flex items-center justify-center p-3 rounded-[16px]">
           <img
             src={member.img}
             alt={member.name}
-            className="w-full h-60 sm:h-40 md:h-80 object-cover rounded-lg"
+            className="w-full h-60 sm:h-40 md:h-80 object-cover object-top rounded-lg"
           />
         </div>
         <h3 className="text-lg sm:text-xl font-semibold">{member.name}</h3>
