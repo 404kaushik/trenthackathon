@@ -118,7 +118,7 @@ function Team() {
     const activeCategory = visibleCategories[Math.floor(visibleCount / 2)];
   
     return (
-      <div className="text-center py-24 md:py-8">
+      <div id="team" className="text-center py-24 md:py-8">
         <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
           Our Team
         </h1>

@@ -10,7 +10,7 @@ const Sponsor = () => {
   };
 
   return (
-    <div className="py-12 grid place-items-center">
+    <div id="sponsor" className="py-12 grid place-items-center">
       <div className="max-w-4xl mx-auto rounded-lg p-8 space-y-8">
         <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
           Sponsorship Packages

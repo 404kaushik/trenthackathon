@@ -8,7 +8,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-5xl px-2 py-3 mx-auto mt-32 tracking-wide md:px-4 md:mt-44">
+    <div id="faq" className="max-w-5xl px-2 py-3 mx-auto mt-32 tracking-wide md:px-4 md:mt-44">
       {/* Title */}
       <div className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">Frequently Asked Questions</div>
       
