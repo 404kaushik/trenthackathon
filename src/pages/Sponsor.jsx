@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import pdf from '../utils/Package.pdf';
-<<<<<<< HEAD
-=======
 import FAQ from './FAQ'
->>>>>>> c500fd6782f97bebcc176cbdaa99aa6cbf8216ad
 
 const Sponsor = () => {
   const [showPdf, setShowPdf] = useState(false);
@@ -29,7 +26,7 @@ const Sponsor = () => {
         </p>
           <button
             onClick={handlePdfPreview}
-            className="bg-blue-600 text-white text-xs md:text-base py-2 md:px-4 p-2 rounded-lg hover:bg-blue-700 transition duration-300"
+            className="bg-blue-600 text-white text-xs md:text-base py-2 md:px-4 p-2 rounded-lg hover:bg-blue-700 transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-blue-700 duration-100"
           >
             {showPdf ? 'Close Preview' : 'Preview Package'}
           </button>
@@ -37,7 +34,7 @@ const Sponsor = () => {
           <a
             href={pdf}
             download
-            className="bg-green-600 text-white text-xs md:text-base py-2 md:px-4 p-2 rounded-lg hover:bg-green-700 transition duration-300"
+            className="bg-green-600 text-white text-xs md:text-base py-2 md:px-4 p-2 rounded-lg hover:bg-green-700 transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-green-700 duration-100"
           >
             Download Package
           </a>

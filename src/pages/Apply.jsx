@@ -4,10 +4,17 @@ import Team from "./Team";
 import Sponsor from "./Sponsor";
 import Contact from "./Contact";
 import FAQ from "./FAQ";
+import {motion} from 'framer-motion';
+import { useInView } from "react-intersection-observer";
 
 const Apply = () => {
     // Create a ref for the drag constraints
     const constraintsRef = useRef(null);
+    
+  const [inViewRef, inView] = useInView({
+    triggerOnce: false, // Change this to true if you only want the animation once
+    threshold: 0.1, // 10% of the element needs to be in view to trigger the animation
+  });
 
     return (
         <div id='applications' className="mb-20">
@@ -20,7 +27,13 @@ const Apply = () => {
                 </p>
             </div>
             <div className="flex flex-wrap md:flex-nowrap">
-                <div className="md:w-1/2 flex flex-col justify-center mx-auto items-center md:items-end">
+            <motion.div
+            ref={inViewRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: inView ? 1 : 0 }}
+            transition={{ duration: 0.5 }}
+            className="md:w-1/2 flex flex-col justify-center mx-auto items-center md:items-end"
+            >
                     <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
                         Apply as Volunteer
                     </button>
@@ -30,7 +43,7 @@ const Apply = () => {
                     <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
                         Apply as Hacker
                     </button>
-                </div>
+                </motion.div>
                 <div className="md:w-1/2 md:mt-10">
                         <img
                             src={pic}

@@ -3,7 +3,32 @@ import InstagramLogo from '../assets/instagram.svg';
 import LinkedInLogo from '../assets/linkedin.svg';
 import DiscordLogo from '../assets/discord.svg';
 import MailLogo from '../assets/mail.png';
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from 'framer-motion';
+
 const Contact = () => {
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.2, // Trigger animation when 20% of the element is in view
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        rotate: 360,
+        scale: 1,
+        transition: {
+          type: "spring",
+          stiffness: 260,
+          damping: 20
+        }
+      });
+    } else {
+      controls.start({ scale: 0 });
+    }
+  }, [controls, inView]);
 
   return (
     <div className="p-4 ">
@@ -44,7 +69,11 @@ const Contact = () => {
           <p className='w-[100%] text-3xl font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 rounded-xl'>
             Follow and Explore More!
           </p>
-          <div class='flex items-center justify-around gap-3'>
+          <motion.div 
+            ref={ref}
+            initial={{ scale: 0 }}
+            animate={controls}        
+          class='flex items-center justify-around gap-3'>
             <a href='https://www.instagram.com/trentcsca/'>
               <img src={InstagramLogo} class='h-16 hover:scale-110'/>
             </a>
@@ -54,7 +83,7 @@ const Contact = () => {
             <a href='https://discord.gg/sJTtfwVvFh'>
               <img src={DiscordLogo}  class='h-16 hover:scale-110'/>
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
