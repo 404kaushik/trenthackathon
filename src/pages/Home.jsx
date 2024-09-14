@@ -51,15 +51,14 @@ const { scrollYProgress } = useScroll()
     />
 
       <Stars starCount={1000} />      
-      <div style={{ position: 'relative', zIndex: 1}}  ref={containerRef}>
+      <div style={{ position: 'relative', zIndex: 1}}>
         <img src={RedPlanet} alt="" className='absolute max-h-[80px] left-1/4 -top-16'/>
-        <img src={BluePlanet} alt="" className='absolute max-h-[160px] right-3 -top-20'/>
-        <img src={OrangePlanet} alt="" className='absolute max-h-[150px] left-5 top-64'/>
-        <img src={GreyPlanet} alt="" className='absolute max-h-24 left-72 top-96'/>
+        <img src={BluePlanet} alt="" className='absolute max-h-[150px] right-3 -top-20'/>
+        <img src={OrangePlanet} alt="" className='absolute max-h-[140px] left-5 top-36'/>
+        <img src={GreyPlanet} alt="" className='absolute max-h-24 left-72 top-80'/>
         <img src={Asteroid} alt="" className='absolute max-h-[150px] -right-52 top-96'
             style={{ transform: `translate(${position.x}%, ${position.y}%)`}}
             />
-        {/* asteroid absolute max-h-32 right-5 top-96 */}
 
         <motion.div 
           variants={{
@@ -83,8 +82,9 @@ const { scrollYProgress } = useScroll()
           </button>
         </motion.div>
       </div>
-      <CountDown />
-
+      <div style={{ position: 'relative', zIndex: 1}}>
+        <CountDown />
+      </div>
     </div>
   );
 };
