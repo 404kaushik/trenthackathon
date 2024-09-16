@@ -5,7 +5,7 @@ import Apply from './Apply';
 
 const About = () => {
     return(
-        <div id='about' className="">
+        <div id='about' className="md:pt-8">
             <div className='max-w-7xl mx-auto h-auto py-24'>
             <h1 className='text-center font-potta-one font-normal leading-none text-[#f9f5e3] text-5xl sm:text-8xl md:text-8xl '> About Us </h1>
                 <div className="sm:mt-5 mt-10 flex flex-row items-center justify-between flex-wrap md:flex-nowrap">

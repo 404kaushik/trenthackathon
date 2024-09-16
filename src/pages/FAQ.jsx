@@ -8,7 +8,7 @@ const FAQ = () => {
   };
 
   return (
-    <div id="faq" className="max-w-5xl px-2 py-3 mx-auto mt-32 tracking-wide md:px-4 md:mt-44">
+    <div id="faq" className="max-w-5xl px-2 py-3 mx-auto mt-32 tracking-wide md:px-4 md:pt-8 md:mt-44">
       {/* Title */}
       <div className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">Frequently Asked Questions</div>
       
@@ -58,10 +58,17 @@ const FAQ = () => {
 const AccordionItem = ({ index, title, content, activeTab, toggleTab }) => {
   const contentRef = useRef(null);
 
+  const handleMouseLeave = () => {
+    if (activeTab === index) {
+      toggleTab(0); // Shrink back to normal when mouse leaves the item
+    }
+  };
+
   return (
     <div
-      className="relative transition-all duration-700 border rounded-xl hover:shadow-2xl bg-[#F9F5E3] transform hover:-translate-y-2 hover:scale-105 ease-out" // Added hover animation
-      onMouseEnter={() => toggleTab(index)} // Optional: Automatically expand on hover
+      className="relative transition-all duration-700 border rounded-xl hover:shadow-2xl bg-[#F9F5E3] transform hover:-translate-y-2 hover:scale-105 ease-out" 
+      onMouseEnter={() => toggleTab(index)} // Automatically expand on hover
+      onMouseLeave={handleMouseLeave} // Shrink when cursor leaves
     >
       <div
         onClick={() => toggleTab(index)}

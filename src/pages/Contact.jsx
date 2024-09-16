@@ -6,7 +6,7 @@ import MailLogo from '../assets/mail.png';
 const Contact = () => {
 
   return (
-    <div id="contact" className="p-4 ">
+    <div id="contact" className="p-4 md:pt-8">
       <h1 className='sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl mb-10 text-center font-potta-one font-normal leading-none text-[#f9f5e3]'> 
         Contact Us </h1>
       <div class='flex flex-wrap items-center'>

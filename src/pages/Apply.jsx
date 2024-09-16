@@ -10,7 +10,7 @@ const Apply = () => {
     const constraintsRef = useRef(null);
 
     return (
-        <div id='applications' className="mb-20">
+        <div id='applications' className="mb-20 md:pt-8">
             <div className="grid place-items-center">
                 <h1 className='sm:mt-10 lg:mt-20 text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>
                     Applications
