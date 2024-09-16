@@ -3,15 +3,20 @@ import InstagramLogo from '../assets/instagram.svg';
 import LinkedInLogo from '../assets/linkedin.svg';
 import DiscordLogo from '../assets/discord.svg';
 import MailLogo from '../assets/mail.png';
+import ScrollReveal from '../components/ScrollReveal';
 const Contact = () => {
 
   return (
-    <div id="contact" className="p-4 ">
-      <h1 className='sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl mb-10 text-center font-potta-one font-normal leading-none text-[#f9f5e3]'> 
-        Contact Us </h1>
-      <div class='flex flex-wrap items-center'>
-        <div class="bg-gray-800 bg-opacity-60 mx-auto p-8 rounded-lg shadow-lg w-full max-w-lg ">
-          <form method="post" className='flex flex-col'>
+    <div id="contact" className="p-4 md:pt-8">
+      <ScrollReveal>
+        <h1 className='sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl mb-10 text-center font-potta-one font-normal leading-none text-[#f9f5e3]'> 
+          Contact Us </h1>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div class='flex flex-wrap items-center'>
+          <div class="bg-gray-800 bg-opacity-60 mx-auto p-8 rounded-lg shadow-lg w-full max-w-lg ">
+            <form method="post" className='flex flex-col'>
               <div class="mb-4">
                 <label for="name" class="block text-md font-medium text-white mb-2">Name</label>
                 <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" required/>
@@ -29,34 +34,36 @@ const Contact = () => {
                     Send
                   </button>
               </div>
-
-          </form>
-        </div>
-        <div class="bg-opacity-70 mx-auto p-8 rounded-lg w-full max-w-lg flex flex-col items-center">
-          <a href="TrentHacks@trentu.ca">
-            <div class='flex items-center justify-center gap-3 hover:scale-105'>
-              <img src={MailLogo} class='h-12'/>
-              <p className='w-[100%] text-xl font-space-mono text-[#f9f5e3] font-normal leading-loose rounded-xl'>
-                TrentHacks@trentu.ca
-              </p>
-            </div>
-          </a>     
-          <p className='w-[100%] text-3xl font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 rounded-xl'>
-            Follow and Explore More!
-          </p>
-          <div class='flex items-center justify-around gap-3'>
-            <a href='https://www.instagram.com/trentcsca/'>
-              <img src={InstagramLogo} class='h-16 hover:scale-110'/>
-            </a>
-            <a href='https://www.linkedin.com/company/trent-computer-science-society'>
-              <img src={LinkedInLogo}  class='h-16 hover:scale-110'/>
-            </a>
-            <a href='https://discord.gg/sJTtfwVvFh'>
-              <img src={DiscordLogo}  class='h-16 hover:scale-110'/>
-            </a>
+            </form>
           </div>
+          <ScrollReveal>
+            <div class="bg-opacity-70 mx-auto p-8 rounded-lg w-full max-w-lg flex flex-col items-center">
+              <a href="TrentHacks@trentu.ca">
+                <div class='flex items-center justify-center gap-3 hover:scale-105'>
+                  <img src={MailLogo} class='h-12'/>
+                  <p className='w-[100%] text-xl font-space-mono text-[#f9f5e3] font-normal leading-loose rounded-xl'>
+                    TrentHacks@trentu.ca
+                  </p>
+                </div>
+              </a>     
+              <p className='w-[100%] text-3xl font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 rounded-xl'>
+                Follow and Explore More!
+              </p>
+              <div class='flex items-center justify-around gap-3'>
+                <a href='https://www.instagram.com/trentcsca/'>
+                  <img src={InstagramLogo} class='h-16 hover:scale-110'/>
+                </a>
+                <a href='https://www.linkedin.com/company/trent-computer-science-society'>
+                  <img src={LinkedInLogo}  class='h-16 hover:scale-110'/>
+                </a>
+                <a href='https://discord.gg/sJTtfwVvFh'>
+                  <img src={DiscordLogo}  class='h-16 hover:scale-110'/>
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
-      </div>
+      </ScrollReveal>
     </div>
   );
 };
