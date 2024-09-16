@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import ScrollReveal from '../components/ScrollReveal';
 
 const FAQ = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -10,47 +11,51 @@ const FAQ = () => {
   return (
     <div id="faq" className="max-w-5xl px-2 py-3 mx-auto mt-32 tracking-wide md:px-4 md:pt-8 md:mt-44">
       {/* Title */}
-      <div className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">Frequently Asked Questions</div>
+      <ScrollReveal>
+        <div className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">Frequently Asked Questions</div>
+      </ScrollReveal>
       
-      {/* Accordion */}
-      <div className="grid gap-3 py-8 text-lg leading-6 md:gap-20 md:grid-cols-2 text-white">
-        {/* First Column */}
-        <div className="space-y-5 text-gray-900 text-lg font-poppins ">
-          <AccordionItem
-            index={1}
-            title="What is a hackathon?"
-            content="A hackathon is best described as an “invention marathon”. Anyone who has an interest in technology attends a hackathon to learn, build & share their creations over the course of a weekend in a relaxed and welcoming atmosphere. You don’t have to be a programmer and you certainly don’t have to be majoring in Computer Science."
-            className="text-gray-900"
-            activeTab={activeTab}
-            toggleTab={toggleTab}
-          />
-          <AccordionItem
-            index={2}
-            title="Does HackTrent help with travel reimbursements?"
-            content="Unfortunately, HackTrent isn’t able to provide hackers with travel reimbursements. We have in certain cases provided it in the past but we’re always on the hunt to find more sustainable ways to bring more students to hackathons."
-            activeTab={activeTab}
-            toggleTab={toggleTab}
-          />
-        </div>
+      <ScrollReveal>
+        {/* Accordion */}
+        <div className="grid gap-3 py-8 text-lg leading-6 md:gap-20 md:grid-cols-2 text-white">
+          {/* First Column */}
+          <div className="space-y-5 text-gray-900 text-lg font-poppins ">
+            <AccordionItem
+              index={1}
+              title="What is a hackathon?"
+              content="A hackathon is best described as an “invention marathon”. Anyone who has an interest in technology attends a hackathon to learn, build & share their creations over the course of a weekend in a relaxed and welcoming atmosphere. You don’t have to be a programmer and you certainly don’t have to be majoring in Computer Science."
+              className="text-gray-900"
+              activeTab={activeTab}
+              toggleTab={toggleTab}
+            />
+            <AccordionItem
+              index={2}
+              title="Does HackTrent help with travel reimbursements?"
+              content="Unfortunately, HackTrent isn’t able to provide hackers with travel reimbursements. We have in certain cases provided it in the past but we’re always on the hunt to find more sustainable ways to bring more students to hackathons."
+              activeTab={activeTab}
+              toggleTab={toggleTab}
+            />
+          </div>
 
-        {/* Second Column */}
-        <div className="space-y-5 text-gray-900 text-lg font-poppins ">
-          <AccordionItem
-            index={3}
-            title="I just graduated, can I still come to an event?"
-            content="Yes. Anyone who has graduated within the last 12 months is still eligible to attend an HackTrent. After that, there’s plenty of non-student hackathons that exist for you to consider attending."
-            activeTab={activeTab}
-            toggleTab={toggleTab}
-          />
-          <AccordionItem
-            index={4}
-            title="What if I don’t know how to code?"
-            content="Not a problem! The entire Major League Hacking team knew very little when they each attended their very first hackathon. It’s entirely irrelevant what your experience is going into a hackathon, it’s more about your interest in technology. Every HackTrent Member Event is passionate about making their hackathons very welcoming and beginner-friendly. If you’re wanting to learn how to code outside of a hackathon, there’s a fantastic blog post that you should read. After, you should check out the following: Treehouse, Codecademy and the Major League Hacking blog to get started."
-            activeTab={activeTab}
-            toggleTab={toggleTab}
-          />
+          {/* Second Column */}
+          <div className="space-y-5 text-gray-900 text-lg font-poppins ">
+            <AccordionItem
+              index={3}
+              title="I just graduated, can I still come to an event?"
+              content="Yes. Anyone who has graduated within the last 12 months is still eligible to attend an HackTrent. After that, there’s plenty of non-student hackathons that exist for you to consider attending."
+              activeTab={activeTab}
+              toggleTab={toggleTab}
+            />
+            <AccordionItem
+              index={4}
+              title="What if I don’t know how to code?"
+              content="Not a problem! The entire Major League Hacking team knew very little when they each attended their very first hackathon. It’s entirely irrelevant what your experience is going into a hackathon, it’s more about your interest in technology. Every HackTrent Member Event is passionate about making their hackathons very welcoming and beginner-friendly. If you’re wanting to learn how to code outside of a hackathon, there’s a fantastic blog post that you should read. After, you should check out the following: Treehouse, Codecademy and the Major League Hacking blog to get started."
+              activeTab={activeTab}
+              toggleTab={toggleTab}
+            />
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </div>
   );
 };

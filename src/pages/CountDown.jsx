@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import About from './About';
+import ScrollReveal from '../components/ScrollReveal';
 
 const CountDown = () => {
-  const targetDate = '2024-12-25T00:00:00'; // Set your target date here
+  const targetDate = '2024-11-08T00:00:00'; // Set your target date here
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
 
@@ -17,32 +18,35 @@ const CountDown = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
-        <motion.div
-          initial={{ x: "-100vw", opacity: 0 }}
-          animate={{ x: "0vw", opacity: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}  // Adjusted transition duration and ease
-        >
-          <h1 className='text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>Schedule</h1>
-          <div className="flex my-10 max-w-7xl mx-auto md:h-80 items-center justify-center text-white md:py-16">
-            <div className="bg-white sm:-translate-x-3 rounded-[14px] sm:rounded-[20px]">
-              <div className="text-center w-full">
-                <div className="bg-[#36382E] translate-x-1 sm:translate-x-3 -translate-y-1 sm:-translate-y-3 p-6 sm:p-8 w-full rounded-[10px] sm:rounded-[16px] shadow-lg inline-block">
-                  <div className="flex items-center justify-center -space-x-0 sm:space-x-4">
-                    <TimeUnit value={timeLeft.days} label="DAYS" />
-                    <Separator />
-                    <TimeUnit value={timeLeft.hours} label="HRS" />
-                    <Separator />
-                    <TimeUnit value={timeLeft.minutes} label="MINS" />
-                    <Separator />
-                    <TimeUnit value={timeLeft.seconds} label="SECS" />
+      <ScrollReveal>
+
+        <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
+          <motion.div
+            initial={{ x: "-100vw", opacity: 0 }}
+            animate={{ x: "0vw", opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}  // Adjusted transition duration and ease
+          >
+            <h1 className='text-5xl sm:text-8xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]'>Schedule</h1>
+            <div className="flex my-10 max-w-7xl mx-auto md:h-80 items-center justify-center text-white md:py-16">
+              <div className="bg-white sm:-translate-x-3 rounded-[14px] sm:rounded-[20px]">
+                <div className="text-center w-full">
+                  <div className="bg-[#36382E] translate-x-1 sm:translate-x-3 -translate-y-1 sm:-translate-y-3 p-6 sm:p-8 w-full rounded-[10px] sm:rounded-[16px] shadow-lg inline-block">
+                    <div className="flex items-center justify-center -space-x-0 sm:space-x-4">
+                      <TimeUnit value={timeLeft.days} label="DAYS" />
+                      <Separator />
+                      <TimeUnit value={timeLeft.hours} label="HRS" />
+                      <Separator />
+                      <TimeUnit value={timeLeft.minutes} label="MINS" />
+                      <Separator />
+                      <TimeUnit value={timeLeft.seconds} label="SECS" />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+        </div>
+      </ScrollReveal>
       <About />
     </div>
   );
