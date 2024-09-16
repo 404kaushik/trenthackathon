@@ -38,11 +38,11 @@ const Contact = () => {
           </div>
           <ScrollReveal>
             <div class="bg-opacity-70 mx-auto p-8 rounded-lg w-full max-w-lg flex flex-col items-center">
-              <a href="TrentHacks@trentu.ca">
+              <a href="tcscatrent@outlook.com">
                 <div class='flex items-center justify-center gap-3 hover:scale-105'>
                   <img src={MailLogo} class='h-12'/>
                   <p className='w-[100%] text-xl font-space-mono text-[#f9f5e3] font-normal leading-loose rounded-xl'>
-                    TrentHacks@trentu.ca
+                    tcscatrent@outlook.com
                   </p>
                 </div>
               </a>     
@@ -50,13 +50,13 @@ const Contact = () => {
                 Follow and Explore More!
               </p>
               <div class='flex items-center justify-around gap-3'>
-                <a href='https://www.instagram.com/trentcsca/'>
+                <a href='https://www.instagram.com/hacktrentu/' target="_blank">
                   <img src={InstagramLogo} class='h-16 hover:scale-110'/>
                 </a>
-                <a href='https://www.linkedin.com/company/trent-computer-science-society'>
+                <a href=' https://www.linkedin.com/company/hack-trent/' target="_blank">
                   <img src={LinkedInLogo}  class='h-16 hover:scale-110'/>
                 </a>
-                <a href='https://discord.gg/sJTtfwVvFh'>
+                <a href='https://discord.gg/sJTtfwVvFh' target="_blank">
                   <img src={DiscordLogo}  class='h-16 hover:scale-110'/>
                 </a>
               </div>
