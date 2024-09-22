@@ -15,6 +15,7 @@ import kristy from '../assets/kristy.jpeg'
 import deji from '../assets/Deji.JPG'
 import shelmah from '../assets/Shelmah_Chebet.png'
 import muneeb from '../assets/muneeb.jpg'
+import damiola from '../assets/damilola.jpg'
 import leftArrow from '../assets/left-arrow.png';
 import rightArrow from '../assets/right-arrow.png';
 import '../types/Team.css'
@@ -52,6 +53,7 @@ const teamData = {
             { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
             { name: 'Shelmah Chebet', role: '', img: shelmah, insta: '', linkedin: '', github: '' },
             { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
+            { name: 'Damiola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
         ],
     },
     HR: {
@@ -200,7 +202,7 @@ function Team() {
           <img
             src={member.img}
             alt={member.name}
-            className="w-full h-60 sm:h-40 md:h-80 object-cover object-top rounded-lg"
+            className="w-full h-60 sm:h-40 md:h-80 object-cover rounded-lg"
           />
         </div>
         <h3 className="text-lg sm:text-xl font-semibold mt-4">{member.name}</h3>
