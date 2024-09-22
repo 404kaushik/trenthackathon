@@ -9,6 +9,7 @@ import m7 from '../assets/Moon7.svg';
 import soc1 from '../assets/insta.png'
 import soc2 from '../assets/github.png'
 import soc3 from '../assets/linkedin.png'
+import user from '../assets/userDefault.png'
 import fiona from '../assets/fiona_laygo.png'
 import lizi from '../assets/LiziVillas.jpeg'
 import kristy from '../assets/kristy.jpeg'
@@ -56,6 +57,7 @@ const teamData = {
             { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
             { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
             { name: 'Batool Kazmi', role: 'Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/,', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
+            { name: 'XYZ', role: 'xyz', img: user, insta: '', linkedin: '', github: '' },
         ],
     },
     HR: {
