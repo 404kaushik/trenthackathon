@@ -101,18 +101,18 @@ const Contact = () => {
       },
       body: JSON.stringify(webhookBody),
     })
-      .then((response) => {
-        if (response.ok) {
-          setSuccessMessage('Message sent successfully!');
-          reset();
-        } else {
-          toast.error('An error occurred while sending the message.');
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        toast.error('An unknown error occurred on the server.');
-      });
+    .then((response) => {
+      if (response.ok) {
+        setSuccessMessage('Message sent successfully!');
+        reset();
+      } else {
+        toast.error('An error occurred while sending the message.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      toast.error('An unknown error occurred on the server.');
+    });
   };
 
   // Utility functions

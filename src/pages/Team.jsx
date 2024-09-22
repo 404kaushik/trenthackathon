@@ -16,6 +16,7 @@ import deji from '../assets/Deji.JPG'
 import shelmah from '../assets/Shelmah_Chebet.png'
 import muneeb from '../assets/muneeb.jpg'
 import damiola from '../assets/damilola.jpg'
+import batool from '../assets/Batool.jpg'
 import leftArrow from '../assets/left-arrow.png';
 import rightArrow from '../assets/right-arrow.png';
 import '../types/Team.css'
@@ -53,7 +54,8 @@ const teamData = {
             { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
             { name: 'Shelmah Chebet', role: '', img: shelmah, insta: '', linkedin: '', github: '' },
             { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
-            { name: 'Damiola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
+            { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
+            { name: 'Batool Kazmi', role: 'Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/,', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
         ],
     },
     HR: {
@@ -202,7 +204,7 @@ function Team() {
           <img
             src={member.img}
             alt={member.name}
-            className="w-full h-60 sm:h-40 md:h-80 object-cover rounded-lg"
+            className="w-full h-60 sm:h-40 md:h-80 object-cover object-[center_25%] rounded-lg"
           />
         </div>
         <h3 className="text-lg sm:text-xl font-semibold mt-4">{member.name}</h3>
