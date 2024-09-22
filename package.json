@@ -1,7 +1,6 @@
 {
   "name": "trenthackathon",
   "version": "0.1.0",
-  "proxy": "http://localhost:8000",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -11,7 +10,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
-    "express": "^4.21.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "framer-motion": "^11.5.4",
     "react": "^18.3.1",
@@ -66,6 +64,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/404kaushik/trenthackathon/issues"
-  },
-  "homepage": "https://github.com/404kaushik/trenthackathon#readme"
+  }
 }
