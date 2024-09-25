@@ -10,6 +10,10 @@ import soc1 from '../assets/insta.png'
 import soc2 from '../assets/github.png'
 import soc3 from '../assets/linkedin.png'
 import user from '../assets/userDefault.png'
+import anshika from '../assets/anshika.webp'
+import aiden from '../assets/Aiden.jpg'
+import riya from '../assets/riya.JPG'
+import kaushik from '../assets/Kaushik.png'
 import fiona from '../assets/fiona_laygo.png'
 import lizi from '../assets/LiziVillas.jpeg'
 import kristy from '../assets/kristy.jpeg'
@@ -26,60 +30,63 @@ import { useInView } from 'react-intersection-observer';
 import ScrollReveal from '../components/ScrollReveal';
 
 const teamData = {
-    Design: {
-        image: m2,
-        members: [
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', github: '', linkedin: '' },
+  Marketing: {
+    image: m3,
+    members: [
+      { name: 'XYZ', role: 'xyz', img: user, insta: '' },
+      { name: 'XYZ', role: 'xyz', img: user, insta: '' },
+    ],
+  },
+  Development: {
+    image: m4,
+    members: [
+      // Add team members under Development
+      { name: 'XYZ', role: 'xyz', img: user, insta: '' },
+    ],
+  },
+  Design: {
+      image: m2,
+      members: [
+          { name: 'Batool Kazmi', role: 'Lead Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/,', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
+          { name: 'Lizi Villas', role: 'Designer', img: lizi, github: '', linkedin: '' },
+      ],
+  },
+  Leadership: {
+    image: m1,
+    members: [
+            // { name: 'Lizi Villas', role: 'Designer', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },                      
+            // { name: 'Shelmah Chebet', role: '', img: shelmah, insta: '', linkedin: '', github: '' },
+            // { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
+            // { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
+            // { name: 'Batool Kazmi', role: 'Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/,', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
+            { name: 'Aiden Miah', role: 'Director and Software Engineer intern @ Scotiabank and President @ TCSCA', img: aiden, insta: '', linkedin: '', github: '' },
+            { name: 'Riya Jaykar', role: 'Co-Director and President of TCSA', img: riya, insta: '', linkedin: '', github: '' },
+            { name: 'Anshika Gaur', role: 'Co-Director and Vice President of TCSA', img: anshika, insta: '', linkedin: '', github: '' },
         ],
     },
-    Marketing: {
-        image: m3,
-        members: [
-            { name: 'Shelmah Chebet', role: 'Designer & Event Coordinator', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
-        ],
-    },
-    Development: {
-        image: m4,
-        members: [
-            // Add team members under Development
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
-        ],
-    },
-    Leadership: {
-        image: m1,
-        members: [
-            { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
-            { name: 'Lizi Villas', role: 'Designer', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },
-            { name: 'Kristy Rath', role: 'Developer', img: kristy, insta: '', linkedin: 'https://www.linkedin.com/in/kristy-rath/', github: 'https://github.com/kristyrath'  },
-            { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
-            { name: 'Shelmah Chebet', role: '', img: shelmah, insta: '', linkedin: '', github: '' },
-            { name: 'Muneeb', role: '', img: muneeb, insta: '', linkedin: '', github: '' },
-            { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
-            { name: 'Batool Kazmi', role: 'Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/,', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
-            { name: 'XYZ', role: 'xyz', img: user, insta: '', linkedin: '', github: '' },
-        ],
-    },
-    HR: {
+    Tech: {
         image: m5,
         members: [
             // Add team members under HR
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
+            { name: 'Kaushik Nag Tumu', role: 'Lead Developer', img: kaushik, insta: '' },
+            { name: 'Kristy Rath', role: 'Developer', img: kristy, insta: '', linkedin: 'https://www.linkedin.com/in/kristy-rath/', github: 'https://github.com/kristyrath'  },
+            { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
         ],
     },
-    Operations: {
+    Outreach: {
         image: m6,
         members: [
             // Add team members under Operations
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
+            { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
+            { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
         ],
     },
     Finance: {
         image: m7,
         members: [
             // Add team members under Finance
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
-            { name: 'Lizi', role: 'Designer', img: 'https://m.media-amazon.com/images/M/MV5BMWQzZTJmMmUtM2ZjNi00MTQ4LWI4NTItYWJiNjQyMzBkYzU2XkEyXkFqcGdeQXVyNzgxMzc3OTc@._V1_FMjpg_UX1000_.jpg', insta: '' },
+            { name: 'XYZ', role: 'xyz', img: user, insta: '' },
+            { name: 'XYZ', role: 'xyz', img: user, insta: '' },
         ],
     },
 };
