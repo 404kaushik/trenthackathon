@@ -6,7 +6,9 @@ import BluePlanet from '../assets/planet2.gif';
 import OrangePlanet from '../assets/planet3.gif';
 import GreyPlanet from '../assets/planet4.gif';
 import Asteroid from '../assets/asteroid.gif';
-
+import PinkClouds from '../assets/pink-cloud.png';
+import OrangeCloud from '../assets/cloud.svg';
+import Galaxy from '../assets/galaxy.svg';
 import Stars from './Stars';
 import '../App.css';
 import {motion, useScroll} from 'framer-motion';
@@ -36,30 +38,33 @@ const { scrollYProgress } = useScroll()
     }, []);
 
   return (
-    <div
-    className="p-4"
+    <div 
+    className="p-4 relative pt-13 md:pt-20"
     >
+    <div className='galaxy-path'>
+      <img src={PinkClouds} className='absolute z-10 bottom-0'/>
+    </div>
+
     <motion.div
       style={{
         scaleY: scrollYProgress
       }}
-
       initial={{ opacity: 0 }}  // Start with the component invisible
       animate={{ opacity: 1 }} // Animate to fully visible
       transition={{ duration: 1 }} // Duration of the fade-in effect
       className="fade-in-scroll"
     />
-
-      <Stars starCount={1000} />      
-      <div style={{ position: 'relative', zIndex: 1}}>
-        <img src={RedPlanet} alt="" className='absolute max-h-[80px] left-1/4 -top-16'/>
-        <img src={BluePlanet} alt="" className='absolute max-h-[150px] right-3 -top-20'/>
-        <img src={OrangePlanet} alt="" className='absolute max-h-[140px] left-5 top-36'/>
-        <img src={GreyPlanet} alt="" className='absolute max-h-24 left-72 top-80'/>
-        <img src={Asteroid} alt="" className='absolute max-h-[150px] -right-52 top-96'
+     <Stars starCount={1000} />      
+    <div style={{ position: 'relative', zIndex: 1}} className='mt-[17rem] md:mt-0'>
+        <img src={RedPlanet} alt="" className='absolute max-h-[5rem] md:max-h-[9rem] left-1/4 -top-[6rem]'/>
+        <img src={BluePlanet} alt="" className='absolute max-h-[7rem] md:max-h-[13rem] right-3 md:-bottom-[5rem]'/>
+        <img src={OrangePlanet} alt="" className='absolute max-h-[8rem] md:max-h-[12rem] left-5 bottom-0'/>
+        <img src={GreyPlanet} alt="" className='absolute max-h-[4rem] md:max-h-[8rem] left-[50%] -bottom-[2rem] md:-bottom-[10rem]'/>
+        {/* TODO: this is causing the screen to scroll horizontally */}
+        {/* <img src={Asteroid} alt="" className='absolute md:max-h-[150px] -right-52 top-96'
             style={{ transform: `translate(${position.x}%, ${position.y}%)`}}
-            />
-
+            /> */}
+        <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] absolute -top-[12rem] md:-top-[12rem] -right-10'/>
         <motion.div 
           variants={{
             hidden: { opacity: 0, y: 75, scale: 1 }, // Start with opacity 0, y-position 75, and scale 0. for zoom-in
@@ -68,7 +73,7 @@ const { scrollYProgress } = useScroll()
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.5, delay: 0.25 }}
-        className="flex flex-col items-center justify-center mt-52 mb-40 md:mb-60 relative">
+        className="flex flex-col items-center justify-center mt-52  relative">
           <div className="sm:w-[85%] md:w-[80%] ">
             <img src={text} alt="" className='w-full'/>
           </div>
@@ -82,9 +87,15 @@ const { scrollYProgress } = useScroll()
           </button>
         </motion.div>
       </div>
-      <div style={{ position: 'relative', zIndex: 1}}>
+      <div className='flex w-full'>
+        <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -bottom-[4rem] md:-bottom-[10rem] -left-16 z-10'/>
+      </div>
+
+      <div style={{ position: 'relative', zIndex: 10}}>
         <CountDown />
       </div>
+      
+
     </div>
   );
 };

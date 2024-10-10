@@ -8,7 +8,6 @@ import LinkedInLogo from '../assets/linkedin.svg';
 import DiscordLogo from '../assets/discord.svg';
 import MailLogo from '../assets/mail.png';
 import ScrollReveal from '../components/ScrollReveal';
-
 const Contact = () => {
   // React Hook Form setup
   const {

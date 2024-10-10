@@ -5,6 +5,7 @@ import Sponsor from "./Sponsor";
 import Contact from "./Contact";
 import FAQ from "./FAQ";
 import ScrollReveal from "../components/ScrollReveal";
+import OrangeCloud from '../assets/cloud.svg';
 
 const Apply = () => {
     // Create a ref for the drag constraints
@@ -42,9 +43,21 @@ const Apply = () => {
                     </div>
                 </div>
             </ScrollReveal>
+            <div className='flex justify-end w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -right-16'/>
+            </div>
             <FAQ />
+            <div className='flex justify-start w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -left-16'/>
+            </div>
             <Sponsor />
+            <div className='flex justify-end w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -right-16'/>
+            </div>
             <Team />
+            <div className='flex justify-start w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -left-16'/>
+            </div>
             <Contact/>
         </div>
     );

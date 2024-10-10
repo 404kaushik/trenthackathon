@@ -7,8 +7,6 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx"; // Adjusted to match the naming convention
 import Contact from "./pages/Contact.jsx";
 import 'framer-motion';
-
-
 function App() {
   const location = useLocation();
 
