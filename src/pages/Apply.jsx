@@ -24,13 +24,13 @@ const Apply = () => {
                 <div className="flex flex-wrap md:flex-nowrap">
                     <div className="md:w-1/2 flex flex-col justify-center mx-auto items-center md:items-end">
                         <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
-                            Apply as Volunteer
+                        Applications Open Soon...
                         </button>
                         <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
-                            Apply as Mentor
+                        Applications Open Soon...
                         </button>
                         <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
-                            Apply as Hacker
+                        Applications Open Soon...
                         </button>
                     </div>
                     <div className="md:w-1/2 md:mt-10">
