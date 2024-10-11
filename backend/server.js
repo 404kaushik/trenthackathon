@@ -6,7 +6,6 @@ const { Pool } = require('pg');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const multer = require('multer');
-const path = require('uploads/');
 const fs = require('fs');
 
 const app = express();
