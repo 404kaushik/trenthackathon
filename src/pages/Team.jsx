@@ -31,28 +31,28 @@ import ScrollReveal from '../components/ScrollReveal';
 
 const teamData = {
   // Marketing, Development, Design, Leadership, Tech, Outreach, Finance
-  A: {
+  Marketing: {
     image: m3,
     members: [
       { name: 'XYZ', role: 'xyz', img: user, insta: '' },
       { name: 'XYZ', role: 'xyz', img: user, insta: '' },
     ],
   },
-  B: {
+  Development: {
     image: m4,
     members: [
       // Add team members under Development
       { name: 'XYZ', role: 'xyz', img: user, insta: '' },
     ],
   },
-  C: {
+  Design: {
       image: m2,
       members: [
           { name: 'Batool Kazmi', role: 'Lead Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/,', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
           { name: 'Lizi Villas', role: 'Designer', img: lizi, github: '', linkedin: '' },
       ],
   },
-  D: {
+  Leadership: {
     image: m1,
     members: [
             // { name: 'Lizi Villas', role: 'Designer', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },                      
@@ -65,7 +65,7 @@ const teamData = {
             { name: 'Anshika Gaur', role: 'Co-Director and Vice President of TCSA', img: anshika, insta: '', linkedin: '', github: '' },
         ],
     },
-    E: {
+    Tech: {
         image: m5,
         members: [
             // Add team members under HR
@@ -74,7 +74,7 @@ const teamData = {
             { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
         ],
     },
-    F: {
+    Outreach: {
         image: m6,
         members: [
             // Add team members under Operations
@@ -82,7 +82,7 @@ const teamData = {
             { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
         ],
     },
-    G: {
+    Finance: {
         image: m7,
         members: [
             // Add team members under Finance
@@ -190,7 +190,7 @@ function Team() {
       <div id="team" className="text-center py-24 md:py-8">
         <ScrollReveal>
           <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
-            {visibleCount}
+            Our Team
           </h1>
     
           <div className="flex justify-center items-center space-x-2 sm:space-x-4 my-8">
@@ -203,7 +203,7 @@ function Team() {
             />
     
             {/* Display Department Moons */}
-            <div className="flex space-x-2 sm:space-x-4">
+            <div className="flex space-x-1 sm:space-x-4">
               {
                 visibleCategories.map((category, index) => (
                 <div
@@ -215,7 +215,7 @@ function Team() {
                   <img
                     src={teamData[category].image}
                     alt={`${category} department`}
-                    className={`w-24 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-cover rounded-full mx-auto mb-2 cursor-pointer  ${category === activeCategory ? 'border-4 border-yellow-500' : ''}`}
+                    className={`w-24 h-16 sm:w-15 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 object-cover rounded-full mx-auto mb-2 cursor-pointer  ${category === activeCategory ? 'border-4 border-yellow-500' : ''}`}
                   />
                   <div className={`cursor-pointer text-xs sm:text-lg md:text-xl font-space-mono font-semibold ${category === activeCategory ? 'text-yellow-500' : 'text-[#f9f5e3]'}`}>
                     {category}

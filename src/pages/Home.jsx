@@ -39,7 +39,7 @@ const { scrollYProgress } = useScroll()
 
   return (
     <div 
-    className="p-4 relative pt-13 md:pt-20"
+    className="p-4 relative pt-13 md:pt-20 overflow-hidden"
     >
     <div className='galaxy-path'>
       <img src={PinkClouds} className='absolute z-10 bottom-0'/>
@@ -60,10 +60,9 @@ const { scrollYProgress } = useScroll()
         <img src={BluePlanet} alt="" className='absolute max-h-[7rem] md:max-h-[13rem] right-3 md:-bottom-[5rem]'/>
         <img src={OrangePlanet} alt="" className='absolute max-h-[8rem] md:max-h-[12rem] left-5 bottom-0'/>
         <img src={GreyPlanet} alt="" className='absolute max-h-[4rem] md:max-h-[8rem] left-[50%] -bottom-[2rem] md:-bottom-[10rem]'/>
-        {/* TODO: this is causing the screen to scroll horizontally */}
-        {/* <img src={Asteroid} alt="" className='absolute md:max-h-[150px] -right-52 top-96'
+        <img src={Asteroid} alt="" className='absolute max-h-[90px] md:max-h-[150px] -right-52 top-96'
             style={{ transform: `translate(${position.x}%, ${position.y}%)`}}
-            /> */}
+            />
         <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] absolute -top-[12rem] md:-top-[12rem] -right-10'/>
         <motion.div 
           variants={{

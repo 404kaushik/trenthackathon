@@ -212,7 +212,7 @@ const Contact = () => {
       </ScrollReveal>
 
       <ScrollReveal>
-        <div className="flex flex-wrap items-center">
+        <div className="flex flex-wrap items-center justify-center">
           <div className="bg-gray-800 bg-opacity-60 mx-auto p-8 rounded-lg shadow-lg w-full max-w-lg">
             {successMessage && (
               <div className="mb-4 p-4 text-green-800 bg-green-200 rounded">
