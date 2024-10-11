@@ -30,28 +30,29 @@ import { useInView } from 'react-intersection-observer';
 import ScrollReveal from '../components/ScrollReveal';
 
 const teamData = {
-  Marketing: {
+  // Marketing, Development, Design, Leadership, Tech, Outreach, Finance
+  A: {
     image: m3,
     members: [
       { name: 'XYZ', role: 'xyz', img: user, insta: '' },
       { name: 'XYZ', role: 'xyz', img: user, insta: '' },
     ],
   },
-  Development: {
+  B: {
     image: m4,
     members: [
       // Add team members under Development
       { name: 'XYZ', role: 'xyz', img: user, insta: '' },
     ],
   },
-  Design: {
+  C: {
       image: m2,
       members: [
           { name: 'Batool Kazmi', role: 'Lead Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/,', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
           { name: 'Lizi Villas', role: 'Designer', img: lizi, github: '', linkedin: '' },
       ],
   },
-  Leadership: {
+  D: {
     image: m1,
     members: [
             // { name: 'Lizi Villas', role: 'Designer', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', linkedin: 'www.linkedin.com/in/elizabetvillas', github: 'https://github.com/lizi-vie'  },                      
@@ -64,7 +65,7 @@ const teamData = {
             { name: 'Anshika Gaur', role: 'Co-Director and Vice President of TCSA', img: anshika, insta: '', linkedin: '', github: '' },
         ],
     },
-    Tech: {
+    E: {
         image: m5,
         members: [
             // Add team members under HR
@@ -73,7 +74,7 @@ const teamData = {
             { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
         ],
     },
-    Outreach: {
+    F: {
         image: m6,
         members: [
             // Add team members under Operations
@@ -81,7 +82,7 @@ const teamData = {
             { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
         ],
     },
-    Finance: {
+    G: {
         image: m7,
         members: [
             // Add team members under Finance
@@ -90,52 +91,106 @@ const teamData = {
         ],
     },
 };
+const getVisibleCount = () => {
+  if (window.innerWidth >= 1024) {
+    return 7;
+  } else if (window.innerWidth >= 768) {
+    return 5;
+  } else {
+    return 3;
+  }
+};
+
+const getStartIndex = (visibleCount, fullCount) => {
+  let fullSideLength = Math.floor(fullCount/2);
+  let visibleSideLength = Math.floor(visibleCount/2);
+  return fullSideLength - visibleSideLength;
+}
 
 function Team() {
     const categories = Object.keys(teamData);
-    const [startIndex, setStartIndex] = useState(0);
-    const [visibleCount, setVisibleCount] = useState(3);
-  
+    const [sectionState, setSectionState] = useState(() => {
+      const visibleCount = getVisibleCount();
+      const startIndex = getStartIndex(visibleCount, categories.length);
+      const visibleCategories  = categories.slice(startIndex, visibleCount + 1);
+      let activeCategoryIndex = Math.floor(visibleCount/2);
+      const activeCategory = visibleCategories[activeCategoryIndex];
+      
+      return {
+      visibleCount : visibleCount,
+      startIndex : startIndex,
+      visibleCategories: visibleCategories,
+      activeCategory: activeCategory }
+    });
+    
+    const {visibleCount, startIndex, visibleCategories, activeCategory} = sectionState;
+
     useEffect(() => {
-      const updateVisibleCount = () => {
-        if (window.innerWidth >= 1024) {
-          setVisibleCount(7);
-        } else if (window.innerWidth >= 768) {
-          setVisibleCount(4);
-        } else {
-          setVisibleCount(3);
+
+      const updateVisibleCategories = () => {
+        let newVisibleCount = getVisibleCount();
+        let newStartIndex = getStartIndex(newVisibleCount, categories.length);
+        // console.log('Visible Categories', visibleCategories);
+        // console.log('Start Index', newStartIndex);
+        let activeCategoryIndex = Math.floor(visibleCount/2);
+        let newActiveCategory = visibleCategories[activeCategoryIndex];
+        
+        // console.log('Active Category', newActiveCategory);
+
+        setSectionState({
+          ...sectionState, 
+          activeCategory: newActiveCategory,
+          visibleCount: newVisibleCount, 
+          startIndex: newStartIndex});
         }
-      };
-  
-      window.addEventListener('resize', updateVisibleCount);
-      updateVisibleCount();
-  
-      return () => window.removeEventListener('resize', updateVisibleCount);
+      window.addEventListener('resize', updateVisibleCategories);  
+      return () => window.removeEventListener('resize', updateVisibleCategories);
     }, []);
   
-    const handleNext = () => {
-      setStartIndex((prevIndex) => (prevIndex + 1) % categories.length);
-    };
   
-    const handlePrevious = () => {
-      setStartIndex((prevIndex) =>
-        prevIndex === 0 ? categories.length - 1 : prevIndex - 1
-      );
-    };
-  
-    const visibleCategories = categories
-      .slice(startIndex, startIndex + visibleCount)
-      .concat(
-        categories.slice(0, Math.max(0, startIndex + visibleCount - categories.length))
-      );
-  
-    const activeCategory = visibleCategories[Math.floor(visibleCount / 2)];
-  
+        
+
+    const handleSelection = (selectedIndex = null, shift = null) => {
+      let prevIndex = Math.floor(visibleCategories.length/2);
+      if (!shift) {
+        shift =  prevIndex - selectedIndex;
+      }
+      // update this to refer to the full sized array
+      let updatedVisibleCategories = visibleCategories;
+
+      while(shift != 0) {
+        if (shift < 0) {
+          updatedVisibleCategories = rotateArrLeft(updatedVisibleCategories);
+          shift++;
+        } else if (shift > 0) {
+          updatedVisibleCategories = rotateArrRight(updatedVisibleCategories);
+          shift--;
+        }
+      }
+
+      setSectionState({
+        ...sectionState, 
+        visibleCategories: updatedVisibleCategories, 
+        activeCategory: updatedVisibleCategories[Math.floor(updatedVisibleCategories.length / 2)]
+      });
+    }
+    
+    const rotateArrLeft = (arr) => {
+      const firstElement = arr.shift();
+      arr.push(firstElement);
+      return arr;
+    }
+    const rotateArrRight = (arr) => {
+      const lastElement = arr.pop();
+      arr.unshift(lastElement);
+      return arr;
+    }
+ 
     return (
       <div id="team" className="text-center py-24 md:py-8">
         <ScrollReveal>
           <h1 className="sm:mt-10 lg:mt-20 text-4xl sm:text-6xl md:text-8xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
-            Our Team
+            {visibleCount}
           </h1>
     
           <div className="flex justify-center items-center space-x-2 sm:space-x-4 my-8">
@@ -144,16 +199,18 @@ function Team() {
               src={leftArrow}
               alt="Previous"
               className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer lg:hover:-translate-y-1 lg:hover:scale-150"
-              onClick={handlePrevious}
+              onClick={() => handleSelection(null, -1)}
             />
     
             {/* Display Department Moons */}
             <div className="flex space-x-2 sm:space-x-4">
-              {visibleCategories.map((category, index) => (
+              {
+                visibleCategories.map((category, index) => (
                 <div
                   key={category}
-                  className="text-center min-w-[60px] sm:min-w-[100px]"
-                  onClick={() => setStartIndex(categories.indexOf(category))}
+                  className={`text-center min-w-[60px] sm:min-w-[100px] ${(index >= startIndex) && (index <= (startIndex + visibleCount - 1))? '' : 'hidden'}`}
+                  onClick={() => handleSelection(index, null)}
+
                 >
                   <img
                     src={teamData[category].image}
@@ -172,14 +229,14 @@ function Team() {
               src={rightArrow}
               alt="Next"
               className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer lg:hover:-translate-y-1 lg:hover:scale-150"
-              onClick={handleNext}
+              onClick={() => handleSelection(null, 1)}
             />
           </div>
         </ScrollReveal>
         <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {teamData[activeCategory].members.map((member, index) => (
-            <TeamMember key={index} member={member} />
-          ))}
+              <TeamMember key={index} member={member} />
+            ))}
         </div>
       </div>
     );

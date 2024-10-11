@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import About from './About';
 import ScrollReveal from '../components/ScrollReveal';
+import OrangeCloud from '../assets/cloud.svg';
 
 const CountDown = () => {
   const targetDate = '2024-11-08T00:00:00'; // Set your target date here
@@ -17,7 +18,7 @@ const CountDown = () => {
   }, [targetDate]);
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto mt-[10rem]">
       <ScrollReveal>
 
         <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
@@ -47,7 +48,11 @@ const CountDown = () => {
           </motion.div>
         </div>
       </ScrollReveal>
+      <div className='flex justify-end w-full'>
+        <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -right-14'/>
+      </div>
       <About />
+
     </div>
   );
 };

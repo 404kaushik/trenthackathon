@@ -1,7 +1,9 @@
 import React from 'react';
-import pic from '../assets/flying_fox.png'
+import pic from '../assets/flying_fox.png';
 import Apply from './Apply';
 import ScrollReveal from '../components/ScrollReveal';
+import OrangeCloud from '../assets/cloud.svg';
+
 
 const About = () => {
     return(
@@ -19,6 +21,9 @@ const About = () => {
                     </div>
                 </div>
             </ScrollReveal>
+            <div className='flex justify-start w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -left-5'/>
+            </div>
             <Apply />
         </div>
     )
