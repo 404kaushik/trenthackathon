@@ -5,8 +5,9 @@ const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
-
-
+const multer = require('multer');
+const path = require('uploads/');
+const fs = require('fs');
 
 const app = express();
 const port = 5001;
@@ -31,6 +32,22 @@ const pool = new Pool({
 
 // JWT Secret
 const JWT_SECRET = '12345@6';  // replace with a strong secret
+
+// Configure multer for file upload
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const uploadDir = 'uploads/';
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir);
+    }
+    cb(null, uploadDir);
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 // Routes
 app.post('/register', async (req, res) => {
@@ -102,56 +119,60 @@ app.get('/profile', async (req, res) => {
   }
 });
 
-app.post('/apply', async (req, res) => {
-    const token = req.headers.authorization.split(" ")[1];
-    if (!token) return res.status(401).json({ message: "No token provided" });
-  
-    const {
-      first_name,
-      last_name,
-      email,
-      age,
-      gender,
-      pronouns,
-      race,
-      school,
-      major,
-      level_of_study,
-      country_of_residence,
-      question1,
-      question2,
-      tshirt_size,
-      dietary_restrictions,
-      agree_conduct,
-      share_info,
-      receive_emails,
-      resume_url,   // assume you handle resume upload separately and store the URL
-      share_resume
-    } = req.body;
-  
-    try {
-      const decoded = jwt.verify(token, JWT_SECRET);
-  
-      // Insert application into the database
-      const newApplication = await pool.query(
-        `INSERT INTO applications (
-          user_id, first_name, last_name, email, age, gender, pronouns, race, school, major, 
-          level_of_study, country_of_residence, question1, question2, tshirt_size, dietary_restrictions, 
-          agree_conduct, share_info, receive_emails, resume_url, share_resume
-        ) VALUES (
-          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20
-        ) RETURNING *`,
-        [
-          decoded.id, first_name, last_name, email, age, gender, pronouns, race, school, major,
-          level_of_study, country_of_residence, question1, question2, tshirt_size, dietary_restrictions,
-          agree_conduct, share_info, receive_emails, resume_url, share_resume
-        ]
-      );
-  
-      res.status(201).json({ message: "Application submitted", application: newApplication.rows[0] });
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
+app.post('/apply', upload.single('resume'), async (req, res) => {
+  const token = req.headers.authorization.split(" ")[1];
+  if (!token) return res.status(401).json({ message: "No token provided" });
+
+  const {
+    first_name,
+    last_name,
+    email,
+    age,
+    gender,
+    pronouns,
+    race,
+    school,
+    major,
+    level_of_study,
+    country_of_residence,
+    question1,
+    question2,
+    tshirt_size,
+    dietary_restrictions,
+    agree_conduct,
+    share_info,
+    receive_emails,
+    share_resume
+  } = req.body;
+
+  let resume_url = null;
+  if (req.file) {
+    resume_url = `http://localhost:5001/uploads/${req.file.filename}`;
+  }
+
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    // Insert application into the database
+    const newApplication = await pool.query(
+      `INSERT INTO applications (
+        user_id, first_name, last_name, email, age, gender, pronouns, race, school, major, 
+        level_of_study, country_of_residence, question1, question2, tshirt_size, dietary_restrictions, 
+        agree_conduct, share_info, receive_emails, resume_url, share_resume
+      ) VALUES (
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21
+      ) RETURNING *`,
+      [
+        decoded.id, first_name, last_name, email, age, gender, pronouns, race, school, major,
+        level_of_study, country_of_residence, question1, question2, tshirt_size, dietary_restrictions,
+        agree_conduct, share_info, receive_emails, resume_url, share_resume
+      ]
+    );
+
+    res.status(201).json({ message: "Application submitted", application: newApplication.rows[0] });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 app.get('/dashboard', async (req, res) => {
@@ -181,34 +202,6 @@ app.get('/dashboard', async (req, res) => {
     res.status(500).json({ message: 'Failed to load dashboard' });
   }
 });
-
-
-
-
-
-const multer = require('multer');
-const path = require('path');
-
-// Configure multer
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/');  // Directory to save resumes
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // Save files with unique names
-  }
-});
-
-const upload = multer({ storage: storage });
-
-// Resume upload route
-app.post('/upload-resume', upload.single('resume'), (req, res) => {
-  try {
-    res.status(200).json({ resume_url: `/uploads/${req.file.filename}` });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});  
 
 // Configure nodemailer
 const transporter = nodemailer.createTransport({
@@ -252,7 +245,6 @@ app.post('/forgot-password', async (req, res) => {
   }
 });
 
-
 app.post('/reset-password/:token', async (req, res) => {
   const { token } = req.params;
   const { newPassword } = req.body;
@@ -276,7 +268,58 @@ app.post('/reset-password/:token', async (req, res) => {
   }
 });
 
+app.post('/submit-application', async (req, res) => {
+  const token = req.headers.authorization.split(" ")[1];
+  if (!token) return res.status(401).json({ message: "No token provided" });
 
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const userId = decoded.id;
+
+    const {
+      first_name,
+      last_name,
+      email,
+      age,
+      gender,
+      pronouns,
+      race,
+      school,
+      major,
+      level_of_study,
+      country_of_residence,
+      question1,
+      question2,
+      tshirt_size,
+      dietary_restrictions,
+      agree_conduct,
+      share_info,
+      receive_emails,
+      share_resume
+    } = req.body;
+
+    // Insert application into the database
+    const newApplication = await pool.query(
+      `INSERT INTO applications (
+        user_id, first_name, last_name, email, age, gender, pronouns, race, school, major, 
+        level_of_study, country_of_residence, question1, question2, tshirt_size, dietary_restrictions, 
+        agree_conduct, share_info, receive_emails, share_resume
+      ) VALUES (
+        $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20
+      ) RETURNING *`,
+      [
+        userId, first_name, last_name, email, age, gender, pronouns, race, school, major,
+        level_of_study, country_of_residence, question1, question2, tshirt_size, 
+        dietary_restrictions.join(','), agree_conduct, share_info, receive_emails, share_resume
+      ]
+    );
+
+    res.status(201).json({ message: "Application submitted successfully", application: newApplication.rows[0] });
+  } catch (err) {
+    console.error('Error submitting application:', err);
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // Start the server
 app.listen(port, () => {
