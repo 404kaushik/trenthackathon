@@ -16,6 +16,7 @@ import ApplicationForm3 from "./pages/ApplicationForm3.jsx";
 import ApplicationForm4 from "./pages/ApplicationForm4.jsx";
 import ApplicationSuccess from "./pages/ApplicationSuccess.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
+import BackendPage from "./pages/BackendPage.js";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/application-success" element={<ApplicationSuccess />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route exact path="/backend-test" element={<BackendPage />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/dashboard"
