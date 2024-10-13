@@ -16,7 +16,7 @@ import ApplicationForm3 from "./pages/ApplicationForm3.jsx";
 import ApplicationForm4 from "./pages/ApplicationForm4.jsx";
 import ApplicationSuccess from "./pages/ApplicationSuccess.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
-import BackendPage from "./pages/BackendPage.js";
+import BackendPage from "./pages/BackendPage.jsx";
 
 
 function App() {
