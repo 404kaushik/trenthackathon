@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(cors({
-  origin: 'https://hacktrent.ca/', // or '*'
+  origin: 'www.hacktrent.ca', // or '*'
   credentials: true,
 }));
 
