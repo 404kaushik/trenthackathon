@@ -22,7 +22,7 @@ function Dashboard() {
       }
     
       try {
-        const response = await fetch('http://localhost:5001/dashboard', {
+        const response = await fetch('https://trenthackathon-backend.onrender.com/dashboard', {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

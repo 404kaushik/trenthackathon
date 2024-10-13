@@ -46,7 +46,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch('http://localhost:5001/register', {
+      const response = await fetch('https://trenthackathon-backend.onrender.com/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
