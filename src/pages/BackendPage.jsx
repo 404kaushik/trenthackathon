@@ -5,7 +5,7 @@ const BackendPage = () => {
 
   useEffect(() => {
     // Fetch data from the backend
-    const backendUrl = 'https://trenthackathon-backend.onrender.com/';
+    const backendUrl = 'https://trenthackathon-backend.onrender.com';
     
     fetch(`${backendUrl}/api/test`)
       .then(response => response.json())
