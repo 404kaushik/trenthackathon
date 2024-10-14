@@ -154,7 +154,7 @@ const ApplicationForm3 = () => {
                   onChange={handleInputChange}
                   className="h-4 w-4 text-blue-600 border-gray-300 rounded" 
                 />
-                <span>I agree to the <a href="#" className="text-blue-600 underline">MLH Code of Conduct</a></span>
+                <span>I have read and agree to the <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" className="text-blue-600 underline">MLH Code of Conduct</a></span>
               </label>
 
               <label className="flex items-center space-x-2">
@@ -165,7 +165,18 @@ const ApplicationForm3 = () => {
                   onChange={handleInputChange}
                   className="h-4 w-4 text-blue-600 border-gray-300 rounded" 
                 />
-                <span>I consent to sharing my info with Major League Hacking</span>
+                <span>I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the <a href='https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md' className="text-blue-600 underline">MLH Privacy Policy.</a></span>
+              </label>
+
+              <label className="flex items-center space-x-2">
+                <input 
+                  type="checkbox" 
+                  name="share_info"
+                  checked={formData.share_info}
+                  onChange={handleInputChange}
+                  className="h-4 w-4 text-blue-600 border-gray-300 rounded" 
+                />
+                <span>I further agree to the terms of both the <a href='https://github.com/MLH/mlh-policies/blob/main/contest-terms.md' className="text-blue-600 underline">MLH Contest Terms and Conditions </a> and the <a href='https://github.com/MLH/mlh-policies/blob/main/privacy-policy.md' className="text-blue-600 underline">MLH Privacy Policy</a></span>
               </label>
 
               <label className="flex items-center space-x-2">
@@ -176,7 +187,7 @@ const ApplicationForm3 = () => {
                   onChange={handleInputChange}
                   className="h-4 w-4 text-blue-600 border-gray-300 rounded" 
                 />
-                <span>I agree to receive emails from Major League Hacking</span>
+                <span>I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements.</span>
               </label>
             </div>
 

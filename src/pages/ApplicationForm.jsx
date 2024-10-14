@@ -18,9 +18,11 @@ function ApplicationForm() {
       major: '',
       level_of_study: '',
       country_of_residence: '',
+      phonenumber: '',
     };
   });
 
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   // Debounced save function
@@ -31,6 +33,42 @@ function ApplicationForm() {
     }, 500),
     []
   );
+
+   // Validation function to check if all fields are filled
+   const validateForm = () => {
+    const {
+      first_name,
+      last_name,
+      email,
+      age,
+      gender,
+      pronouns,
+      race,
+      school,
+      major,
+      level_of_study,
+      country_of_residence,
+      phonenumber,
+    } = formData;
+
+    if (
+      !first_name || 
+      !last_name || 
+      !email || 
+      !age || 
+      !gender || 
+      !pronouns || 
+      !race || 
+      !school || 
+      !major || 
+      !level_of_study || 
+      !country_of_residence || 
+      !phonenumber
+    ) {
+      return false;
+    }
+    return true;
+  };
 
   // Effect for autosave
   useEffect(() => {
@@ -43,7 +81,12 @@ function ApplicationForm() {
 
   const handleNext = (e) => {
     e.preventDefault();
-    navigate('/application-2');
+    if (validateForm()) {
+      setError(''); // Clear any previous errors
+      navigate('/application-2');
+    } else {
+      setError('Please fill out all fields before proceeding.');
+    }
   }
 
   return (
@@ -105,6 +148,19 @@ function ApplicationForm() {
               />
             </div>
 
+            {/* Phone Number */}
+            <div>
+              <input 
+                type="tel" 
+                name="phonenumber"  // Added phonenumber input field
+                value={formData.phonenumber}
+                onChange={handleChange}
+                placeholder="Phone Number" 
+                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                required
+              />
+            </div>
+
             {/* Age */}
             <div>
               <select 
@@ -160,24 +216,65 @@ function ApplicationForm() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
               >
-                <option>Select Race</option>
+                <option value="">Select Race</option>
                 <option value="Asian">Asian</option>
-                <option value="Black">Black</option>
-                <option value="White">White</option>
+                <option value="Black or African American">Black or African American</option>
+                <option value="White or Caucasian">White or Caucasian</option>
+                <option value="Hispanic or Latino">Hispanic or Latino</option>
+                <option value="Native American or Alaska Native">Native American or Alaska Native</option>
+                <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+                <option value="Middle Eastern or North African">Middle Eastern or North African</option>
+                <option value="Mixed Race">Mixed Race</option>
+                <option value="Other">Other</option>
+                <option value="Prefer Not to Say">Prefer Not to Say</option>
               </select>
             </div>
 
-            {/* School */}
+
+            {/* School (Canadian Universities) */}
             <div>
-              <input 
-                type="text" 
+              <select 
                 name="school" 
                 value={formData.school}
                 onChange={handleChange}
-                placeholder="Select School" 
                 className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
-              />
+                required
+              >
+                <option value="">Select School</option>
+                <option value="Trent University">Trent University</option>
+                <option value="University of Toronto">University of Toronto</option>
+                <option value="McGill University">McGill University</option>
+                <option value="University of British Columbia">University of British Columbia</option>
+                <option value="University of Alberta">University of Alberta</option>
+                <option value="University of Calgary">University of Calgary</option>
+                <option value="University of Ottawa">University of Ottawa</option>
+                <option value="Western University">Western University</option>
+                <option value="Queen's University">Queen's University</option>
+                <option value="University of Waterloo">University of Waterloo</option>
+                <option value="York University">York University</option>
+                <option value="Simon Fraser University">Simon Fraser University</option>
+                <option value="Dalhousie University">Dalhousie University</option>
+                <option value="University of Victoria">University of Victoria</option>
+                <option value="Carleton University">Carleton University</option>
+                <option value="Concordia University">Concordia University</option>
+                <option value="Université de Montréal">Université de Montréal</option>
+                <option value="Université Laval">Université Laval</option>
+                <option value="Brock University">Brock University</option>
+                <option value="University of Manitoba">University of Manitoba</option>
+                <option value="University of Saskatchewan">University of Saskatchewan</option>
+                <option value="Memorial University of Newfoundland">Memorial University of Newfoundland</option>
+                <option value="Ryerson University (Toronto Metropolitan University)">Ryerson University (Toronto Metropolitan University)</option>
+                <option value="Université du Québec à Montréal (UQAM)">Université du Québec à Montréal (UQAM)</option>
+                <option value="Université de Sherbrooke">Université de Sherbrooke</option>
+                <option value="Wilfrid Laurier University">Wilfrid Laurier University</option>
+                <option value="University of New Brunswick">University of New Brunswick</option>
+                <option value="University of Guelph">University of Guelph</option>
+                <option value="McMaster University">McMaster University</option>
+                <option value="Mount Allison University">Mount Allison University</option>
+                <option value="St. Francis Xavier University">St. Francis Xavier University</option>
+              </select>
             </div>
+
 
             {/* Major/Field */}
             <div>
@@ -216,16 +313,19 @@ function ApplicationForm() {
                 className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
               />
             </div>
-            {/* Next Button */}
+
+            {/* Display error message */}
+            {error && <p className="text-red-500">{error}</p>}
+
+
+            {/* Next Button */}            
             <div className="text-right">
-              <a href="/application-2">
-                <button 
-                  type="submit" 
-                  className="bg-gray-800 text-white px-6 py-2 rounded-md"
-                >
-                  Next
-                </button>
-              </a>
+              <button 
+                type="submit" 
+                className="bg-gray-800 text-white px-6 py-2 rounded-md"
+              >
+                Next
+              </button>
             </div>
           </div>
         </form>

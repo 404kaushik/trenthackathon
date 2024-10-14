@@ -12,6 +12,8 @@ function ApplicationForm2() {
         };
     });
 
+
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const debouncedSave = useCallback(
@@ -26,6 +28,22 @@ function ApplicationForm2() {
         debouncedSave(formData);
     }, [formData, debouncedSave]);
 
+    // Validation function to check if all fields are filled
+    const validateForm = () => {
+        const {
+        question1,
+        question2,
+        } = formData;
+
+        if (
+            !question1||
+            !question2
+        ) {
+        return false;
+        }
+        return true;
+    };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (value.length <= 1000) {
@@ -35,8 +53,12 @@ function ApplicationForm2() {
     
     const handleNext = (e) => {
         e.preventDefault();
-        localStorage.setItem('applicationStep2', JSON.stringify(formData));
-        navigate('/application-3');
+        if (validateForm()) {
+            setError(''); // Clear any previous errors
+            navigate('/application-3');
+        } else {
+            setError('Please fill out all fields before proceeding.');
+        }
     }
 
   return (
@@ -105,16 +127,16 @@ function ApplicationForm2() {
                                 </button>
                             </a>
                         </div>
+                        {/* Display error message */}
+                        {error && <p className="text-red-500">{error}</p>}
                         {/* Next Button */}
                         <div className="text-right">
-                            <a href="/application-3">
-                                <button 
-                                    type="submit" 
-                                    className="bg-gray-800 text-white px-6 py-2 rounded-md"
-                                >
-                                    Next
-                                </button>
-                            </a>
+                            <button 
+                                type="submit" 
+                                className="bg-gray-800 text-white px-6 py-2 rounded-md"
+                            >
+                                Next
+                            </button>
                         </div>
                     </div>
                 </div>

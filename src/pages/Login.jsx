@@ -35,30 +35,42 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    // Determine the base URL based on the environment (development or production)
+    const baseUrl = window.location.hostname === 'localhost'
+      ? 'http://localhost:5001'
+      : 'https://trenthackathon-backend.onrender.com';
+  
+    // Get the token from localStorage (if it exists)
+    const token = localStorage.getItem('token');
+  
     try {
-      const response = await fetch('https://trenthackathon-backend.onrender.com/login', {
+      const response = await fetch(`${baseUrl}/login`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Authorization': token ? `Bearer ${token}` : '',  // Only include token if it exists
+          'Content-Type': 'application/json' 
+        },
         body: JSON.stringify(formData),
       });
-
+  
       if (!response.ok) {
         throw new Error('Login failed');
       }
-
+  
       const data = await response.json();
-
+  
       // Save token in localStorage (assuming the backend returns a JWT token)
       localStorage.setItem('token', data.token);
-
+  
       // Redirect to dashboard
-      navigate('/dashboard');  // Redirect to dashboard
+      navigate('/dashboard');
     } catch (error) {
       console.error(error);
       setError('Login failed. Please check your credentials.');
     }
   };
+  
 
   return (
     <div className="custom-gradient">

@@ -89,6 +89,15 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
+            {/* Conditionally render the Dashboard button if the user is logged in */}
+            {isLoggedIn && (
+              <button
+                onClick={() => navigate('/dashboard')}
+                className="text-black font-semibold bg-[#f9f5e3] md:hover:bg-orange-400 md:hover:text-white hover:bg-blue-700 px-4 py-2 rounded transition duration-300 ease-in-out transform hover:scale-105"
+              >
+                Dashboard
+              </button>
+            )}
             <button
               onClick={handleAuthButtonClick}
               className="text-black font-semibold bg-[#f9f5e3] md:hover:bg-orange-400 md:hover:text-white hover:bg-blue-700 px-4 py-2 rounded transition duration-300 ease-in-out transform hover:scale-105"
