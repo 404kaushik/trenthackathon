@@ -25,7 +25,7 @@ function Login() {
     if (isLoggedIn) {
       // Logout
       localStorage.removeItem('token');
-      setIsLoggedIn(false);
+      setIsLoggedIn(true);
       navigate('/login');
     } else {
       // Navigate to login

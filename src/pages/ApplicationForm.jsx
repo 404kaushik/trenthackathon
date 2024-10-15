@@ -106,9 +106,12 @@ function ApplicationForm() {
         {/* Form Title */}
         <h2 className="text-center text-5xl font-semibold font-space-mono text-gray-700 mb-8">General Information</h2>
 
+
         {/* Form */}
         <form onSubmit={handleNext}>
           <div className="space-y-6">
+
+
             {/* First Name */}
             <div>
               <input 
@@ -121,6 +124,7 @@ function ApplicationForm() {
                 required
               />
             </div>
+
 
             {/* Last Name */}
             <div>
@@ -135,6 +139,7 @@ function ApplicationForm() {
               />
             </div>
 
+
             {/* Email */}
             <div>
               <input 
@@ -148,6 +153,7 @@ function ApplicationForm() {
               />
             </div>
 
+
             {/* Phone Number */}
             <div>
               <input 
@@ -160,6 +166,7 @@ function ApplicationForm() {
                 required
               />
             </div>
+
 
             {/* Age */}
             <div>
@@ -177,6 +184,7 @@ function ApplicationForm() {
               </select>
             </div>
 
+
             {/* Gender */}
             <div>
               <select 
@@ -193,6 +201,7 @@ function ApplicationForm() {
               </select>
             </div>
 
+
             {/* Pronouns */}
             <div>
               <select 
@@ -207,6 +216,7 @@ function ApplicationForm() {
                 <option value="They/Them">They/Them</option>
               </select>
             </div>
+
 
             {/* Race */}
             <div>
@@ -283,10 +293,11 @@ function ApplicationForm() {
                 name="major" 
                 value={formData.major}
                 onChange={handleChange}
-                placeholder="Select Major/Field" 
+                placeholder="Major/Field" 
                 className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
               />
             </div>
+
 
             {/* Level of Study */}
             <div>
@@ -299,8 +310,11 @@ function ApplicationForm() {
                 <option>Select Level of Study</option>
                 <option value="Undergraduate">Undergraduate</option>
                 <option value="Graduate">Graduate</option>
+                
+
               </select>
             </div>
+
 
             {/* Country of Residence */}
             <div>
@@ -313,6 +327,7 @@ function ApplicationForm() {
                 className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
               />
             </div>
+            
 
             {/* Display error message */}
             {error && <p className="text-red-500">{error}</p>}
