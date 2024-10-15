@@ -54,11 +54,19 @@ const Header = () => {
 
   const handleScroll = (e, href) => {
     e.preventDefault();
+    
     const targetElement = document.querySelector(href);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      const headerHeight = document.querySelector('nav').offsetHeight; // Get the header's height dynamically
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; // Calculate the element's position relative to the document
+  
+      window.scrollTo({
+        top: elementPosition - headerHeight, // Scroll to the element minus the header's height
+        behavior: 'smooth', // Smooth scroll behavior
+      });
     }
   };
+  
 
   return (
     <nav className="bg-[#1C1D21] dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b-2 border-gray-200 dark:border-gray-600">

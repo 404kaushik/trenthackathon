@@ -162,16 +162,16 @@ function Dashboard() {
             </p>
             <h3 className="text-2xl font-bold mb-4 font-poppins">Our Socials</h3>
             <div className="flex justify-center space-x-6">
-              <a href="https://www.instagram.com/hacktrent/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/hacktrentu/" target="_blank" rel="noopener noreferrer">
                 <img src={InstagramLogo} alt="Instagram" className="w-24 h-16 text-black" />
               </a>
-              <a href="https://www.linkedin.com/company/hacktrent/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/hack-trent/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
                 <img src={linkedin} alt="LinkedIn" className="w-24 h-16 text-black" />
               </a>
-              <a href="https://discord.gg/hacktrent" target="_blank" rel="noopener noreferrer">
+              <a href="https://discord.gg/XwhG9KVY" target="_blank" rel="noopener noreferrer">
                 <img src={discord} alt="Discord" className="w-24 h-16 text-black" />
               </a>
-              <a href="https://github.com/hacktrent" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/orgs/Trent-Computer-Science-Club-Association/dashboard" target="_blank" rel="noopener noreferrer">
                 <img src={github} alt="GitHub" className="w-24 h-16 text-black" />
               </a>
             </div>
