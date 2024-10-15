@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Stars from '../pages/Stars';
+import PinkClouds from '../assets/pink-cloud.png';
+import '../App.css';
 function Register() {
   const [formData, setFormData] = useState({
     name: '',
@@ -75,7 +77,7 @@ function Register() {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <Stars starCount={1000} />
-      <form onSubmit={handleSubmit} className="bg-[#f9f5e3] p-8 rounded-[16px] shadow-md max-w-md w-full space-y-4 md:mt-12 relative">
+      <form onSubmit={handleSubmit} className="bg-[#f9f5e3] p-8 z-10 rounded-[16px] shadow-md max-w-md w-full space-y-4 md:mt-12 relative">
         <h2 className="text-3xl font-bold mb-6 text-center font-potta-one">Register</h2>
 
         {errors.form && <div className="text-red-500 mb-4">{errors.form}</div>}
@@ -135,6 +137,9 @@ function Register() {
 
         <button type="submit" className="w-full bg-gray-500 font-semibold text-white py-2 rounded-md md:hover:bg-orange-400 md:hover:font-semibold">Register</button>
       </form>
+      <div className='galaxy-path cover'>
+        <img src={PinkClouds} className='absolute z-10 -bottom-[1rem]'/>
+      </div>
     </div>
   );
 }

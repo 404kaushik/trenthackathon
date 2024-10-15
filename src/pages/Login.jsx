@@ -4,7 +4,8 @@ import Header from '../components/Header';
 import logo from '../assets/logo2.png';
 import ScrollReveal from '../components/ScrollReveal';
 import Stars from './Stars';
-
+import PinkClouds from '../assets/pink-cloud.png';
+import '../App.css';
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -74,28 +75,28 @@ function Login() {
 
   return (
     <div className="custom-gradient">
-      <nav className="bg-[#1C1D21] dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b-2 border-gray-200 dark:border-gray-600">
-      <ScrollReveal>
-        <div className="w-screen flex items-center justify-between mx-auto p-6 box-border">
-          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src={logo} className="h-16 object-cover hover:-translate-y-1 hover:scale-110 transition duration-300 ease-in-out" alt="HackTrent Logo" />
-          </a>
-          <div className="flex-grow flex items-center justify-center">
-          
+      <nav className="bg-[#1C1D21]dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b-2 border-gray-200 dark:border-gray-600">
+        <ScrollReveal>
+          <div className="w-screen flex items-center justify-between mx-auto p-6 box-border">
+            <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+              <img src={logo} className="h-16 object-cover hover:-translate-y-1 hover:scale-110 transition duration-300 ease-in-out" alt="HackTrent Logo" />
+            </a>
+            <div className="flex-grow flex items-center justify-center">
+            
+            </div>
+            <div className="flex items-center space-x-3 rtl:space-x-reverse">
+              <button
+                onClick={handleAuthButtonClick}
+                className="text-black font-semibold bg-[#f9f5e3] md:hover:bg-orange-400 md:hover:text-white hover:bg-blue-700 px-4 py-2 rounded transition duration-300 ease-in-out transform hover:scale-105"
+              >
+                {isLoggedIn ? 'Logout' : 'Login'}
+              </button>
+            </div>
           </div>
-          <div className="flex items-center space-x-3 rtl:space-x-reverse">
-            <button
-              onClick={handleAuthButtonClick}
-              className="text-black font-semibold bg-[#f9f5e3] md:hover:bg-orange-400 md:hover:text-white hover:bg-blue-700 px-4 py-2 rounded transition duration-300 ease-in-out transform hover:scale-105"
-            >
-              {isLoggedIn ? 'Logout' : 'Login'}
-            </button>
-          </div>
-        </div>
-      </ScrollReveal>
-    </nav>
-    <Stars starCount={1000} /> 
-      <div className="custom-gradient min-h-screen flex items-center justify-center relative">
+        </ScrollReveal>
+      </nav>
+      <Stars starCount={1000} /> 
+      <div className="custom-gradient min-h-screen flex items-center justify-center relative z-10">
         <form onSubmit={handleSubmit} className="bg-[#f9f5e3] p-8 rounded-[16px] shadow-md max-w-md w-full">
           <h2 className="text-3xl font-bold mb-6 text-center font-potta-one ">Login</h2>
 
@@ -144,6 +145,9 @@ function Login() {
 
           <button type="submit" className="w-full bg-gray-500 font-semibold text-white py-2 rounded-md md:hover:bg-orange-400 md:hover:font-semibold">Login</button>
         </form>
+      </div>
+      <div className='galaxy-path cover'>
+        <img src={PinkClouds} className='absolute z-10 -bottom-[1rem]'/>
       </div>
     </div>
   );

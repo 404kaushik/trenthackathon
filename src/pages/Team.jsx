@@ -130,7 +130,7 @@ function Team() {
 
     window.addEventListener('resize', updateVisibleCategories);
     return () => window.removeEventListener('resize', updateVisibleCategories);
-  }, [categories]);
+  }, []);
 
   const handleSelection = (direction) => {
     const currentIndex = categories.indexOf(activeCategory);
@@ -172,12 +172,13 @@ function Team() {
             onClick={() => handleSelection(-1)}
           />
 
-          <div className="flex space-x-1 sm:space-x-4">
+          <div className="w-full sm:w-auto flex space-x-1 sm:space-x-4">
             {visibleCategories.map((category, index) => (
               <div
                 key={category}
                 className="text-center min-w-[60px] sm:min-w-[100px]"
-                onClick={() => setSectionState({ ...sectionState, activeCategory: category })}
+                // NOTE: this is temporaily disabled due to bugs. Users can just navigate using left and right arrows.
+                // onClick={() => setSectionState({ ...sectionState, activeCategory: category })} 
               >
                 <img
                   src={teamData[category].image}

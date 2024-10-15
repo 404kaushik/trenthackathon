@@ -62,7 +62,7 @@ const LogoSlider = () => {
             key={`${logo.name}-${index}`}
             src={logo.src}
             alt={`${logo.name} Logo`}
-            className="w-36 h-auto object-contain mx-4 inline-block py-4"
+            className="w-36 h-auto object-contain inline-block py-4"
           />
         ))}
       </div>

@@ -89,11 +89,16 @@
   position: absolute; 
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%; 
   background-image: url('./assets/main-galaxy-path.svg'); 
-  background-size: contain ; 
+  background-size: contain;
+  background-repeat: repeat-y; 
   z-index: 1; 
+}
+
+.cover {
+  background-size: cover;
 }
 .stars-bg {
   position: relative; 
