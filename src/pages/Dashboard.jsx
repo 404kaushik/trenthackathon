@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import Stars from './Stars';
 import logo from '../assets/application-logo.png';
 import InstagramLogo from '../assets/black-instagram-icon.svg';
@@ -11,50 +12,88 @@ function Dashboard() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const token = localStorage.getItem('token');
+  const navigate = useNavigate(); // Use navigate to route the user to the application form
+
+  // Function to fetch user data
+  const fetchUserData = async () => {
+    const token = localStorage.getItem('token');
+
+    const baseUrl = window.location.hostname === 'localhost'
+      ? 'http://localhost:5001'
+      : 'https://trenthackathon-backend.onrender.com';
     
-      if (!token) {
-        setError('Unauthorized access. Please log in.');
+    if (!token) {
+      setError('Unauthorized access. Please log in.');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(`${baseUrl}/dashboard`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.status === 401) {
+        localStorage.removeItem('token');
+        setError('Session expired. Please log in again.');
         setLoading(false);
         return;
       }
-    
-      try {
-        const response = await fetch('https://trenthackathon-backend.onrender.com/dashboard', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-    
-        if (response.status === 401) {
-          // Token has expired or is invalid
-          localStorage.removeItem('token');
-          setError('Session expired. Please log in again.');
-          setLoading(false);
-          return;
-        }
-    
-        if (!response.ok) {
-          throw new Error('Failed to fetch user data');
-        }
-    
-        const data = await response.json();
-        setUserData(data.user);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setError('Failed to load dashboard');
-        setLoading(false);
-      }
-    };    
-    
 
+      if (!response.ok) {
+        throw new Error('Failed to fetch user data');
+      }
+
+      const data = await response.json();
+      setUserData(data.user);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setError('Failed to load dashboard');
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchUserData();
   }, []);
+
+  // Function to handle application submission
+  const handleSubmitApplication = async () => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await fetch('https://trenthackathon-backend.onrender.com/submit-application', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit application');
+      }
+
+      const data = await response.json();
+      alert(data.message);
+      
+      // Re-fetch user data to get the updated application status
+      fetchUserData();
+    } catch (error) {
+      console.error(error);
+      setError('Failed to submit application');
+    }
+  };
+
+  // Navigate to the application form
+  const handleApplyNowClick = () => {
+    navigate('/application'); // Assuming /application-form is the route for your form
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -62,6 +101,9 @@ function Dashboard() {
   if (error) {
     return <div className="text-red-500">{error}</div>;
   }
+
+  // Set the default application status to "Not Started" if there's no status
+  const applicationStatus = userData.application_status || 'Not Started';
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white mt-16">
@@ -82,16 +124,33 @@ function Dashboard() {
           <div className="bg-[#f9f5e3] rounded-[50px] p-6 col-span-2 text-black">
             <h3 className="text-5xl font-bold mb-2 font-space-mono">Current Application Status</h3>
             <p className="text-3xl font-bold font-poppins">
-              Status: <span className={userData.applicationStatus === 'Accepted' ? 'text-green-500' : 'text-orange-500'}>
-                {userData.applicationStatus || 'Not started'}
-              </span>
+              Status: <span className={
+                          applicationStatus === 'In Review'
+                            ? 'text-yellow-500'
+                            : applicationStatus === 'Accepted'
+                            ? 'text-green-500'
+                            : 'text-orange-500'
+                        }>
+                          {applicationStatus}
+                        </span>
             </p>
             <p className="text-gray-800 mt-2 font-poppins"><span className="font-bold">Application Due Date:</span> November 1, 2024</p>
-            <a href="/application">
-              <button className="mt-4 bg-purple-600 px-4 py-2 rounded-[12px] text-white font-semibold font-poppins hover:bg-orange-700 transition-colors duration-100">
+            
+            {applicationStatus === 'In Review' || applicationStatus === 'Accepted' ? (              
+              <button 
+                disabled
+                className="mt-4 bg-gray-500 px-4 py-2 rounded-[12px] text-white font-semibold font-poppins cursor-not-allowed"
+              >
+                Application Submitted
+              </button>              
+            ) : (
+              <button 
+                onClick={handleApplyNowClick}
+                className="mt-4 bg-purple-600 px-4 py-2 rounded-[12px] text-white font-semibold font-poppins hover:bg-orange-700 transition-colors duration-100"
+              >
                 Apply Now
               </button>
-            </a>
+            )}
           </div>
 
           {/* Welcome Section */}
@@ -115,7 +174,6 @@ function Dashboard() {
               <a href="https://github.com/hacktrent" target="_blank" rel="noopener noreferrer">
                 <img src={github} alt="GitHub" className="w-24 h-16 text-black" />
               </a>
-              {/* Add social media icons/links here */}
             </div>
           </div>
         </div>

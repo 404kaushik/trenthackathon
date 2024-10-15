@@ -16,7 +16,7 @@ const ApplicationSuccess = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="bg-[#f9f5e3] rounded-xl shadow-lg p-10 w-full max-w-2xl text-center">
+      <div className="bg-[#f9f5e3] rounded-xl shadow-lg p-10 w-full max-w-2xl text-center mt-32">
         <h2 className="text-5xl font-space-mono font-bold text-gray-800 mb-6">
           Application Submitted!
         </h2>

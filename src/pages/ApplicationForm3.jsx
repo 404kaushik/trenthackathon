@@ -14,6 +14,7 @@ const ApplicationForm3 = () => {
       share_info: false,
       receive_emails: false,
       share_resume: false,
+      resume_url: '',
     };
   });
   const [resume, setResume] = useState(null);
@@ -36,6 +37,15 @@ const ApplicationForm3 = () => {
     setFormData(prevData => ({
       ...prevData,
       [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  // Handle resume URL change
+  const handleResumeUrlChange = (e) => {
+    const { value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      resume_url: value
     }));
   };
 
@@ -108,7 +118,7 @@ const ApplicationForm3 = () => {
               <div className="bg-[#f9f5e3] border-black border-2 h-5 w-80"></div>
             </div>
           </div>
-          <h2 className="text-4xl font-space-mono font-bold text-gray-800 mb-6">Event Logistics</h2>
+          <h2 className="text-4xl font-space-mono text-center font-bold text-gray-800 mb-6">Event Logistics</h2>
           <div className="space-y-4">
             {/* T-Shirt Size Dropdown */}
             <div>
@@ -191,13 +201,17 @@ const ApplicationForm3 = () => {
               </label>
             </div>
 
-            {/* Resume Upload */}
-            <div className="border border-gray-300 rounded-md p-4">
-              <label className="block text-gray-700 font-semibold">Upload Resume</label>
-              <input
-                type="file"
-                onChange={handleResumeUpload}
-                className="w-full text-gray-700 mt-2"
+            {/* Resume URL Input */}
+            <div>
+              <label className="block text-gray-700 font-poppins font-semibold">Resume (Google Drive URL)</label>
+              <input 
+                type="text" 
+                name="resume_url" 
+                value={formData.resume_url}
+                onChange={handleResumeUrlChange}  // Update the handler
+                placeholder="Please share resume URL" 
+                className="w-full px-4 py-3 rounded-md bg-white text-black border focus:ring-blue-200"
+                required
               />
             </div>
 

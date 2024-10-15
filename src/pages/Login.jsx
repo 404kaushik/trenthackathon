@@ -127,7 +127,7 @@ function Login() {
           <div className="text-right mb-6">
             <a
               href="/forgot-password"
-              className="text-sm font-semibold text-blue-500 hover:underline"
+              className="text-sm font-semibold text-gray-900 hover:text-blue-500 underline"
             >
               Forgot Password?
             </a>
@@ -136,7 +136,7 @@ function Login() {
           <div className="">
             <a
               href="/register"
-              className="text-sm font-semibold text-gray-900 hover:underline"
+              className="text-sm font-semibold text-gray-900 underline hover:text-blue-500"
             >
               Don't have an account?
             </a>

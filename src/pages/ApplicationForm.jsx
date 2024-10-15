@@ -120,7 +120,7 @@ function ApplicationForm() {
                 value={formData.first_name}
                 onChange={handleChange}
                 placeholder="First Name" 
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
                 required
               />
             </div>
@@ -134,7 +134,7 @@ function ApplicationForm() {
                 value={formData.last_name}
                 onChange={handleChange}
                 placeholder="Last Name" 
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
                 required
               />
             </div>
@@ -148,7 +148,7 @@ function ApplicationForm() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address" 
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
                 required
               />
             </div>
@@ -161,8 +161,8 @@ function ApplicationForm() {
                 name="phonenumber"  // Added phonenumber input field
                 value={formData.phonenumber}
                 onChange={handleChange}
-                placeholder="Phone Number" 
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                placeholder="+1(---)-(---)-(----)" 
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
                 required
               />
             </div>
@@ -174,7 +174,7 @@ function ApplicationForm() {
                 name="age" 
                 value={formData.age}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
                 required
               >
                 <option>Select Age</option>
@@ -191,13 +191,14 @@ function ApplicationForm() {
                 name="gender" 
                 value={formData.gender}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
                 required
               >
                 <option>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
+                <option value="Choose Not To Say">Choose Not To Say</option>
               </select>
             </div>
 
@@ -208,12 +209,14 @@ function ApplicationForm() {
                 name="pronouns" 
                 value={formData.pronouns}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
               >
                 <option>Select Pronouns</option>
                 <option value="He/Him">He/Him</option>
                 <option value="She/Her">She/Her</option>
                 <option value="They/Them">They/Them</option>
+                <option value="He/They">He/They</option>
+                <option value="She/They">She/They</option>
               </select>
             </div>
 
@@ -224,7 +227,7 @@ function ApplicationForm() {
                 name="race" 
                 value={formData.race}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
               >
                 <option value="">Select Race</option>
                 <option value="Asian">Asian</option>
@@ -247,7 +250,7 @@ function ApplicationForm() {
                 name="school" 
                 value={formData.school}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
                 required
               >
                 <option value="">Select School</option>
@@ -282,6 +285,7 @@ function ApplicationForm() {
                 <option value="McMaster University">McMaster University</option>
                 <option value="Mount Allison University">Mount Allison University</option>
                 <option value="St. Francis Xavier University">St. Francis Xavier University</option>
+                <option value="Other">Other</option>
               </select>
             </div>
 
@@ -294,7 +298,7 @@ function ApplicationForm() {
                 value={formData.major}
                 onChange={handleChange}
                 placeholder="Major/Field" 
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
               />
             </div>
 
@@ -305,15 +309,21 @@ function ApplicationForm() {
                 name="level_of_study" 
                 value={formData.level_of_study}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
               >
                 <option>Select Level of Study</option>
                 <option value="Undergraduate">Undergraduate</option>
                 <option value="Graduate">Graduate</option>
-                
-
+                <option value="Diploma">Diploma</option>
+                <option value="Certificate">Certificate</option>
+                <option value="Doctoral">Doctoral</option>
+                <option value="Postdoctoral">Postdoctoral</option>
+                <option value="High School">High School</option>
+                <option value="Professional Development">Professional Development</option>
+                <option value="Continuing Education">Continuing Education</option>
               </select>
             </div>
+
 
 
             {/* Country of Residence */}
@@ -324,7 +334,7 @@ function ApplicationForm() {
                 value={formData.country_of_residence}
                 onChange={handleChange}
                 placeholder="Select Country of Residence" 
-                className="w-full px-4 py-3 rounded-md bg-white border focus:outline-none"
+                className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
               />
             </div>
             

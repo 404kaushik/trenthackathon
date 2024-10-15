@@ -22,21 +22,41 @@ const ApplicationForm4 = () => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
+  
+    // Validate formData (example: make sure critical fields are filled)
+    if (!formData.first_name || !formData.last_name || !formData.email) {
+      setError('Please fill in all the required fields.');
+      setLoading(false);
+      return;
+    }
+  
+    // Determine the base URL based on the environment (development or production)
+    const baseUrl = window.location.hostname === 'localhost'
+      ? 'http://localhost:5001'
+      : 'https://trenthackathon-backend.onrender.com';
+  
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:5001/submit-application', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+      const response = await fetch(`${baseUrl}/submit-application`, {
+        method: 'POST',
+        headers: { 
+          'Authorization': token ? `Bearer ${token}` : '',  // Include 'Bearer ' before the token
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(formData),
       });
-
-      console.log(response.data);
+  
+      const data = await response.json();  // Parse the response
+  
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to submit application.');
+      }
+  
       // Clear application data from localStorage
       localStorage.removeItem('applicationStep1');
       localStorage.removeItem('applicationStep2');
       localStorage.removeItem('applicationStep3');
+  
       // Navigate to a success page
       navigate('/application-success');
     } catch (error) {
@@ -46,6 +66,7 @@ const ApplicationForm4 = () => {
       setLoading(false);
     }
   };
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -53,7 +74,7 @@ const ApplicationForm4 = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="bg-[#f9f5e3] rounded-xl shadow-lg p-10 w-full max-w-4xl">
+      <div className="bg-[#f9f5e3] rounded-xl shadow-lg p-10 w-full max-w-4xl mt-36">
         <h2 className="text-4xl font-space-mono font-bold text-gray-800 mb-6 text-center">Review Your Application</h2>
         
         {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">{error}</div>}
@@ -86,10 +107,11 @@ const ApplicationForm4 = () => {
           <section>
             <h3 className="text-2xl font-semibold mb-2">Event Logistics</h3>
             <p><strong>T-Shirt Size:</strong> {formData.tshirt_size}</p>
-            <p><strong>Dietary Restrictions:</strong> {formData.dietary_restrictions.join(', ') || 'None'}</p>
+            <p><strong>Dietary Restrictions:</strong> {formData.dietary_restrictions || 'None'}</p>
             <p><strong>Agree to Code of Conduct:</strong> {formData.agree_conduct ? 'Yes' : 'No'}</p>
             <p><strong>Share Info with MLH:</strong> {formData.share_info ? 'Yes' : 'No'}</p>
             <p><strong>Receive Emails from MLH:</strong> {formData.receive_emails ? 'Yes' : 'No'}</p>
+            <p><strong>Resume URL:</strong> {formData.resume_url ?  'Yes' : 'None'}</p>
             <p><strong>Share Resume with Recruiters:</strong> {formData.share_resume ? 'Yes' : 'No'}</p>
           </section>
         </div>
