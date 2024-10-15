@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(160deg, #210535 36.42%, #102542 46.27%, #142043 50.71%, #1C1645 60.57%)',
+        'custom-gradient': 'linear-gradient(160deg, #210535 36.42%, #102542 46.27%, #142043 50.71%, #1C1645 60.57%)'
       },
       fontFamily: {
         'varela': ['Varela', 'sans-serif'],
@@ -18,3 +18,4 @@ module.exports = {
   },
   plugins: [],
 }
+
