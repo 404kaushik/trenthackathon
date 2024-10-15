@@ -37,7 +37,7 @@ const ApplicationSuccess = () => {
             Return to Dashboard
           </button>
           <button 
-            onClick={() => window.location.href = 'https://hacktrent.com'}
+            onClick={() => window.location.href = 'https://hacktrent.ca'}
             className="bg-blue-600 text-white px-6 py-3 rounded-md w-full transition duration-300 ease-in-out hover:bg-blue-500"
           >
             Visit HackTrent Website
