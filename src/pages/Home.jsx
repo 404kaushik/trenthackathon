@@ -8,7 +8,6 @@ import GreyPlanet from '../assets/planet4.gif';
 import Asteroid from '../assets/asteroid.gif';
 import PinkClouds from '../assets/pink-cloud.png';
 import OrangeCloud from '../assets/cloud.svg';
-import Galaxy from '../assets/galaxy.svg';
 import Stars from './Stars';
 import '../App.css';
 import {motion, useScroll} from 'framer-motion';
@@ -63,7 +62,7 @@ const { scrollYProgress } = useScroll()
         <img src={Asteroid} alt="" className='absolute max-h-[90px] md:max-h-[150px] -right-52 top-96'
             style={{ transform: `translate(${position.x}%, ${position.y}%)`}}
             />
-        <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] absolute -top-[12rem] md:-top-[12rem] -right-10'/>
+        <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] absolute -top-[12rem] md:-top-[18rem] -right-10'/>
         <motion.div 
           variants={{
             hidden: { opacity: 0, y: 75, scale: 1 }, // Start with opacity 0, y-position 75, and scale 0. for zoom-in
@@ -87,7 +86,7 @@ const { scrollYProgress } = useScroll()
         </motion.div>
       </div>
       <div className='flex w-full'>
-        <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -bottom-[4rem] md:-bottom-[10rem] -left-16 z-10'/>
+        <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -bottom-[4rem] md:-bottom-[3rem] -left-16 z-10'/>
       </div>
 
       <div style={{ position: 'relative', zIndex: 10}}>
