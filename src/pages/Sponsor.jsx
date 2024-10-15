@@ -54,7 +54,7 @@ const LogoSlider = () => {
         Our Sponsors
       </h1>
       <div
-        className="flex overflow-hidden py-4 whitespace-nowrap"
+        className="flex overflow-hidden py-4 whitespace-nowrap gap-5"
         ref={sliderRef}
       >
         {[...logos, ...logos].map((logo, index) => (
