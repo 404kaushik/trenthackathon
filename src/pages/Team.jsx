@@ -22,46 +22,58 @@ import rightArrow from '../assets/right-arrow.png';
 
 
 // Import team member images
-import anshika from '../assets/anshika.webp';
 import aiden from '../assets/Aiden.jpg';
 import riya from '../assets/riya.JPG';
-import kaushik from '../assets/Kaushik.png';
 import fiona from '../assets/fiona_laygo.png';
-import lizi from '../assets/LiziVillas.jpeg';
-import kristy from '../assets/kristy.jpeg';
-import deji from '../assets/Deji.JPG';
-import damiola from '../assets/damilola.jpg';
 import batool from '../assets/Batool.jpg';
 import akash from '../assets/Akash_Bahl.png';
-import swastika from '../assets/SwastikaBansal.jpeg';
+import kaushik from '../assets/Kaushik.png';
+import kristy from '../assets/kristy.jpeg';
+import deji from '../assets/Deji.JPG';
+import lizi from '../assets/LiziVillas.jpeg';
+import damiola from '../assets/damilola.jpg';
+import anshika from '../assets/anshika.webp';
+import swastika from '../assets/swastika_bansal.jpg';
+import krunal from '../assets/Krunal_Patel.jpg';
+import shelmah from '../assets/Shelmah_Chebet.png'
 
 
 const teamData = {
-  Marketing: {
+  Outreach: {
     image: m3,
     members: [
-      { name: 'Fiona Laygo', role: 'Events Lead coordinator & Marketing Team Lead', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
-      { name: 'Damilola', role: 'Outreach', img: damiola, insta: '', linkedin: '', github: '' },
-      { name: 'Swastika Bansal', role: 'Outreach', img: swastika, insta: '', linkedin: '', github: '' },
+      { name: 'Fiona Laygo', role: 'VP of Outreach', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
+      { name: 'Damilola', role: 'Outreach Executive', img: damiola, insta: '', linkedin: '', github: '' },
+      { name: 'Swastika Bansal', role: 'Marketing Executive', img: swastika, insta: 'https://www.instagram.com/swastikaabansal/', github: 'https://github.com/sw-astika', linkedin: 'https://www.linkedin.com/in/swastika-bansal-sk2909/' },
+      { name: 'Aiden Miah', role: 'Outreach Executive', img: aiden, insta: '', linkedin: '', github: '' },
+      { name: 'Riya Jaykar', role: 'Outreach Executive', img: riya, insta: '', linkedin: '', github: '' },
+      { name: 'Akash Bahl', role: 'Outreach Executive', img: akash, insta: '', linkedin: '', github: '' },
+      { name: 'Batool Kazmi', role: 'Outreach Executive', img: batool, insta: '', linkedin: '', github: '' },
+      { name: 'Rony', role: 'Outreach Executive', img: user, insta: '', linkedin: '', github: '' },
     ],
   },
-  Development: {
+  Marketing: {
     image: m4,
     members: [
-      { name: 'XYZ', role: 'Developer', img: user, insta: '', linkedin: '', github: '' },
+      { name: 'Fiona Laygo', role: 'VP of Marketing', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
+      { name: 'Swastika Bansal', role: 'Marketing Executive', img: swastika, insta: 'https://www.instagram.com/swastikaabansal/', github: 'https://github.com/sw-astika', linkedin: 'https://www.linkedin.com/in/swastika-bansal-sk2909/' },
+      { name: 'Neema', role: 'Marketing Executive', img: user, insta: '', github: '', linkedin: '' },
+      { name: 'Rida', role: 'Marketing Executive', img: user, insta: '', github: '', linkedin: '' },
+      { name: 'Tahsin', role: 'Marketing Executive', img: user, insta: '', github: '', linkedin: '' },
     ],
   },
   Design: {
     image: m2,
     members: [
       { name: 'Batool Kazmi', role: 'Lead Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
-      { name: 'Lizi Villas', role: 'Designer', img: lizi, github: '', linkedin: '' },
+      { name: 'Lizi Villas', role: 'Design Executive', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', github: 'https://github.com/lizi-vie', linkedin: 'www.linkedin.com/in/elizabetvillas' },
+      { name: 'Shelmah', role: 'Design Executive', img: shelmah, github: '', linkedin: '' },
     ],
   },
   Leadership: {
     image: m1,
     members: [
-      { name: 'Aiden Miah', role: 'Director and Software Engineer intern @ Scotiabank and President @ TCSCA', img: aiden, insta: 'https://www.instagram.com/_aiden.m_/', linkedin: 'https://www.linkedin.com/in/aidenm/', github: '' },
+      { name: 'Aiden Miah', role: 'Director and President @ TCSCA', img: aiden, insta: 'https://www.instagram.com/_aiden.m_/', linkedin: 'https://www.linkedin.com/in/aidenm/', github: '' },
       { name: 'Riya Jaykar', role: 'Co-Director and President of TCSA', img: riya, insta: 'https://www.instagram.com/tcsawithriya/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
       { name: 'Anshika Gaur', role: 'Co-Director and Vice President of TCSA', img: anshika, insta: '', linkedin: '', github: '' },
     ],
@@ -78,12 +90,14 @@ const teamData = {
     image: m6,
     members: [
       { name: 'Akash Bahl', role: 'VP of Logistics', img: akash, insta: '', linkedin: '', github: '' },
+      { name: 'Krunal Patel', role: 'Logistics Executive', img: krunal, insta: '', linkedin: '', github: '' },
+      { name: 'Dave', role: 'Logistics Executive', img: user, insta: '', linkedin: '', github: '' },
     ],
   },
   Finance: {
     image: m7,
     members: [
-      { name: 'XYZ', role: 'Finance Manager', img: user, insta: '', linkedin: '', github: '' },
+      { name: 'Nitika', role: 'Finance Executive', img: user, insta: '', linkedin: '', github: '' },
     ],
   },
 };
