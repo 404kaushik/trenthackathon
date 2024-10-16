@@ -312,17 +312,18 @@ function ApplicationForm() {
                 className="w-full px-4 py-3 rounded-md bg-white border focus:ring-blue-200"
               >
                 <option>Select Level of Study</option>
-                <option value="Undergraduate">Undergraduate</option>
-                <option value="Graduate">Graduate</option>
+                <option value="High School">High School</option>
                 <option value="Diploma">Diploma</option>
                 <option value="Certificate">Certificate</option>
-                <option value="Doctoral">Doctoral</option>
-                <option value="Postdoctoral">Postdoctoral</option>
-                <option value="High School">High School</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Graduate">Graduate</option>
                 <option value="Professional Development">Professional Development</option>
                 <option value="Continuing Education">Continuing Education</option>
+                <option value="Doctoral">Doctoral</option>
+                <option value="Postdoctoral">Postdoctoral</option>
               </select>
             </div>
+
 
 
 

@@ -35,6 +35,21 @@ const FAQ = () => {
               activeTab={activeTab}
               toggleTab={toggleTab}
             />
+            <AccordionItem
+              index={5}
+              title="MLH Code Of Conduct"
+              content={
+                <>
+                  For more information regarding MLH's code of conduct, please visit{' '}
+                  <a href="https://mlh.io/code-of-conduct" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                    MLH Code of Conduct
+                  </a>.
+                </>
+              }
+              activeTab={activeTab}
+              toggleTab={toggleTab}
+            />
+
           </div>
 
           {/* Second Column */}
