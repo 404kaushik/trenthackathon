@@ -8,8 +8,8 @@ import ontonabbe from '../assets/ontonabee.png';
 import lady from '../assets/lady.png';
 import gzowski from '../assets/gzowski.png';
 import pwd from '../assets/1pwd4.png';
-import bestbuy from '../assets/best-buy.png';
-import tcsa from '../assets/tcsa1.jpg'
+import bestbuy from '../assets/bb5.png';
+import tcsa from '../assets/tcsa5.png'
 import ScrollReveal from '../components/ScrollReveal';
 import './Sponsor.css';
 

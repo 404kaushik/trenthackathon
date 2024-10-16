@@ -178,11 +178,12 @@ function ApplicationForm() {
                 required
               >
                 <option>Select Age</option>
-                <option value="18-24">18-24</option>
-                <option value="25-30">25-30</option>
-                <option value="31-40">31-40</option>
+                {Array.from({ length: 26 }, (_, i) => i + 15).map(age => (
+                  <option key={age} value={age}>{age}</option>
+                ))}
               </select>
             </div>
+
 
 
             {/* Gender */}
