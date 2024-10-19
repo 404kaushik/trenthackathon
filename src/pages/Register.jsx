@@ -78,13 +78,13 @@ function Register() {
     <div className="min-h-screen flex items-center justify-center">
       <Stars starCount={1000} />
       <form onSubmit={handleSubmit} className="bg-[#f9f5e3] p-8 z-10 rounded-[16px] shadow-md max-w-md w-full space-y-4 md:mt-12 relative">
-        <h2 className="text-3xl font-bold mb-6 text-center font-potta-one">Register</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center font-potta-one">Start here</h2>
 
         {errors.form && <div className="text-red-500 mb-4">{errors.form}</div>}
         {successMessage && <div className="text-green-500 mb-4">{successMessage}</div>}
 
         <div>
-          <label className="block text-sm font-medium">Name</label>
+        <label className="block text-gray-700 font-poppins font-semibold">Full Name</label>
           <input
             type="text"
             name="name"
@@ -97,7 +97,7 @@ function Register() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Email</label>
+        <label className="block text-gray-700 font-poppins font-semibold">Email</label>
           <input
             type="email"
             name="email"
@@ -110,7 +110,7 @@ function Register() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Password</label>
+        <label className="block text-gray-700 font-poppins font-semibold">Password</label>
           <input
             type="password"
             name="password"
@@ -123,7 +123,7 @@ function Register() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Confirm Password</label>
+        <label className="block text-gray-700 font-poppins font-semibold">Confirm Password</label>
           <input
             type="password"
             name="confirmPassword"

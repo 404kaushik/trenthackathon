@@ -24,6 +24,7 @@
     "formik": "^2.4.6",
     "framer-motion": "^11.5.4",
     "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.453.0",
     "mongoose": "^8.6.3",
     "pg": "^8.13.0",
     "react": "^18.3.1",

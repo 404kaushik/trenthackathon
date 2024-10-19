@@ -6,6 +6,20 @@ import Contact from "./Contact";
 import FAQ from "./FAQ";
 import ScrollReveal from "../components/ScrollReveal";
 import OrangeCloud from '../assets/cloud.svg';
+import { Code, BookOpen, Heart, BookOpenCheck, CodeSquare, CodeXml, User2Icon } from 'lucide-react';
+
+
+const Button = ({ href, icon: Icon, children, isActive }) => (
+    <a href={href} className="w-full max-w-md">
+    <button className={`w-full px-6 my-3 h-16 sm:h-20 md:h-24 rounded-[16px] text-lg sm:text-xl md:text-2xl font-space-mono text-[#F9F5E3] flex items-center justify-center space-x-4 transition-all duration-300 ease-in-out transform hover:shadow-lg md:hover:scale-105 md:hover:bg-indigo-500 overflow-hidden relative ${isActive ? 'bg-indigo-500' : 'bg-[#36382E]'}`}>
+      <div className="flex items-center justify-center space-x-4 z-10 transition-transform duration-300 group-hover:scale-110">
+        <Icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+        <span>{children}</span>
+      </div>
+      <div className="absolute inset-0 bg-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+    </button>
+  </a>
+);
 
 const Apply = () => {
     // Create a ref for the drag constraints
@@ -19,27 +33,27 @@ const Apply = () => {
                         Applications
                     </h1>
                     <p className='w-[100%] text-lg font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 rounded-xl'>
-                        Apply as a Volunteer, Mentor or a Hacker!
+                        Apply as a Volunteer, Mentor or a Judge!
                     </p>
                 </div>
-                <div className="flex flex-wrap md:flex-nowrap">
-                    <div className="md:w-1/2 flex flex-col justify-center mx-auto items-center md:items-end">
-                        <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
-                        Applications Open Soon...
-                        </button>
-                        <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
-                        Applications Open Soon...
-                        </button>
-                        <button className='w-[100%] md:w-[85%] lg:max-w-96 px-6 bg-[#36382E] my-3 h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:font-bold hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
-                        Applications Open Soon...
-                        </button>
+                <div className="flex flex-col md:flex-row items-center justify-center gap-8 p-4">
+                    <div className="w-full md:w-1/2 flex flex-col items-center md:items-end space-y-4">
+                    <Button href="https://forms.gle/wqMnRRsZof53fFy18" icon={BookOpenCheck}>
+                        Apply as a Judge
+                    </Button>
+                    <Button href="https://forms.gle/6DkPBgAoWpf5P5oz8" icon={CodeXml} >
+                        Apply as a Mentor
+                    </Button>
+                    <Button href="https://forms.gle/vW8fad7XbddW7xFx9" icon={User2Icon}>
+                        Apply as a Volunteer
+                    </Button>
                     </div>
                     <div className="md:w-1/2 md:mt-10">
-                            <img
-                                src={pic}
-                                alt=""
-                                className="w-[70%] mt-10 md:mt-0 md:w-[80%] xl:w-[60%] mx-auto object-cover standing-fox"
-                            />
+                        <img
+                            src={pic}
+                            alt=""
+                            className="w-[70%] mt-10 md:mt-0 md:w-[80%] xl:w-[60%] mx-auto object-cover standing-fox"
+                        />
                     </div>
                 </div>
             </ScrollReveal>

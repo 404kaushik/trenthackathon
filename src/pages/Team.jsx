@@ -35,7 +35,9 @@ import damiola from '../assets/damilola.jpg';
 import anshika from '../assets/anshika.webp';
 import swastika from '../assets/swastika_bansal.jpg';
 import krunal from '../assets/Krunal_Patel.jpg';
-import shelmah from '../assets/Shelmah_Chebet.png'
+import shelmah from '../assets/Shelmah_Chebet.png';
+import nikita from '../assets/nitika.jpg';
+import takshin from '../assets/Tahsin Maklai.jpeg';
 
 
 const teamData = {
@@ -57,9 +59,9 @@ const teamData = {
     members: [
       { name: 'Fiona Laygo', role: 'VP of Marketing', img: fiona, insta: '', github: 'https://github.com/laygofiona', linkedin: 'https://www.linkedin.com/in/fionalaygo4015/' },
       { name: 'Swastika Bansal', role: 'Marketing Executive', img: swastika, insta: 'https://www.instagram.com/swastikaabansal/', github: 'https://github.com/sw-astika', linkedin: 'https://www.linkedin.com/in/swastika-bansal-sk2909/' },
+      { name: 'Tahsin Maklai', role: 'Marketing Executive', img: takshin, insta: '', github: '', linkedin: '' },
       { name: 'Neema', role: 'Marketing Executive', img: user, insta: '', github: '', linkedin: '' },
       { name: 'Rida', role: 'Marketing Executive', img: user, insta: '', github: '', linkedin: '' },
-      { name: 'Tahsin', role: 'Marketing Executive', img: user, insta: '', github: '', linkedin: '' },
     ],
   },
   Design: {
@@ -97,7 +99,7 @@ const teamData = {
   Finance: {
     image: m7,
     members: [
-      { name: 'Nitika', role: 'Finance Executive', img: user, insta: '', linkedin: '', github: '' },
+      { name: 'Nitika', role: 'Finance Executive', img: nikita, insta: '', linkedin: '', github: '' },
     ],
   },
 };
