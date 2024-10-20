@@ -64,9 +64,14 @@ function Dashboard() {
 
   // Function to handle application submission
   const handleSubmitApplication = async () => {
+
+    const baseUrl = window.location.hostname === 'localhost'
+      ? 'http://localhost:5001'
+      : 'https://trenthackathon-backend.onrender.com';
     const token = localStorage.getItem('token');
+    
     try {
-      const response = await fetch('https://trenthackathon-backend.onrender.com/submit-application', {
+      const response = await fetch(`${baseUrl}/submit-application`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
