@@ -97,7 +97,7 @@ function Login() {
           {error && <p className="text-red-500">{error}</p>}
 
           <div className='mb-6'>
-            <label className="block text-sm font-semibold">Email</label>
+            <label className="block text-gray-700 font-poppins font-semibold mb-2">Email</label>
             <input
               type="email"
               name="email"
@@ -109,7 +109,7 @@ function Login() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold">Password</label>
+            <label className="block text-gray-700 font-poppins font-semibold mb-2">Password</label>
             <input
               type="password"
               name="password"
@@ -122,7 +122,7 @@ function Login() {
           <div className="text-right mb-6">
             <a
               href="/forgot-password"
-              className="text-sm font-semibold text-gray-900 hover:text-blue-500 underline"
+              className="block text-gray-700 font-poppins font-semibold mb-2 hover:text-blue-500 underline"
             >
               Forgot Password?
             </a>
@@ -131,7 +131,7 @@ function Login() {
           <div className="">
             <a
               href="/register"
-              className="text-sm font-semibold text-gray-900 underline hover:text-blue-500"
+              className="block text-gray-700 font-poppins font-semibold mb-2 underline hover:text-blue-500"
             >
               Don't have an account?
             </a>

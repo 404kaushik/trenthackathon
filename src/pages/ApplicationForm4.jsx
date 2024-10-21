@@ -124,7 +124,7 @@ const ApplicationForm4 = () => {
           <Section title="Event Logistics" icon="🎪">
             <InfoItem label="T-Shirt Size" value={formData.tshirt_size} />
             <InfoItem label="Dietary Restrictions" value={formData.dietary_restrictions || 'None'} />
-            <InfoItem label="Agree to Code of Conduct" value={formData.agree_conduct ? 'Yes' : 'No'} />
+            <InfoItem label="Agree to Code of Conduct" value={formData.code_of_conduct ? 'Yes' : 'No'} />
             <InfoItem label="Share Info with MLH" value={formData.share_info ? 'Yes' : 'No'} />
             <InfoItem label="Receive Emails from MLH" value={formData.receive_emails ? 'Yes' : 'No'} />
             <InfoItem label="Resume URL" value={formData.resume_url ? 'Provided' : 'None'} />
