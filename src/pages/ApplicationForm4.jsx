@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { CheckCircle, XCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ApplicationForm4 = () => {
   const [formData, setFormData] = useState({});
@@ -9,7 +9,6 @@ const ApplicationForm4 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Load all saved data from localStorage
     const step1Data = JSON.parse(localStorage.getItem('applicationStep1') || '{}');
     const step2Data = JSON.parse(localStorage.getItem('applicationStep2') || '{}');
     const step3Data = JSON.parse(localStorage.getItem('applicationStep3') || '{}');
@@ -23,14 +22,12 @@ const ApplicationForm4 = () => {
     setLoading(true);
     setError('');
   
-    // Validate formData (example: make sure critical fields are filled)
     if (!formData.first_name || !formData.last_name || !formData.email) {
       setError('Please fill in all the required fields.');
       setLoading(false);
       return;
     }
   
-    // Determine the base URL based on the environment (development or production)
     const baseUrl = window.location.hostname === 'localhost'
       ? 'http://localhost:5001'
       : 'https://trenthackathon-backend.onrender.com';
@@ -40,24 +37,22 @@ const ApplicationForm4 = () => {
       const response = await fetch(`${baseUrl}/submit-application`, {
         method: 'POST',
         headers: { 
-          'Authorization': token ? `Bearer ${token}` : '',  // Include 'Bearer ' before the token
+          'Authorization': token ? `Bearer ${token}` : '',
           'Content-Type': 'application/json' 
         },
         body: JSON.stringify(formData),
       });
   
-      const data = await response.json();  // Parse the response
+      const data = await response.json();
   
       if (!response.ok) {
         throw new Error(data.message || 'Failed to submit application.');
       }
   
-      // Clear application data from localStorage
       localStorage.removeItem('applicationStep1');
       localStorage.removeItem('applicationStep2');
       localStorage.removeItem('applicationStep3');
   
-      // Navigate to a success page
       navigate('/application-success');
     } catch (error) {
       console.error('Error submitting application:', error);
@@ -66,74 +61,110 @@ const ApplicationForm4 = () => {
       setLoading(false);
     }
   };
-  
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white"></div>
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="bg-[#f9f5e3] rounded-xl shadow-lg p-10 w-full max-w-4xl mt-36">
-        <h2 className="text-4xl font-space-mono font-bold text-gray-800 mb-6 text-center">Review Your Application</h2>
-        
-        {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">{error}</div>}
-        
-        <div className="space-y-6">
-          <section>
-            <h3 className="text-2xl font-semibold mb-2">Personal Information</h3>
-            <p><strong>Name:</strong> {formData.first_name} {formData.last_name}</p>
-            <p><strong>Email:</strong> {formData.email}</p>
-            <p><strong>Age:</strong> {formData.age}</p>
-            <p><strong>Gender:</strong> {formData.gender}</p>
-            <p><strong>Pronouns:</strong> {formData.pronouns}</p>
-            <p><strong>Race:</strong> {formData.race}</p>
-          </section>
-
-          <section>
-            <h3 className="text-2xl font-semibold mb-2">Education</h3>
-            <p><strong>School:</strong> {formData.school}</p>
-            <p><strong>Major:</strong> {formData.major}</p>
-            <p><strong>Level of Study:</strong> {formData.level_of_study}</p>
-            <p><strong>Country of Residence:</strong> {formData.country_of_residence}</p>
-          </section>
-
-          <section>
-            <h3 className="text-2xl font-semibold mb-2">Hacker Questions</h3>
-            <p><strong>Favorite Programming Language:</strong> {formData.question1}</p>
-            <p><strong>Dream Project:</strong> {formData.question2}</p>
-          </section>
-
-          <section>
-            <h3 className="text-2xl font-semibold mb-2">Event Logistics</h3>
-            <p><strong>T-Shirt Size:</strong> {formData.tshirt_size}</p>
-            <p><strong>Dietary Restrictions:</strong> {formData.dietary_restrictions || 'None'}</p>
-            <p><strong>Agree to Code of Conduct:</strong> {formData.agree_conduct ? 'Yes' : 'No'}</p>
-            <p><strong>Share Info with MLH:</strong> {formData.share_info ? 'Yes' : 'No'}</p>
-            <p><strong>Receive Emails from MLH:</strong> {formData.receive_emails ? 'Yes' : 'No'}</p>
-            <p><strong>Resume URL:</strong> {formData.resume_url ?  'Yes' : 'None'}</p>
-            <p><strong>Share Resume with Recruiters:</strong> {formData.share_resume ? 'Yes' : 'No'}</p>
-          </section>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center p-4">
+      <div className="bg-[#f9f5e3] rounded-2xl shadow-2xl p-8 w-full max-w-xl-screen md:mt-32">
+       {/* Progress Bar */}
+       <div className="mb-6 text-center">
+        <p className="text-gray-600 text-lg sm:text-3xl font-space-mono font-bold mb-4">Step 4/4</p>
+          <div className="flex justify-center space-x-2">
+              <div className="bg-gray-300 h-2 w-1/4 rounded-full"></div>
+              <div className="bg-gray-300 h-2 w-1/4 rounded-full"></div>
+              <div className="bg-gray-300 h-2 w-1/4 rounded-full"></div>
+              <div className="bg-black h-2 w-1/4 rounded-full"></div>
+          </div>
         </div>
 
-        <div className="flex justify-between mt-8">
+      {/* Form Title */}
+      <h2 className="text-center text-3xl sm:text-5xl font-semibold font-space-mono text-gray-700 mb-8">Review Your Application</h2>
+
+        {error && (
+          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
+            <p className="font-bold">Error</p>
+            <p>{error}</p>
+          </div>
+        )}
+        
+        <div className="space-y-8">
+          <Section title="Personal Information" icon="👤">
+            <InfoItem label="Name" value={`${formData.first_name} ${formData.last_name}`} />
+            <InfoItem label="Email" value={formData.email} />
+            <InfoItem label="Age" value={formData.age} />
+            <InfoItem label="Gender" value={formData.gender} />
+            <InfoItem label="Pronouns" value={formData.pronouns} />
+            <InfoItem label="Race" value={formData.race} />
+          </Section>
+
+          <Section title="Education" icon="🎓">
+            <InfoItem label="School" value={formData.school} />
+            <InfoItem label="Major" value={formData.major} />
+            <InfoItem label="Level of Study" value={formData.level_of_study} />
+            <InfoItem label="Country of Residence" value={formData.country_of_residence} />
+          </Section>
+
+          <Section title="Hacker Questions" icon="💡">
+            <InfoItem label="Favorite Programming Language" value={formData.question1} />
+            <InfoItem label="Dream Project" value={formData.question2} />
+          </Section>
+
+          <Section title="Event Logistics" icon="🎪">
+            <InfoItem label="T-Shirt Size" value={formData.tshirt_size} />
+            <InfoItem label="Dietary Restrictions" value={formData.dietary_restrictions || 'None'} />
+            <InfoItem label="Agree to Code of Conduct" value={formData.agree_conduct ? 'Yes' : 'No'} />
+            <InfoItem label="Share Info with MLH" value={formData.share_info ? 'Yes' : 'No'} />
+            <InfoItem label="Receive Emails from MLH" value={formData.receive_emails ? 'Yes' : 'No'} />
+            <InfoItem label="Resume URL" value={formData.resume_url ? 'Provided' : 'None'} />
+            <InfoItem label="Share Resume with Recruiters" value={formData.share_resume ? 'Yes' : 'No'} />
+          </Section>
+        </div>
+
+        <div className="flex justify-between items-center mt-3">
           <button 
             onClick={() => navigate('/application-3')}
-            className="bg-gray-800 text-white px-6 py-2 rounded-md"
-          >
-            Back
+            className="bg-gray-300 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-400 transition duration-300 text-sm sm:text-base"
+          >            
+            <span>Back</span>
           </button>
           <button 
             onClick={handleSubmit}
-            className="bg-gray-800 text-white px-6 py-2 rounded-md"
+            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-md hover:from-blue-600 hover:to-purple-700 transition duration-300 flex items-center space-x-2 text-sm sm:text-base"
             disabled={loading}
           >
-            {loading ? 'Submitting...' : 'Confirm and Submit'}
+            <span>{loading ? 'Submitting...' : 'Confirm and Submit'}</span>
+            <ChevronRight size={20} />
           </button>
         </div>
       </div>
     </div>
   );
 };
+
+const Section = ({ title, icon, children }) => (
+  <section className="bg-gray-800 bg-opacity-60 text-white rounded-xl p-6 shadow-md">
+    <h3 className="text-2xl font-semibold font-poppins mb-4 flex items-center space-x-2">
+      <span>{icon}</span>
+      <span>{title}</span>
+    </h3>
+    <div className="space-y-2">
+      {children}
+    </div>
+  </section>
+);
+
+const InfoItem = ({ label, value }) => (
+  <div className="flex items-center justify-between border-b border-gray-200 py-2">
+    <span className="text-white font-semibold font-poppins">{label}:</span>
+    <span className="text-white font-semibold font-poppins">{value}</span>
+  </div>
+);
 
 export default ApplicationForm4;
