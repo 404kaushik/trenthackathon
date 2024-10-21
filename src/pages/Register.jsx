@@ -4,6 +4,7 @@ import Stars from '../pages/Stars';
 import PinkClouds from '../assets/pink-cloud.png';
 import { AlertCircle, CheckCircle } from 'lucide-react'; // Import Lucide-React icons
 import '../App.css';
+import Header from '../components/Header';
 
 function Register() {
   const navigate = useNavigate(); // Replace useHistory with useNavigate
@@ -91,6 +92,7 @@ function Register() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
+      <Header />
       <Stars starCount={1000} />
       <form onSubmit={handleSubmit} className="bg-[#f9f5e3] p-8 z-10 rounded-[16px] shadow-md max-w-md w-full space-y-4 md:mt-32 relative">
         <h2 className="text-3xl font-bold mb-6 text-center font-potta-one">
