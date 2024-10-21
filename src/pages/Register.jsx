@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Replace useHistory with useNavigate
 import Stars from '../pages/Stars';
 import PinkClouds from '../assets/pink-cloud.png';
@@ -23,6 +23,10 @@ function Register() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' });
   };
+
+  useEffect(() =>{
+    window.scrollTo(0,0);
+  },[])
 
   const validateForm = () => {
     const newErrors = {};

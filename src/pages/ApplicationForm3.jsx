@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 import { AlertCircle } from 'lucide-react';
+import Header from '../components/Header';
 
 const ApplicationForm3 = () => {
   const [formData, setFormData] = useState(() => {
@@ -27,6 +28,10 @@ const ApplicationForm3 = () => {
     }, 500),
     []
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     debouncedSave(formData);
@@ -110,6 +115,7 @@ const ApplicationForm3 = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Header />
       <div className="flex justify-center p-6 bg-gray-900 min-h-screen">
         <div className="bg-beige-100 w-full max-w-screen p-8 bg-[#f9f5e3] mt-28 rounded-lg shadow-md">
           {/* Progress Bar */}

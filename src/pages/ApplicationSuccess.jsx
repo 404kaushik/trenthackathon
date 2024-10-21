@@ -2,11 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import '../App.css';
+import Header from '../components/Header';
 
 const ApplicationSuccess = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     // Trigger confetti animation on component mount
     confetti({
       particleCount: 100,
@@ -17,6 +19,7 @@ const ApplicationSuccess = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+      <Header />
       <div className="bg-[#f9f5e3] rounded-xl shadow-lg p-10 w-full max-w-2xl text-center mt-32">
         <h2 className="text-5xl font-space-mono font-bold text-gray-800 mb-6">
           Application Submitted!

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 import { AlertCircle } from 'lucide-react';
+import Header from '../components/Header';
 
 function ApplicationForm() {
   const [formData, setFormData] = useState(() => {
@@ -57,6 +58,10 @@ function ApplicationForm() {
         return '';
     }
   };
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     debouncedSave(formData);
@@ -127,6 +132,7 @@ function ApplicationForm() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+      <Header />
       <div className="bg-[#f9f5e3] rounded-xl shadow-lg p-6 sm:p-8 md:p-10 w-full md:mt-24 max-w-xl-screen">
         <div className="mb-6 text-center">
           <p className="text-gray-600 text-lg sm:text-3xl font-space-mono font-bold mb-4">Step 1/4</p>

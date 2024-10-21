@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import debounce from 'lodash/debounce';
 import { AlertCircle } from 'lucide-react';
+import Header from '../components/Header';
 
 function ApplicationForm2() {
     const [formData, setFormData] = useState(() => {
@@ -22,6 +23,10 @@ function ApplicationForm2() {
         }, 500),
         []
     );
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         debouncedSave(formData);
@@ -65,6 +70,7 @@ function ApplicationForm2() {
     const renderTextarea = (name, label) => {
         return (
             <div className="mb-6">
+                <Header />
                 <label className="block text-gray-600 text-lg sm:text-xl font-space-mono font-bold mb-2">
                     {label}
                 </label>

@@ -6,6 +6,7 @@ import InstagramLogo from '../assets/black-instagram-icon.svg';
 import linkedin from '../assets/linkedin-square-icon.svg';
 import discord from '../assets/discord-round-black-icon.svg';
 import github from '../assets/github-icon.svg';
+import Header from '../components/Header';
 
 function Dashboard() {
   const [userData, setUserData] = useState({});
@@ -112,6 +113,7 @@ function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white mt-16">
+      <Header />
       <Stars starCount={1000} />
       <main className="container mx-auto mt-8 p-4 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

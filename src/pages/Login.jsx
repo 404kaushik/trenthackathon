@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate to handle navigation
 import Header from '../components/Header';
 import logo from '../assets/logo2.png';
@@ -14,6 +14,7 @@ function Login() {
 
   const [error, setError] = useState('');
   const navigate = useNavigate();  // Initialize navigate
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleChange = (e) => {
@@ -21,15 +22,20 @@ function Login() {
     setError('');
   };
 
+  useEffect(() =>{
+    window.scrollTo(0,0);
+  },[])
+
 
   const handleAuthButtonClick = () => {
     if (isLoggedIn) {
       // Logout
       localStorage.removeItem('token');
-      setIsLoggedIn(true);
+      setIsLoggedIn(false);
       navigate('/login');
     } else {
       // Navigate to login
+      setIsLoggedIn(true);
       navigate('/login');
     }
   };
@@ -37,19 +43,19 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    // Determine the base URL based on the environment (development or production)
     const baseUrl = window.location.hostname === 'localhost'
       ? 'http://localhost:5001'
       : 'https://trenthackathon-backend.onrender.com';
   
-    // Get the token from localStorage (if it exists)
     const token = localStorage.getItem('token');
+  
+    setIsSubmitting(true);
   
     try {
       const response = await fetch(`${baseUrl}/login`, {
         method: 'POST',
         headers: { 
-          'Authorization': token ? `Bearer ${token}` : '',  // Only include token if it exists
+          'Authorization': token ? `Bearer ${token}` : '', 
           'Content-Type': 'application/json' 
         },
         body: JSON.stringify(formData),
@@ -61,20 +67,28 @@ function Login() {
   
       const data = await response.json();
   
-      // Save token in localStorage (assuming the backend returns a JWT token)
+      // Save token in localStorage
       localStorage.setItem('token', data.token);
+  
+      // Reset isSubmitting to false after successful login
+      setIsSubmitting(false);
   
       // Redirect to dashboard
       navigate('/dashboard');
     } catch (error) {
       console.error(error);
+  
+      // Reset isSubmitting and display error message
+      setIsSubmitting(false);
       setError('Login failed. Please check your credentials.');
     }
   };
   
+  
 
   return (
     <div className="custom-gradient">
+      <Header />
       <Stars starCount={1000} /> 
       <div className="custom-gradient min-h-screen flex items-center justify-center relative z-10">
         <form onSubmit={handleSubmit} className="bg-[#f9f5e3] p-8 rounded-[16px] shadow-md max-w-md w-full">
@@ -123,7 +137,9 @@ function Login() {
             </a>
           </div>
 
-          <button type="submit" className="w-full bg-gray-500 font-semibold text-white py-2 rounded-md md:hover:bg-orange-400 md:hover:font-semibold">Login</button>
+          <button type="submit" className="w-full bg-gray-500 font-semibold text-white py-2 rounded-md md:hover:bg-orange-400 md:hover:font-semibold" disabled={isSubmitting}>
+            {isSubmitting ? 'Logging In...' : 'Login'}
+          </button>
         </form>
       </div>
       <div className='galaxy-path cover'>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CheckCircle, XCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import Header from '../components/Header';
 
 const ApplicationForm4 = () => {
   const [formData, setFormData] = useState({});
@@ -9,6 +10,9 @@ const ApplicationForm4 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    window.scrollTo(0, 0);
+
     const step1Data = JSON.parse(localStorage.getItem('applicationStep1') || '{}');
     const step2Data = JSON.parse(localStorage.getItem('applicationStep2') || '{}');
     const step3Data = JSON.parse(localStorage.getItem('applicationStep3') || '{}');
@@ -71,7 +75,8 @@ const ApplicationForm4 = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center p-6">
+      <Header />
       <div className="bg-[#f9f5e3] rounded-2xl shadow-2xl p-8 w-full max-w-xl-screen md:mt-32">
        {/* Progress Bar */}
        <div className="mb-6 text-center">
@@ -149,7 +154,7 @@ const ApplicationForm4 = () => {
 };
 
 const Section = ({ title, icon, children }) => (
-  <section className="bg-gray-800 bg-opacity-60 text-white rounded-xl p-6 shadow-md">
+  <section className="bg-white bg-opacity-60 text-black rounded-xl p-6 shadow-xl">
     <h3 className="text-2xl font-semibold font-poppins mb-4 flex items-center space-x-2">
       <span>{icon}</span>
       <span>{title}</span>
@@ -161,9 +166,9 @@ const Section = ({ title, icon, children }) => (
 );
 
 const InfoItem = ({ label, value }) => (
-  <div className="flex items-center justify-between border-b border-gray-200 py-2">
-    <span className="text-white font-semibold font-poppins">{label}:</span>
-    <span className="text-white font-semibold font-poppins">{value}</span>
+  <div className="flex items-center justify-between border-b border-gray-900 py-2">
+    <span className="text-black font-semibold font-poppins">{label}:</span>
+    <span className="text-black font-semibold font-poppins">{value}</span>
   </div>
 );
 
