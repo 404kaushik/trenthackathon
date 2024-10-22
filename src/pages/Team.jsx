@@ -76,7 +76,7 @@ const teamData = {
     image: m1,
     members: [
       { name: 'Aiden Miah', role: 'Director and President @ TCSCA', img: aiden, insta: 'https://www.instagram.com/_aiden.m_/', linkedin: 'https://www.linkedin.com/in/aidenm/', github: '' },
-      { name: 'Riya Jaykar', role: 'Co-Director and President of TCSA', img: riya, insta: 'https://www.instagram.com/tcsawithriya/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
+      { name: 'Riya Jaykar', role: 'Co-Director and Communications Director @ TCSCA', img: riya, insta: 'https://www.instagram.com/tcsawithriya/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
       // { name: 'Anshika Gaur', role: 'Co-Director and Vice President of TCSA', img: anshika, insta: '', linkedin: '', github: '' },
     ],
   },
