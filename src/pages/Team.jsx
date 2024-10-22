@@ -188,7 +188,7 @@ function Team() {
             onClick={() => handleSelection(-1)}
           />
 
-          <div className="w-full sm:w-auto flex space-x-1 sm:space-x-4">
+          <div className="w-full sm:w-auto flex justify-center space-x-1 sm:space-x-4">
             {visibleCategories.map((category, index) => (
               <div
                 key={category}
