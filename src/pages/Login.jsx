@@ -119,21 +119,21 @@ function Login() {
               required
             />
           </div>
-          <div className="text-right mb-6">
+          {/* <div className="text-right mb-6">
             <a
               href="/forgot-password"
               className="block text-gray-700 font-poppins font-semibold mb-2 hover:text-blue-500 underline"
             >
               Forgot Password?
             </a>
-          </div>
+          </div> */}
 
           <div className="">
             <a
               href="/register"
-              className="block text-gray-700 font-poppins font-semibold mb-2 underline hover:text-blue-500"
+              className="block text-sm text-gray-700 font-poppins font-semibold underline hover:text-blue-500 pt-6"
             >
-              Don't have an account?
+              Don't have an account? - Register Here
             </a>
           </div>
 
