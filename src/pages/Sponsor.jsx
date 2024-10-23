@@ -9,44 +9,52 @@ import lady from '../assets/lady.png';
 import gzowski from '../assets/gzowski.png';
 import pwd from '../assets/1pwd4.png';
 import bestbuy from '../assets/bb5.png';
-import tcsa from '../assets/tcsa5.png'
+import tcsa from '../assets/tcsa1.jpg'
 import ScrollReveal from '../components/ScrollReveal';
+import Osmows from '../assets/osmows.webp';
+import Chatime from '../assets/chatime.svg';
 import './Sponsor.css';
 
-const logos = [
-  { name: 'Cluster', src: cluster },
-  { name: 'Trail', src: trail },
-  { name: 'Champlain', src: champlain },
-  { name: 'Ontonabbe', src: ontonabbe },
-  { name: 'Lady', src: lady },
-  { name: 'Gzowski', src: gzowski },
-  { name: 'Best Buy', src: bestbuy },
-  { name: 'TCSA', src: tcsa },
-  { name: 'PWD', src: pwd },
+const logosTier1 = [
+  { name: 'TCSA', src: tcsa, tier: 1 },
+  { name: 'Osmows', src: Osmows, tier: 1},
+  { name: 'Chatime', src: Chatime, tier: 1},
+]
+// className:'w-36 h-auto object-contain inline-block py-4'
+const logosTier2 = [
+  { name: 'Cluster', src: cluster, tier: 2, className:'w-36 h-auto object-contain inline-block py-4'},
+  { name: 'Trail', src: trail , tier: 2, className:'w-36 h-auto object-contain inline-block py-4'},
+  { name: 'Champlain', src: champlain, tier: 2, className:'w-36 h-auto object-contain inline-block py-4' },
+  { name: 'Ontonabbe', src: ontonabbe , tier: 2, className:'w-36 h-auto object-contain inline-block py-4'},
+  { name: 'Lady', src: lady , tier : 2, className:'w-36 h-auto object-contain inline-block py-4'},
+  { name: 'Gzowski', src: gzowski, tier: 2, className:'w-36 h-auto object-contain inline-block py-4'},
+  { name: 'Best Buy', src: bestbuy, tier: 2, className:'w-36 h-auto object-contain inline-block py-4'},
+  { name: 'PWD', src: pwd, tier: 2, className:'w-36 h-auto object-contain inline-block py-4'},
 ];
 
 const LogoSlider = () => {
   const sliderRef = useRef(null);
 
-  useEffect(() => {
-    const slider = sliderRef.current;
-    let animationFrameId;
-    let startPosition = 0;
+  // SCROLL ANIMATION TEMPORARILY REMOVED UNLESS THERE'S MORE SPONSORS
+  // useEffect(() => {
+  //   const slider = sliderRef.current;
+  //   let animationFrameId;
+  //   let startPosition = 0;
 
-    const scrollSlider = () => {
-      startPosition += 1; // Increase the scroll speed by changing this value
-      if (slider.scrollWidth - slider.clientWidth <= startPosition) {
-        // Reset to the start once the scroll reaches the end
-        startPosition = 0;
-      }
-      slider.scrollLeft = startPosition;
-      animationFrameId = requestAnimationFrame(scrollSlider);
-    };
+  //   const scrollSlider = () => {
+  //     startPosition += 1; // Increase the scroll speed by changing this value
+  //     if (slider.scrollWidth - slider.clientWidth <= startPosition) {
+  //       // Reset to the start once the scroll reaches the end
+  //       startPosition = 0;
+  //     }
+  //     slider.scrollLeft = startPosition;
+  //     animationFrameId = requestAnimationFrame(scrollSlider);
+  //   };
 
-    animationFrameId = requestAnimationFrame(scrollSlider);
+  //   animationFrameId = requestAnimationFrame(scrollSlider);
 
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
+  //   return () => cancelAnimationFrame(animationFrameId);
+  // }, []);
 
   return (
     <div className="relative overflow-hidden bg-[] rounded-[20px] md:mt-20">
@@ -54,16 +62,30 @@ const LogoSlider = () => {
         Our Sponsors
       </h1>
       <div
-        className="flex overflow-hidden py-4 whitespace-nowrap gap-5"
+        className="flex flex-wrap md:flex-nowrap gap-4 justify-center mt-[3rem] items-center"
         ref={sliderRef}
       >
-        {[...logos, ...logos].map((logo, index) => (
+        {[...logosTier1].map((logo, index) => (
+          <div className='w-full md:w-[15rem] flex items-center justify-center rounded-xl bg-white overflow-hidden md:py-0'>
+            <img
+              key={`${logo.name}-${index}`}
+              src={logo.src}
+              alt={`${logo.name} Logo`}
+              className='h-[6rem] md:h-[7rem] p-5 md:p-5'
+            />
+          </div>
+        ))}
+      </div>
+      <div className='flex mt-[3rem] justify-center flex-wrap'>
+      {[...logosTier2].map((logo, index) => (
+        <div className='h-[7.5rem]'>
           <img
             key={`${logo.name}-${index}`}
             src={logo.src}
             alt={`${logo.name} Logo`}
-            className="w-36 h-auto object-contain inline-block py-4"
+            className='h-[100%]'
           />
+        </div>
         ))}
       </div>
     </div>
