@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
-import logo from '../assets/logo2.png';
+import logo from '../assets/logo.png';
 import ScrollReveal from './ScrollReveal';
 
 const navItems = [
@@ -71,7 +71,7 @@ const Header = () => {
     <nav className="bg-[#1C1D21] dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b-2 border-gray-200 dark:border-gray-600">
       <ScrollReveal>
         <div className="w-screen flex items-center justify-between mx-auto p-6 box-border">
-          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse hover:scale-105">
+          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse hover:scale-105 bg-white rounded-full">
             <img src={logo} alt="logo" width="75" height="70"/>
           </Link>
           <div className="flex-grow flex items-center justify-center">

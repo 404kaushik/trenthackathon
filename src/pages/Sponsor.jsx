@@ -59,7 +59,7 @@ const LogoSlider = () => {
   }, [isHovered]);
 
   return (
-    <div className="relative overflow-hidden rounded-xl md:rounded-[20px] px-4 md:px-8 py-6 md:py-8 w-full max-w-[85vw] mx-auto">
+    <div id='sponsor' className="relative overflow-hidden rounded-xl md:rounded-[20px] px-4 md:px-8 py-6 md:py-8 w-full max-w-[85vw] mx-auto">
       <div className="absolute inset-0 bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-purple-900/30 backdrop-blur-sm"></div>
       
       <div className="relative z-10">
@@ -135,61 +135,61 @@ const LogoSlider = () => {
   );
 };
 
-const Sponsor = () => {
-  const [showPdf, setShowPdf] = useState(false);
+// const Sponsor = () => {
+//   const [showPdf, setShowPdf] = useState(false);
 
-  const handlePdfPreview = () => {
-    setShowPdf((prevShowPdf) => !prevShowPdf);
-  };
+//   const handlePdfPreview = () => {
+//     setShowPdf((prevShowPdf) => !prevShowPdf);
+//   };
 
-  return (
-    <div id="sponsor" className="py-8 md:py-12 grid place-items-center px-4">
-      <div className="w-full max-w-4xl mx-auto rounded-lg p-4 md:p-8 space-y-6 md:space-y-8">
-        <ScrollReveal>
-          <h1 className="mt-4 sm:mt-6 lg:mt-20 text-3xl sm:text-4xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
-            Sponsorship Packages
-          </h1>
-          <p className="p-3 text-sm md:text-xl font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-purple-900/30 backdrop-blur-sm rounded-xl border border-white/10">
-            Trent University is excited to offer a variety of sponsorship packages for our upcoming hackathon. Choose the package that best suits your company and gain exposure to a diverse group of talented individuals.
-          </p>
-        </ScrollReveal>
+//   return (
+//     <div id="sponsor" className="py-8 md:py-12 grid place-items-center px-4">
+//       <div className="w-full max-w-4xl mx-auto rounded-lg p-4 md:p-8 space-y-6 md:space-y-8">
+//         <ScrollReveal>
+//           <h1 className="mt-4 sm:mt-6 lg:mt-20 text-3xl sm:text-4xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3]">
+//             Sponsorship Packages
+//           </h1>
+//           <p className="p-3 text-sm md:text-xl font-space-mono text-[#f9f5e3] text-center font-normal leading-loose mt-3 bg-gradient-to-r from-purple-900/30 via-blue-900/30 to-purple-900/30 backdrop-blur-sm rounded-xl border border-white/10">
+//             Trent University is excited to offer a variety of sponsorship packages for our upcoming hackathon. Choose the package that best suits your company and gain exposure to a diverse group of talented individuals.
+//           </p>
+//         </ScrollReveal>
 
-        <ScrollReveal>
-          <div className="mt-6 md:mt-8 text-center space-y-4 md:space-y-0 md:space-x-4">
-            <p className="p-2 md:p-3 text-sm md:text-xl font-space-mono text-[#f9f5e3] text-center font-normal leading-loose rounded-xl">
-              For more details...
-            </p>
-            <button
-              onClick={handlePdfPreview}
-              className="w-full md:w-auto bg-blue-600/80 backdrop-blur-sm text-white text-xs md:text-base py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 border border-blue-400/20 mb-2 md:mb-0"
-            >
-              {showPdf ? 'Close Preview' : 'Preview Package'}
-            </button>
-            <a
-              href={pdf}
-              download
-              className="inline-block w-full md:w-auto bg-green-600/80 backdrop-blur-sm text-white text-xs md:text-base py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 border border-green-400/20"
-            >
-              Download Package
-            </a>
-          </div>
-        </ScrollReveal>
+//         <ScrollReveal>
+//           <div className="mt-6 md:mt-8 text-center space-y-4 md:space-y-0 md:space-x-4">
+//             <p className="p-2 md:p-3 text-sm md:text-xl font-space-mono text-[#f9f5e3] text-center font-normal leading-loose rounded-xl">
+//               For more details...
+//             </p>
+//             <button
+//               onClick={handlePdfPreview}
+//               className="w-full md:w-auto bg-blue-600/80 backdrop-blur-sm text-white text-xs md:text-base py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 border border-blue-400/20 mb-2 md:mb-0"
+//             >
+//               {showPdf ? 'Close Preview' : 'Preview Package'}
+//             </button>
+//             <a
+//               href={pdf}
+//               download
+//               className="inline-block w-full md:w-auto bg-green-600/80 backdrop-blur-sm text-white text-xs md:text-base py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 border border-green-400/20"
+//             >
+//               Download Package
+//             </a>
+//           </div>
+//         </ScrollReveal>
 
-        {showPdf && (
-          <div className="mt-6 md:mt-8 w-full">
-            <iframe
-              src={pdf}
-              className="w-full h-[24rem] md:h-[32rem] rounded-lg shadow-lg"
-              title="Sponsorship Package PDF"
-            />
-          </div>
-        )}
-      </div>
-      <ScrollReveal>
-        <LogoSlider />
-      </ScrollReveal>
-    </div>
-  );
-};
+//         {showPdf && (
+//           <div className="mt-6 md:mt-8 w-full">
+//             <iframe
+//               src={pdf}
+//               className="w-full h-[24rem] md:h-[32rem] rounded-lg shadow-lg"
+//               title="Sponsorship Package PDF"
+//             />
+//           </div>
+//         )}
+//       </div>
+//       <ScrollReveal>
+//         <LogoSlider />
+//       </ScrollReveal>
+//     </div>
+//   );
+// };
 
 export default LogoSlider;

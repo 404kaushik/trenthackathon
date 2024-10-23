@@ -122,14 +122,14 @@ function Dashboard() {
             <img src={logo} alt="Hack Trent Logo" className="w-full h-96 rounded-[50px] object-cover mb-4" />
             <div className="flex flex-col justify-end p-2">
               <h2 className="text-4xl font-bold mb-2 font-poppins">HackTrent</h2>
-              <p className="text-md font-poppins">Date: November 8 to 10</p>
-              <p className="text-md font-poppins">Duration: 48 Hours of Hacking</p>
+              <p className="text-md font-poppins"><span className="font-bold">Date</span> November 8th to 10th</p>
+              <p className="text-md font-poppins"><span className="font-bold">Duration:</span> 48 Hours of Hacking</p>
             </div>
           </div>
 
           {/* Application Status Card */}
           <div className="bg-[#f9f5e3] rounded-[50px] p-6 col-span-2 text-black">
-            <h3 className="text-5xl font-bold mb-2 font-space-mono">Current Application Status</h3>
+            <h3 className="text-2xl md:text-5xl font-bold mb-2 font-space-mono">Current Application Status</h3>
             <p className="text-3xl font-bold font-poppins">
               Status: <span className={
                           applicationStatus === 'In Review'
@@ -141,7 +141,7 @@ function Dashboard() {
                           {applicationStatus}
                         </span>
             </p>
-            <p className="text-gray-800 mt-2 font-poppins"><span className="font-bold">Application Due Date:</span> November 1, 2024</p>
+            <p className="text-gray-800 mt-2 font-poppins"><span className="font-bold">Application Due Date:</span> October 25th, 2024</p>
             
             {applicationStatus === 'In Review' || applicationStatus === 'Accepted' ? (              
               <button 
@@ -178,7 +178,7 @@ function Dashboard() {
               <a href="https://discord.gg/XwhG9KVY" target="_blank" rel="noopener noreferrer">
                 <img src={discord} alt="Discord" className="w-24 h-16 text-black" />
               </a>
-              <a href="https://github.com/orgs/Trent-Computer-Science-Club-Association/dashboard" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/orgs/Trent-Computer-Science-Club-Association" target="_blank" rel="noopener noreferrer">
                 <img src={github} alt="GitHub" className="w-24 h-16 text-black" />
               </a>
             </div>
