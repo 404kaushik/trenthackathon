@@ -27,7 +27,7 @@ import riya from '../assets/riya.JPG';
 import fiona from '../assets/fiona_laygo.png';
 import batool from '../assets/Batool.jpg';
 import akash from '../assets/Akash_Bahl.png';
-import kaushik from '../assets/Kaushik.png';
+import kaushik from '../assets/kaushik2.JPG';
 import kristy from '../assets/kristy.jpeg';
 import deji from '../assets/Deji.JPG';
 import lizi from '../assets/LiziVillas.jpeg';
@@ -48,7 +48,7 @@ const teamData = {
       { name: 'Damilola', role: 'Outreach Executive', img: damiola, insta: '', linkedin: '', github: '' },
       { name: 'Swastika Bansal', role: 'Marketing Executive', img: swastika, insta: 'https://www.instagram.com/swastikaabansal/', github: 'https://github.com/sw-astika', linkedin: 'https://www.linkedin.com/in/swastika-bansal-sk2909/' },
       { name: 'Aiden Miah', role: 'Director and President @ TCSCA', img: aiden, insta: 'https://www.instagram.com/_aiden.m_/', linkedin: 'https://www.linkedin.com/in/aidenm/', github: '' },
-      { name: 'Riya Jaykar', role: 'Communications Director', img: riya, insta: 'https://www.instagram.com/tcsawithriya/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
+      { name: 'Riya Jaykar', role: 'Co-Director and Communications Director @ TCSCA', img: riya, insta: 'https://www.instagram.com/tcsawithriya/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
       { name: 'Akash Bahl', role: 'Outreach Executive', img: akash, insta: '', linkedin: '', github: '' },
       { name: 'Batool Kazmi', role: 'Outreach Executive', img: batool, insta: '', linkedin: '', github: '' },
       { name: 'Rony', role: 'Outreach Executive', img: user, insta: '', linkedin: '', github: '' },
@@ -67,7 +67,7 @@ const teamData = {
   Design: {
     image: m2,
     members: [
-      { name: 'Batool Kazmi', role: 'Lead Designer', img: batool, insta: 'https://www.instagram.com/_humain_ain/', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
+      { name: 'Batool Kazmi', role: 'VP of Design', img: batool, insta: 'https://www.instagram.com/_humain_ain/', linkedin: 'https://www.linkedin.com/in/batoolkazmi/', github: 'https://github.com/BatoolKazmi' },
       { name: 'Lizi Villas', role: 'Design Executive', img: lizi, insta: 'https://www.instagram.com/lizi_vie/', github: 'https://github.com/lizi-vie', linkedin: 'www.linkedin.com/in/elizabetvillas' },
       { name: 'Shelmah', role: 'Design Executive', img: shelmah, github: '', linkedin: '' },
     ],
@@ -76,14 +76,14 @@ const teamData = {
     image: m1,
     members: [
       { name: 'Aiden Miah', role: 'Director and President @ TCSCA', img: aiden, insta: 'https://www.instagram.com/_aiden.m_/', linkedin: 'https://www.linkedin.com/in/aidenm/', github: '' },
-      { name: 'Riya Jaykar', role: 'Co-Director and Communications Director @ TCSCA', img: riya, insta: 'https://www.instagram.com/tcsawithriya/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
+      { name: 'Riya Jaykar', role: 'Co-Director and Communications Director @ TCSCA', img: riya, insta: 'https://www.instagram.com/riyaajaykarr/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
       // { name: 'Anshika Gaur', role: 'Co-Director and Vice President of TCSA', img: anshika, insta: '', linkedin: '', github: '' },
     ],
   },
   Tech: {
     image: m5,
     members: [
-      { name: 'Kaushik Nag Tumu', role: 'VP of Web Dev', img: kaushik, insta: '', linkedin: '', github: '' },
+      { name: 'Kaushik Nag Tumu', role: 'VP of Tech', img: kaushik, insta: 'https://www.instagram.com/kaushiknag/', linkedin: 'https://www.linkedin.com/feed/', github: 'https://github.com/404kaushik' },
       { name: 'Kristy Rath', role: 'Developer', img: kristy, insta: '', linkedin: 'https://www.linkedin.com/in/kristy-rath/', github: 'https://github.com/kristyrath' },
       { name: 'Deji', role: 'Developer', img: deji, insta: 'https://www.instagram.com/lildejix?igsh=MTI2czM5anE5MjNyYQ%3D%3D&utm_source=qr', linkedin: 'https://www.linkedin.com/in/ayodeji-onawunmi-618835208/', github: 'https://github.com/DejMan2003' },
     ],
@@ -257,7 +257,7 @@ function TeamMember({ member }) {
         <img
           src={member.img}
           alt={member.name}
-          className="w-full h-60 sm:h-40 md:h-80 object-cover object-[center_25%] rounded-lg"
+          className="w-full h-60 sm:h-40 md:h-80 object-cover object-[center_35%] rounded-lg"
         />
       </div>
       <h3 className="text-lg sm:text-xl font-semibold mt-4">{member.name}</h3>
