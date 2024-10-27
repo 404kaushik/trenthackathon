@@ -32,7 +32,6 @@ import kristy from '../assets/kristy.jpeg';
 import deji from '../assets/Deji.JPG';
 import lizi from '../assets/LiziVillas.jpeg';
 import damiola from '../assets/damilola.jpg';
-import anshika from '../assets/anshika.webp';
 import swastika from '../assets/swastika_bansal.jpg';
 import krunal from '../assets/Krunal_Patel.jpg';
 import shelmah from '../assets/Shelmah_Chebet.png';
@@ -76,8 +75,7 @@ const teamData = {
     image: m1,
     members: [
       { name: 'Aiden Miah', role: 'Director and President @ TCSCA', img: aiden, insta: 'https://www.instagram.com/_aiden.m_/', linkedin: 'https://www.linkedin.com/in/aidenm/', github: '' },
-      { name: 'Riya Jaykar', role: 'Co-Director and Communications Director @ TCSCA', img: riya, insta: 'https://www.instagram.com/riyaajaykarr/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },
-      // { name: 'Anshika Gaur', role: 'Co-Director and Vice President of TCSA', img: anshika, insta: '', linkedin: '', github: '' },
+      { name: 'Riya Jaykar', role: 'Co-Director and Communications Director @ TCSCA', img: riya, insta: 'https://www.instagram.com/riyaajaykarr/', linkedin: 'https://www.linkedin.com/in/riyajaykar/' },      
     ],
   },
   Tech: {
@@ -220,9 +218,24 @@ function Team() {
           />
         </div>
       </ScrollReveal>
-      <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+      {/* TEAM MEMBER CARDS*/}
+      <div className={`grid gap-4 sm:gap-6 md:gap-8 ${
+        teamData[activeCategory].members.length < 3
+          ? 'grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto'
+          : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
+      }`}>
         {teamData[activeCategory].members.map((member, index) => (
-          <TeamMember key={index} member={member} />
+          <TeamMember 
+            key={index} 
+            member={member} 
+            className={
+              teamData[activeCategory].members.length === 1
+                ? 'col-span-1 sm:col-span-2'
+                : teamData[activeCategory].members.length === 2
+                ? 'col-span-1'
+                : ''
+            }
+          />
         ))}
       </div>
     </div>
@@ -234,6 +247,8 @@ function TeamMember({ member }) {
     triggerOnce: false,
     threshold: 0.1,
   });
+
+  
 
   return (
     <motion.div

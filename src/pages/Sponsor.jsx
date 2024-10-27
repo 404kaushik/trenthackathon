@@ -13,10 +13,11 @@ import tcsa from '../assets/tcsa2.png'
 import ScrollReveal from '../components/ScrollReveal';
 import Osmows from '../assets/osmows3.png';
 import Chatime from '../assets/chatime.svg';
+import Careerspace from '../assets/careerspace.png';
 import './Sponsor.css';
 
 const logosTier1 = [
-  { name: 'TCSA', src: tcsa, tier: 1 },
+  { name: 'TCSA', src: tcsa, tier: 1},
   { name: 'Osmows', src: Osmows, tier: 1},
   { name: 'Chatime', src: Chatime, tier: 1},
 ];
@@ -30,6 +31,7 @@ const logosTier2 = [
   { name: 'Gzowski College', src: gzowski, tier: 2 },
   { name: 'Best Buy', src: bestbuy, tier: 2 },
   { name: '1Password', src: pwd, tier: 2 },
+  { name: 'Careerspace', src: Careerspace, tier: 2 },
 ];
 
 const LogoSlider = () => {
@@ -70,13 +72,13 @@ const LogoSlider = () => {
         {/* Tier 1 Sponsors */}
         <div className="mb-8 md:mb-16">
           <h2 className="text-xl md:text-2xl text-[#f9f5e3] text-center mb-6 md:mb-8 font-space-mono">
-            Diamond Partners
+            Main Partners
           </h2>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 md:gap-8">
             {logosTier1.map((logo, index) => (
               <div 
                 key={`${logo.name}-${index}`} 
-                className="relative overflow-hidden bg-white backdrop-blur-md rounded-xl p-4 md:p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white/20 border border-white/10 group w-full sm:w-auto"
+                className="relative overflow-hidden bg-white/20 backdrop-blur-md rounded-xl p-4 md:p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white border border-white/10 group w-full sm:w-auto"
               >
                 <div className="w-full sm:w-[200px] md:w-[280px] h-[80px] md:h-[140px] flex items-center justify-center">
                   <img
