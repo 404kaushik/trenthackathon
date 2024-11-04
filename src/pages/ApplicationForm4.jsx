@@ -127,7 +127,7 @@ const ApplicationForm4 = () => {
             <InfoItem label="Agree to Code of Conduct" value={formData.code_of_conduct ? 'Yes' : 'No'} />
             <InfoItem label="Share Info with MLH" value={formData.share_info ? 'Yes' : 'No'} />
             <InfoItem label="Receive Emails from MLH" value={formData.receive_emails ? 'Yes' : 'No'} />
-            <InfoItem label="Resume URL" value={formData.resume_url ? 'Provided' : 'None'} />
+            <InfoItem label="Resume URL" value={formData.resume_path ? 'Provided' : 'None'} />
             <InfoItem label="Share Resume with Recruiters" value={formData.share_resume ? 'Yes' : 'No'} />
           </Section>
         </div>

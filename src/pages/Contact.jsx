@@ -287,11 +287,11 @@ const Contact = () => {
 
           <ScrollReveal>
             <div className="bg-opacity-70 mx-auto p-8 rounded-lg w-full max-w-lg flex flex-col items-center">
-              <a href="mailto:tcscatrent@outlook.com">
+              <a href="mailto:team@hacktrent.ca">
                 <div className="flex items-center justify-center gap-3 hover:scale-105">
                   <img src={MailLogo} className="h-12" alt="Mail Logo" />
                   <p className="w-full text-xl font-space-mono text-[#f9f5e3] font-normal leading-loose rounded-xl">
-                    tcscatrent@outlook.com
+                  team@hacktrent.ca
                   </p>
                 </div>
               </a>

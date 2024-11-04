@@ -14,7 +14,7 @@ const ApplicationForm3 = () => {
       share_info: false,
       receive_emails: false,
       share_resume: false,
-      resume_url: '',
+      resume_path: null,
     };
   });
 
@@ -46,12 +46,17 @@ const ApplicationForm3 = () => {
     }));
   };
 
-  const handleResumeUrlChange = (e) => {
-    const { value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      resume_url: value
-    }));
+  const handleResumeChange = (e) => {
+    const file = e.target.files[0];
+    if (file && file.size > 512000) { // Check if file size is greater than 500KB
+      setErrors(prev => ({ ...prev, resume_path: 'File size should be less than 500KB' }));
+    } else {
+      setErrors(prev => ({ ...prev, resume_path: '' }));
+      setFormData(prevData => ({
+        ...prevData,
+        resume_path: file
+      }));
+    }
   };
 
   const handleDietaryRestrictionsChange = (e) => {
@@ -214,18 +219,17 @@ const ApplicationForm3 = () => {
               </span>
             </label>
 
-            {/* Resume URL Input */}
+            {/* Resume File Input */}
             <div>
-              <label className="block text-gray-700 font-poppins font-semibold">Resume (Google Drive URL)</label>
+              <label className="block text-gray-700 font-poppins font-semibold">Upload Resume</label>
               <input 
-                type="text" 
-                name="resume_url" 
-                value={formData.resume_url}
-                onChange={handleResumeUrlChange}
-                placeholder="Please share resume URL" 
-                className={`w-full px-4 py-3 rounded-md bg-white text-black border ${errors.resume_url ? 'border-red-500' : 'border-gray-300'} focus:ring-blue-200`}
+                type="file" 
+                name="resume" 
+                onChange={handleResumeChange} 
+                className={`w-full px-4 py-3 rounded-md bg-white text-black border ${errors.resume ? 'border-red-500' : 'border-gray-300'} focus:ring-blue-200`}
+                accept=".pdf,.doc,.docx" // Optionally restrict file types
               />
-              {errors.resume_url && <p className="text-red-500 text-sm mt-1">{errors.resume_url}</p>}
+              {errors.resume && <p className="text-red-500 text-sm mt-1">{errors.resume}</p>}
             </div>
 
             <label className="flex items-center space-x-2">

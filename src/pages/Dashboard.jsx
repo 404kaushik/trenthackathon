@@ -141,7 +141,7 @@ function Dashboard() {
                           {applicationStatus}
                         </span>
             </p>
-            <p className="text-gray-800 mt-2 font-poppins"><span className="font-bold">Application Due Date:</span> October 25th, 2024</p>
+            <p className="text-gray-800 mt-2 font-poppins"><span className="font-bold">Application Due Date:</span> October 31st, 2024</p>
             
             {applicationStatus === 'In Review' || applicationStatus === 'Accepted' ? (              
               <button 
