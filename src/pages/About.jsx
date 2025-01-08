@@ -3,6 +3,10 @@ import pic from '../assets/flying_fox.png';
 import Apply from './Apply';
 import ScrollReveal from '../components/ScrollReveal';
 import OrangeCloud from '../assets/cloud.svg';
+import FAQ from './FAQ';
+import Sponsor from './Sponsor';
+import Team from './Team';
+import Contact from './Contact';
 
 
 const About = () => {
@@ -24,7 +28,23 @@ const About = () => {
             <div className='flex justify-start w-full'>
                 <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -left-5'/>
             </div>
-            <Apply />
+            {/* <Apply /> */}
+            <div className='flex justify-end w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -right-16'/>
+            </div>
+            <FAQ />
+            <div className='flex justify-start w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -left-16'/>
+            </div>
+            <Sponsor />
+            <div className='flex justify-end w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -right-16'/>
+            </div>
+            <Team />
+            <div className='flex justify-start w-full'>
+                <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -left-16'/>
+            </div>
+            <Contact/>
         </div>
     )
 }

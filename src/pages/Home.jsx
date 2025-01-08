@@ -12,6 +12,7 @@ import Header from '../components/Header';
 import Stars from './Stars';
 import '../App.css';
 import { motion, useScroll } from 'framer-motion';
+import About from './About';
 
 const Home = () => {
 
@@ -83,13 +84,13 @@ const Home = () => {
           </div>
           <div className="sm:w-[95%] md:w-[100%] lg:w-[75%] text-center">
             <span className='text-5xl sm:text-8xl font-potta-one font-normal leading-none text-[#f9f5e3] animate-bounce'>
-              November 8&#8209;10
+              Coming soon!
             </span>
           </div>
           <a href="https://hacktrent.ca/login">
-            <button className='bg-[#36382E] my-8 px-9  h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
+            {/* <button className='bg-[#36382E] my-8 px-9  h-24 rounded-[16px] text-2xl font-space-mono text-[#F9F5E3] transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-100'>
               Apply Now!
-            </button>
+            </button> */}
           </a>
         </motion.div>
       </div>
@@ -98,7 +99,8 @@ const Home = () => {
       </div>
 
       <div style={{ position: 'relative', zIndex: 10 }}>
-        <CountDown />
+        {/* <CountDown /> */}
+        <About />
       </div>
     </div>
   );

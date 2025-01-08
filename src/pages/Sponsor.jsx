@@ -66,7 +66,7 @@ const LogoSlider = () => {
       
       <div className="relative z-10">
         <h1 className="text-3xl sm:text-4xl md:text-6xl text-center font-potta-one font-normal leading-none text-[#f9f5e3] pb-8 md:pb-12">
-          Our Sponsors
+          Our Past Sponsors
         </h1>
 
         {/* Tier 1 Sponsors */}
