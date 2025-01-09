@@ -5,7 +5,7 @@ import ScrollReveal from './ScrollReveal';
 
 const navItems = [
   { label: 'About', href: '/#about' },
-  { label: 'Apply', href: '/#applications' },
+  { label: 'HackTrent 2024', href: '/#ht2024' },
   { label: 'Sponsors', href: '/#sponsor' },
   { label: 'FAQ', href: '/#faq' },
   { label: 'Team', href: '/#team' },

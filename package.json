@@ -36,6 +36,7 @@
     "react-scripts": "^5.0.1",
     "react-select": "^5.8.1",
     "react-toastify": "^10.0.5",
+    "swiper": "^11.2.0",
     "tapable": "^2.2.1",
     "three": "^0.167.0",
     "three.js": "^0.77.1",

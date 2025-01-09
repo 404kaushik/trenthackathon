@@ -7,6 +7,7 @@ import FAQ from './FAQ';
 import Sponsor from './Sponsor';
 import Team from './Team';
 import Contact from './Contact';
+import PhotoCarousel from './PhotoCarousel';
 
 
 const About = () => {
@@ -28,7 +29,7 @@ const About = () => {
             <div className='flex justify-start w-full'>
                 <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -left-5'/>
             </div>
-            {/* <Apply /> */}
+            <PhotoCarousel />
             <div className='flex justify-end w-full'>
                 <img src={OrangeCloud} className='max-w-[50%] md:max-w-[40%] relative -right-16'/>
             </div>
